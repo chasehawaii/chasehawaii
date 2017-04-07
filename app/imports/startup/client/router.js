@@ -8,6 +8,32 @@ FlowRouter.route('/', {
   },
 });
 
+
+//Item routes
+FlowRouter.route('/item', {
+  name: 'Item_Page',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Item_Page' });
+  },
+});
+
+FlowRouter.route('/item-feed', {
+  name: 'Item_Feed_Page',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Item_Feed_Page' });
+  },
+});
+
+FlowRouter.route('/create-item', {
+  name: 'Create_Item_Page',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Create_Feed_Page' });
+  },
+});
+
+
+/* ORIGINAL EXAMPLES
+
 FlowRouter.route('/list', {
   name: 'List_Stuff_Page',
   action() {
@@ -34,3 +60,4 @@ FlowRouter.notFound = {
     BlazeLayout.render('App_Body', { main: 'App_Not_Found' });
   },
 };
+*/
