@@ -27,7 +27,7 @@ FlowRouter.route('/item-feed', {
 FlowRouter.route('/create-item', {
   name: 'Create_Item_Page',
   action() {
-    BlazeLayout.render('App_Body', { main: 'Create_Feed_Page' });
+    BlazeLayout.render('App_Body', { main: 'Create_Item_Page' });
   },
 });
 
