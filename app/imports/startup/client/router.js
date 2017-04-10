@@ -8,7 +8,6 @@ FlowRouter.route('/', {
   },
 });
 
-
 //Item routes
 FlowRouter.route('/item', {
   name: 'Item_Page',
