@@ -8,8 +8,15 @@ FlowRouter.route('/', {
   },
 });
 
+FlowRouter.route('/login', {
+  name: 'Login_Page',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Login_Page' });
+  },
+});
 
-//Item routes
+
+// Item routes
 FlowRouter.route('/item', {
   name: 'Item_Page',
   action() {
