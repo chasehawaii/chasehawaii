@@ -2,9 +2,3 @@ body {
   padding-top: 61px; /* Move body of page below navbar. */
 }
 
-#landing-box {
-  background: rgba(35,35,35,0.30);
-  padding: 20px;
-  height: 350px;
-  border-radius: 25px;
-}
