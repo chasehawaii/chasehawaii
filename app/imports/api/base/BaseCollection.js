@@ -6,7 +6,8 @@ import { _ } from 'meteor/underscore';
 /** @module Base */
 
 /**
- * BaseCollection is an abstract superclass for all of the other collections in chaseHawaii
+ * BaseCollection is an abstract superclass for all of the other collections in chaseHawaii. This code was taken from
+ * the bowfolios project created by Philip Johnson
  */
 class BaseCollection {
 
@@ -246,6 +247,6 @@ class BaseCollection {
 }
 
 /**
- * The BaseCollection used by all RadGrad entities.
+ * The BaseCollection
  */
 export default BaseCollection;
