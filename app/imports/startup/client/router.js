@@ -36,24 +36,30 @@ FlowRouter.route('/create-item', {
 
 FlowRouter.route('/list', {
   name: 'List_Stuff_Page',
+
+//Item routes
+FlowRouter.route('/item', {
+  name: 'Item_Page',
+>>>>>>> issue-1
   action() {
-    BlazeLayout.render('App_Body', { main: 'List_Stuff_Page' });
+    BlazeLayout.render('App_Body', { main: 'Item_Page' });
   },
 });
 
-FlowRouter.route('/add', {
-  name: 'Add_Stuff_Page',
+FlowRouter.route('/item-feed', {
+  name: 'Item_Feed_Page',
   action() {
-    BlazeLayout.render('App_Body', { main: 'Add_Stuff_Page' });
+    BlazeLayout.render('App_Body', { main: 'Item_Feed_Page' });
   },
 });
 
-FlowRouter.route('/stuff/:_id', {
-  name: 'Edit_Stuff_Page',
+FlowRouter.route('/create-item', {
+  name: 'Create_Item_Page',
   action() {
-    BlazeLayout.render('App_Body', { main: 'Edit_Stuff_Page' });
+    BlazeLayout.render('App_Body', { main: 'Create_Item_Page' });
   },
 });
+
 
 FlowRouter.notFound = {
   action() {
@@ -61,3 +67,30 @@ FlowRouter.notFound = {
   },
 };
 */
+
+
+/* ORIGINAL EXAMPLES
+ FlowRouter.route('/list', {
+ name: 'List_Stuff_Page',
+ action() {
+ BlazeLayout.render('App_Body', { main: 'List_Stuff_Page' });
+ },
+ });
+ FlowRouter.route('/add', {
+ name: 'Add_Stuff_Page',
+ action() {
+ BlazeLayout.render('App_Body', { main: 'Add_Stuff_Page' });
+ },
+ });
+ FlowRouter.route('/stuff/:_id', {
+ name: 'Edit_Stuff_Page',
+ action() {
+ BlazeLayout.render('App_Body', { main: 'Edit_Stuff_Page' });
+ },
+ });
+ FlowRouter.notFound = {
+ action() {
+ BlazeLayout.render('App_Body', { main: 'App_Not_Found' });
+ },
+ };
+ */
