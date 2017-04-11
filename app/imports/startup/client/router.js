@@ -34,6 +34,7 @@ FlowRouter.route('/create-item', {
 
 /* ORIGINAL EXAMPLES
 
+
 FlowRouter.route('/list', {
   name: 'List_Stuff_Page',
 
@@ -70,6 +71,8 @@ FlowRouter.notFound = {
 
 
 /* ORIGINAL EXAMPLES
+
+>>>>>>> issue-2
  FlowRouter.route('/list', {
  name: 'List_Stuff_Page',
  action() {
@@ -93,4 +96,6 @@ FlowRouter.notFound = {
  BlazeLayout.render('App_Body', { main: 'App_Not_Found' });
  },
  };
+
  */
+
