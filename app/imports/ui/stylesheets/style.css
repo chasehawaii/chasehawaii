@@ -5,6 +5,10 @@ body {
 
 /* Header Style */
 
+div.header.page{
+  color:#fff;
+  background-color:#252525;
+}
 /* Footer Style */
 
 div.footer.page{
@@ -12,6 +16,23 @@ div.footer.page{
   background-color:#252525;
   padding-bottom:15px;
 }
+
+/* Item Pages CSS */
+div.item.feed.page{
+
+  background: url('http://www.mrwallpaper.com/wallpapers/waikiki-beach-hawaii.jpg') no-repeat center center fixed;
+  background-size:cover;
+  height:750px;
+}
+
+div.create.item.page{
+
+  background: url('http://www.hiltonhawaiianvillage.com/assets/img/home/hilton-hawaiian-village-sunset-beach-1680x1080.jpg') no-repeat center center fixed;
+  background-size:cover;
+  height:750px;
+
+}
+
 
 
 /* User Pages Styles*/
