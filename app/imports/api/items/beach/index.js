@@ -1,2 +1,2 @@
-import './hike-item.js';
+import './beach-item.js';
 
