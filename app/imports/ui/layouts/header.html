@@ -1,12 +1,15 @@
 <template name="Header">
-    <div class="ui top fixed borderless inverted menu">
-  <div class="ui container">
-      <a class="item" href="{{pathFor 'Home_Page'}}"><h1>ChaseHawaii</h1></a>
+<div class = "header page">
+  <div class="ui top fixed borderless inverted menu">
+    <div class="ui container">
+      <a class="item" href="{{pathFor 'Landing_Page'}}"><h1>ChaseHawaii</h1></a>
 
-        <a class="{{ isActiveRoute 'Create_Profile_Page'}} item" href="{{ pathFor 'Create_Profile_Page' }}">Create Profile</a>
-        <a class="{{ isActiveRoute 'Item_Feed_Page'}} item" href="{{ pathFor 'Item_Feed_Page' }}">Adventure Feed </a>
-        <a class="{{ isActiveRoute 'Create_Item_Page'}} item" href="{{ pathFor 'Create_Item_Page' }}">Create Adventure</a>
+      <a class="{{ isActiveRoute 'Create_Profile_Page'}} item" href="{{ pathFor 'Create_Profile_Page' }}">Create
+        Profile</a>
+      <a class="{{ isActiveRoute 'Item_Feed_Page'}} item" href="{{ pathFor 'Item_Feed_Page' }}">Adventure Feed </a>
+      <a class="{{ isActiveRoute 'Create_Item_Page'}} item" href="{{ pathFor 'Create_Item_Page' }}">Create Adventure</a>
 
     </div>
   </div>
+</div>
 </template>
