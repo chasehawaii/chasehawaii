@@ -4,11 +4,11 @@ import { check } from 'meteor/check';
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 
-//class BeachCollection extends BaseCollection {
+class BeachCollection extends BaseCollection {
   /**
    Creates the Beach Items schema
    */
-   export const BeachesSchema = new SimpleSchema({
+  /*export const BeachesSchema = new SimpleSchema({
    title: {
    label: 'title',
    type: String,
@@ -44,12 +44,15 @@ import { Mongo } from 'meteor/mongo';
    optional: true,
    },
    });
+   */
+//   export
+//   const
+//   Beaches = new Mongo.Collection('Beaches');
+//   Beaches
+// .
+//   attachSchema(BeachesSchema);
 
-export const Beaches = new Mongo.Collection('Beaches');
-Beaches.attachSchema(BeachesSchema);
-
-
-  /*constructor() {
+  constructor() {
     super('Beach', new SimpleSchema({
       title: {
         label: 'title',
@@ -83,6 +86,15 @@ Beaches.attachSchema(BeachesSchema);
         optional: true,
       },
     }));
-  }*/
-//export const Beaches = new BeachCollection();
+  }
+  define({ title = '', category = '', location = '', status = '', about = '', tags = '', picture = '' }) {
+    // make sure required fields are OK.
+    const checkPattern = { title: String, category: String, location: String, status: String, about: String,
+      tags: String, picture: String };
+    check({ title, category, location, status, about, tags, picture }, checkPattern);
+
+    return this._collection.insert({ title, category, location, status, about, tags, picture });
+  }
+}
+export const Beaches = new BeachCollection();
 

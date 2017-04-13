@@ -19,8 +19,8 @@ const beachSeeds = [
 /**
  * Initialize the Stuff collection if empty with seed data.
  */
-if (Beaches.find().count() === 0) {
-  _.each(beachSeeds, function seedBeach(beach) {
-    Beaches.insert(beach);
-  });
-}
+// if (Beaches.find().count() === 0) {
+//   _.each(beachSeeds, function seedBeach(beach) {
+//     Beaches.insert(beach);
+//   });
+// }
