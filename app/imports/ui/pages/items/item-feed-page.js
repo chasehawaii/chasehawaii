@@ -12,7 +12,7 @@ Template.Item_Feed_Page.helpers({
   },
 });
 
-Beaches.define({
+Beaches.insert({
   title: 'Lanikai Beach',
   category: 'Beach',
   location: 'Windward',
