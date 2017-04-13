@@ -33,8 +33,6 @@ div.create.item.page{
 
 }
 
-
-
 /* User Pages Styles*/
 div.create.profile.background{
 
@@ -42,3 +40,59 @@ div.create.profile.background{
   background-size:cover;
   height:750px;
 }
+
+
+/* Landing Page CSS */
+
+div.landing-section-1 {
+  padding: 10px 10px 30px 10px;
+  background-color: #ffffff;
+  color: #252525;
+}
+
+div.landing-section-2 {
+  padding: 20px 10px 20px 10px;
+  background-color: #A2D9FF;
+  color: #252525;
+}
+
+div.landing-section-3 {
+  padding: 20px 10px 30px 30px;
+  background-color: #ffffff;
+  color: #252525;
+}
+
+div.landing-section-4 {
+  padding: 20px 10px 20px 10px;
+  background-color: #A2D9FF;
+  color: #252525;
+}
+
+div.landing-section-5 {
+  padding: 20px 10px 20px 10px;
+  background-color: #A2D9FF;
+  color: #252525;
+}
+
+
+div.landing-section-1-welcome {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 72px;
+}
+
+.landing-section-header {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 36px;
+}
+
+.landing-subtext {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 64px;
+}
+
+
+
+
