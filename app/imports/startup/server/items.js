@@ -7,19 +7,13 @@ import { _ } from 'meteor/underscore';
  */
 const beachSeeds = [
   {
-    title: 'Lanikai Pill Box',
-    category: 'Hike',
+    title: 'Lanikai Beach',
+    category: 'Beach',
     location: 'Windward',
     status: 'approved',
     about: 'blurb',
-    tags: 'kid-friendly',
+    tags: 'no surf',
   },
-  { title: 'Lanikai Pill Box',
-    category: 'Hike',
-    location: 'Windward',
-    status: 'approved',
-    about: 'blurb',
-    tags: 'kid-friendly', },
 ];
 
 /**
