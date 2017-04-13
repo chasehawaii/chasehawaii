@@ -1,24 +1,86 @@
 <template name="Landing_Page">
-  <div class="ui centered grid landing page">
-    <div style="background: rgba(35,35,35,0.30); padding: 20px; height: 350px; border-radius: 25px;" id="landing-box"
-         class="ui middle aligned centered container">
-      <h1 style="color: white; font-size: 55px" class="ui header">Welcome to ChaseHawaii</h1>
-      <h2 style="color: white; font-size: 25px" class="ui header">Share adventures with fellow UH students.</h2>
-      <br>
-      <br>
-      <div class="ui centered grid">
-        <div class="four wide column">
-          <button class="ui large blue button" type="submit">
-            Login
-          </button>
+
+  <div class="landing-section-1">
+    <div class="ui grid">
+
+      <div class="row">
+        <div class="ui right aligned sixteen wide column">
         </div>
-        <div class="four wide column">
-          <button class="ui large green button" type="submit">
-            Register
-          </button>
+
+      </div>
+      <div class="row">
+        <div class="ui center aligned sixteen wide column">
+          <h1 class="landing-section-1-welcome">Welcome to ChaseHawaii</h1>
+          <h3 class="landing-section-1-tagline">Best Beaches, Hikes, and Restaurants</h3>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="landing-section-2">
+    <div class="ui grid">
+      <div class="ui eight wide column">
+        <a class="{{ isActiveRoute 'Create_Item_Page'}} item" href="{{ pathFor 'Create_Item_Page' }}"><img
+            class="ui centered large circular image"
+            src='http://www.hiltonhawaiianvillage.com/assets/img/home/hilton-hawaiian-village-sunset-beach-1680x1080.jpg'></a>
+      </div>
+      <div class="ui eight wide middle aligned column">
+        <h1 class="landing-section-header">Create a profile</h1>
+        <h1 class="landing subtext">Specify your interests to find the right adventure for you</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="landing-section-3">
+    <div class="ui grid">
+      <div class="ui eight wide middle aligned column">
+        <h1 class="landing-section-header">Create a profile</h1>
+        <h1 class="landing subtext">Specify your interests to find the right adventure for you</h1>
+      </div>
+      <div class="eight wide column">
+        <a class="{{ isActiveRoute 'Item_Feed_Page'}} item" href="{{ pathFor 'Item_Feed_Page' }}"><img
+            class="ui centered large circular image"
+            src="http://www.mrwallpaper.com/wallpapers/waikiki-beach-hawaii.jpg"></a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="landing-section-4">
+    <div class="ui grid">
+      <div class="ui eight wide column">
+        <a class="{{ isActiveRoute 'Create_Profile_Page'}} item" href="{{ pathFor 'Create_Profile_Page' }}">
+          <img class="ui centered large circular image"
+               src='https://1xbuf0262g0e3eimqo2anvwk-wpengine.netdna-ssl.com/wp-content/uploads/2016/07/relax_hawaii.jpg'></a>
+      </div>
+      <div class="ui eight wide middle aligned column">
+        <h1 class="landing-section-header">Returning users can get started</h1>
+        <h1 class="landing-section-header">New users can register below</h1>
+
+
+        <div class="ui animated black basic fade button" tabindex="0">
+          <div class="visible content">Get Started</div>
+          <div class="hidden content">
+            Login
+          </div>
+        </div>
+        <div class="ui animated black basic fade button" tabindex="0">
+          <div class="visible content">New User</div>
+          <div class="hidden content">
+            Register
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="landing-section-5">
+    <div class="ui grid">
+      <div class="ui center aligned sixteen wide column">
+      </div>
+    </div>
+  </div>
+
 
 </template>
