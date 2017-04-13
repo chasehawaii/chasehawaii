@@ -19,7 +19,7 @@ FlowRouter.route('/item', {
 FlowRouter.route('/item-feed', {
   name: 'Item_Feed_Page',
   action() {
-    BlazeLayout.render('App_Body', { main: 'Item_Feed_Page' });
+    BlazeLayout.render('Items_Layout', { main: 'Item_Feed_Page' });
   },
 });
 
@@ -43,6 +43,8 @@ FlowRouter.route('/edit-profile', {
     BlazeLayout.render('App_Body', { main: 'Edit_Profile_Page' });
   },
 });
+
+
 
 
 
