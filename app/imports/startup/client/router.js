@@ -44,6 +44,14 @@ FlowRouter.route('/edit-profile', {
   },
 });
 
+FlowRouter.route('/add-restaurant', {
+  name: 'Add_Restaurant_Page',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Add_Restaurant_Page' });
+  },
+});
+
+
 /* ORIGINAL EXAMPLES
 
 
