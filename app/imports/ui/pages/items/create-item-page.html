@@ -1,65 +1,22 @@
 <template name="Create_Item_Page">
   <div class="create item page">
     <div style="padding-top: 100px" class="ui container">
-      <form class="ui form">
-        <h3 class="ui dividing header">Add Hike</h3>
-        <div class="fields">
-          <div class="seven wide field">
-            <label>Title</label>
-            <input type="text">
-          </div>
-          <div class="three wide field">
-            <label>Type</label>
-            <div class="field">
-              <select class="ui fluid search dropdown">
-                <option>Ridge</option>
-                <option>Coastal</option>
-                <option>Valley</option>
-              </select>
-            </div>
-          </div>
-          <div class="four wide field">
-            <label>Difficulty</label>
-            <div class="field">
-              <select class="ui fluid search dropdown">
-                <option>Stroll</option>
-                <option>Easy</option>
-                <option>Easy/Intermediate</option>
-                <option>Intermediate</option>
-                <option>Hard</option>
-                <option>Really Hard</option>
-                <option>Extreme</option>
-              </select>
-            </div>
-          </div>
-          <div class="four wide field">
-            <label>Length</label>
-            <input type="text">
-          </div>
+      <form class="ui form create-item-data">
+        <h3 class="ui dividing header">Add Beach</h3>
+        <div class="two fields">
+          {{> Text_Form_Control label="Title" }}
+          {{> Select_Form_Control label="Location" options=locationChoice }}
         </div>
-        <div class="six wide field">
-          <label>Location</label>
-          <div class="field">
-            <select class="ui fluid search dropdown">
-              <option>North Shore</option>
-              <option>Windward</option>
-              <option>Leeward</option>
-              <option>Central Oahu</option>
-              <option>Honoluu</option>
-            </select>
-          </div>
-        </div>
-
         <div class="field">
-          <label>About</label>
-          <textarea></textarea>
+          {{> TextArea_Form_Control label="About" }}
         </div>
-        <div class="seven wide field">
+        {{> Checkbox_Form_Control label="Tags" checkboxes=beachTagChoice checked=true}}
+        <div class="field">
           <label>Upload Picture</label>
           <input type="text">
           <div class="ui button">Browse</div>
         </div>
-        <div class="ui button">Submit</div>
+        <button class="ui button" type="submit">Submit</button>
       </form>
     </div>
   </div>

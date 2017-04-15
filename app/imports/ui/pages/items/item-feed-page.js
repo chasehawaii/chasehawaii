@@ -12,11 +12,3 @@ Template.Item_Feed_Page.helpers({
   },
 });
 
-Beaches.insert({
-  title: 'Lanikai Beach',
-  category: 'Beach',
-  location: 'Windward',
-  status: 'approved',
-  about: 'blurb',
-  tags: 'no surf',
-});

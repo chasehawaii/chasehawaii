@@ -13,6 +13,4 @@ import '/imports/ui/pages/user';
 import '/imports/ui/pages/misc';
 
 import '/imports/ui/components/items';
-
-
-
+import '/imports/ui/components/form-controls';
