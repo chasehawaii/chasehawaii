@@ -11,5 +11,4 @@ import '/imports/ui/pages/landing';
 import '/imports/ui/pages/user';
 import '/imports/ui/pages/misc';
 
-
-
+import '/imports/api/item';

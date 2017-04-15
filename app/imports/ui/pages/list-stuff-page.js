@@ -6,6 +6,8 @@ Template.List_Stuff_Page.helpers({
   /**
    * @returns {*} All of the Stuff documents.
    */
+
+
   stuffList() {
     return Stuff.find();
   },

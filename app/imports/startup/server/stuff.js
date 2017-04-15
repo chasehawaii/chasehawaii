@@ -7,7 +7,6 @@ import { _ } from 'meteor/underscore';
  */
 const stuffSeeds = [
   { name: 'Basket', quantity: 3 },
-  { name: 'Bicycle', quantity: 2 },
 ];
 
 /**

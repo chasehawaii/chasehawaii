@@ -8,7 +8,7 @@ FlowRouter.route('/', {
   },
 });
 
-//Item routes
+// Item routes
 FlowRouter.route('/item', {
   name: 'Item_Page',
   action() {
@@ -43,8 +43,6 @@ FlowRouter.route('/edit-profile', {
     BlazeLayout.render('App_Body', { main: 'Edit_Profile_Page' });
   },
 });
-
-
 
 /* ORIGINAL EXAMPLES
 
