@@ -16,6 +16,7 @@ import '/imports/ui/pages/misc';
 <<<<<<< HEAD
 import '/imports/ui/components/items';
 import '/imports/ui/components/form-controls';
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> origin/master
@@ -28,3 +29,5 @@ import '/imports/ui/components/landing';
 >>>>>>> origin/master
 =======
 >>>>>>> origin/master
+=======
+>>>>>>> issue-17-redo
