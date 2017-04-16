@@ -4,7 +4,9 @@
       <img src="/images/mockup-item-feed1.jpg">
     </div>
     <div class="content">
-      <div class="header">{{ beach.title }}</div>
+      <a class="{{ isActiveRoute 'Item_Page/:_id'}} item" href=" /item/{{beach._id}}">
+        <div class="header">{{ beach.title }}</div>
+      </a>
       <div class="meta">
         <a>{{ beach.category }}</a>
       </div>

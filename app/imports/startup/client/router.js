@@ -9,8 +9,8 @@ FlowRouter.route('/', {
 });
 
 // Item routes
-FlowRouter.route('/item', {
-  name: 'Item_Page',
+FlowRouter.route('/item/:_id', {
+  name: 'Item_Page/',
   action() {
     BlazeLayout.render('App_Body', { main: 'Item_Page' });
   },
