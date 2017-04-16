@@ -4,7 +4,15 @@
       <div class="ui cards">
 
         {{#each beach in beaches }}
-        {{> Cards beach=beach}}
+        {{> Beach_Cards beach=beach}}
+        {{/each}}
+
+        {{#each hike in hikes }}
+        {{> Hike_Cards hike=hike}}
+        {{/each}}
+
+        {{#each beach in beaches }}
+        {{> Restaurant_Cards restaurant=restaurant}}
         {{/each}}
 
       </div>
