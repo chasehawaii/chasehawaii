@@ -11,3 +11,6 @@ Template.Item_Feed_Page.helpers({
   },
 });
 
+Template.Item_Feed_Page.onCreated(function onCreated() {
+  this.subscribe('Restaurant');
+});
