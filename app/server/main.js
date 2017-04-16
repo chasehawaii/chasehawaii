@@ -5,3 +5,5 @@ import '/imports/api/items/beach';
 import '/imports/api/items/hike';
 import '/imports/api/items/restaurant';
 
+import '/imports/api/profiles';
+
