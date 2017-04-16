@@ -13,12 +13,18 @@ import '/imports/ui/pages/user';
 import '/imports/ui/pages/misc';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import '/imports/ui/components/items';
 import '/imports/ui/components/form-controls';
 =======
+=======
+>>>>>>> origin/master
 import '/imports/api/profiles';
 
 import '/imports/ui/components/items';
 /* import the CAS landing authentication */
 import '/imports/ui/components/landing';
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
