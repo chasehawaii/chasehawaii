@@ -1,0 +1,19 @@
+<template name="Create_Beach_Form">
+  <form class="ui form create-item-data">
+    <h3 class="ui dividing header">Add Beach</h3>
+    <div class="two fields">
+      {{> Text_Form_Control label="Title" }}
+      {{> Select_Form_Control label="Location" options=locationChoice }}
+    </div>
+    <div class="field">
+      {{> TextArea_Form_Control label="About" }}
+    </div>
+    {{> Checkbox_Form_Control label="Tags" checkboxes=beachTagChoice checked=true}}
+    <div class="field">
+      <label>Upload Picture</label>
+      <input type="text">
+      <div class="ui button">Browse</div>
+    </div>
+    <button class="ui button" type="submit">Submit</button>
+  </form>
+</template>

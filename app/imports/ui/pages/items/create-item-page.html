@@ -1,23 +1,36 @@
 <template name="Create_Item_Page">
   <div class="create item page">
-    <div style="padding-top: 100px" class="ui container">
-      <form class="ui form create-item-data">
-        <h3 class="ui dividing header">Add Beach</h3>
-        <div class="two fields">
-          {{> Text_Form_Control label="Title" }}
-          {{> Select_Form_Control label="Location" options=locationChoice }}
-        </div>
-        <div class="field">
-          {{> TextArea_Form_Control label="About" }}
-        </div>
-        {{> Checkbox_Form_Control label="Tags" checkboxes=beachTagChoice checked=true}}
-        <div class="field">
-          <label>Upload Picture</label>
-          <input type="text">
-          <div class="ui button">Browse</div>
-        </div>
-        <button class="ui button" type="submit">Submit</button>
-      </form>
+    <div style="padding-top: 50px" class="ui container">
+      <div style="padding-bottom: 20px" class="nav">
+        <button class="ui black button active" data-template="Create_Beach_Form" role="presentation">Add Beach</button>
+        <button class="ui black button active" data-template="create-beach-form" role="presentation">Add Hike</button>
+        <button class="ui black button active" data-template="create-beach-form" role="presentation">Add Restaurant</button>
+      </div>
+      {{> Template.dynamic template=tab }}
     </div>
   </div>
+  {{> Header}}
+  {{> Footer}}
+  <!--  <div class="create item page">
+      <div style="padding-top: 100px" class="ui container">
+        {{> Create_Beach_Form }}
+        &lt;!&ndash;<form class="ui form create-item-data">
+          <h3 class="ui dividing header">Add Beach</h3>
+          <div class="two fields">
+            {{> Text_Form_Control label="Title" }}
+            {{> Select_Form_Control label="Location" options=locationChoice }}
+          </div>
+          <div class="field">
+            {{> TextArea_Form_Control label="About" }}
+          </div>
+          {{> Checkbox_Form_Control label="Tags" checkboxes=beachTagChoice checked=true}}
+          <div class="field">
+            <label>Upload Picture</label>
+            <input type="text">
+            <div class="ui button">Browse</div>
+          </div>
+          <button class="ui button" type="submit">Submit</button>
+        </form>&ndash;&gt;
+      </div>
+    </div>-->
 </template>
