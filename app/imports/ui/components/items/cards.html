@@ -1,4 +1,4 @@
-<template name="Cards">
+<template name="Beach_Cards">
   <div class="card">
     <div class="image">
       <img src="/images/mockup-item-feed1.jpg">
@@ -10,6 +10,60 @@
       </div>
       <div class="description">
         {{ beach.about }}
+      </div>
+    </div>
+    <div class="extra content">
+          <span class="right floated">
+        <i class="like icon"></i>
+        75 Likes
+      </span>
+    </div>
+    <div class="ui bottom attached button">
+      <i class="add icon"></i>
+      Add to Bucket List
+    </div>
+  </div>
+</template>
+
+<template name="Hike_Cards">
+  <div class="card">
+    <div class="image">
+      <img src="/images/mockup-item-feed2.jpg">
+    </div>
+    <div class="content">
+      <div class="header">{{ hike.title }}</div>
+      <div class="meta">
+        <a>{{ hike.category }}</a>
+      </div>
+      <div class="description">
+        {{ hike.about }}
+      </div>
+    </div>
+    <div class="extra content">
+          <span class="right floated">
+        <i class="like icon"></i>
+        75 Likes
+      </span>
+    </div>
+    <div class="ui bottom attached button">
+      <i class="add icon"></i>
+      Add to Bucket List
+    </div>
+  </div>
+</template>
+
+<template name="Restaurant_Cards">
+  <div class="card">
+    <div class="image">
+      <img src="/images/mockup-item-feed3.jpg">
+    </div>
+    <div class="content">
+      <div class="header">{{ restaurant.title }}</div>
+      <div class="meta">
+        <a>{{ restaurant.category }}</a>
+      </div>
+      <div class="description">
+        {{ restaurant.about }}
       </div>
     </div>
     <div class="extra content">

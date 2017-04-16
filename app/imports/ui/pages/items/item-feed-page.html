@@ -1,13 +1,23 @@
 <template name="Item_Feed_Page">
-  <div style="margin-top: 10px" class="ui container">
-    <div class="ui cards">
+  <div class="create item page">
+    <div style="margin-top: 10px" class="ui container">
+      <div class="ui cards">
 
-      {{#each beach in beaches }}
-      {{> Cards beach=beach}}
-      {{/each}}
+        {{#each beach in beaches }}
+        {{> Beach_Cards beach=beach}}
+        {{/each}}
 
+        {{#each hike in hikes }}
+        {{> Hike_Cards hike=hike}}
+        {{/each}}
+
+        {{#each beach in beaches }}
+        {{> Restaurant_Cards restaurant=restaurant}}
+        {{/each}}
+
+      </div>
     </div>
   </div>
-  </template>
+</template>
 
 

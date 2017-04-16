@@ -1,54 +1,22 @@
 import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
-import { _ } from 'meteor/underscore';
-import { FlowRouter } from 'meteor/kadira:flow-router';
-
-
-
-Template.Create_Item_Page.onCreated(function () {
-  this.currentTab = new ReactiveVar('Create_Beach_Form');
-  this.currentTab = new ReactiveVar('Create_Hike_Form');
-  this.currentTab = new ReactiveVar('Create_Restaurant_Form');
-});
-
-Template.Create_Item_Page.helpers({
-  tab() {
-    return Template.instance().currentTab.get();
-  },
-});
-
-Template.Create_Item_Page.events({
-  'click .nav'(event, instance) {
-    const clickedTab = event.target.closest('button');
-    console.log(clickedTab);
-
-    // currentTab.addClass('active');
-    // $('.nav').not(currentTab).removeClass( "active" );
-
-    instance.currentTab.set($(clickedTab).attr('data-template'));
-  },
-});
-
-/*
-import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { _ } from 'meteor/underscore';
 import { Beaches, BeachesSchema } from '/imports/api/items/beach/beach-item.js';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
-/!* eslint-disable no-param-reassign *!/
+/* eslint-disable no-param-reassign */
 
 const displayErrorMessages = 'displayErrorMessages';
 export const locationList = ['Windward', 'Leeward', 'Central Oahu', 'Honoluu'];
 export const beachTagList = ['Busy', 'Secluded', 'Kid-friendly', 'Dog-friendly', 'Good waves', 'No waves'];
 
-Template.Create_Item_Page.onCreated(function onCreated() {
+Template.Create_Beach_Form.onCreated(function onCreated() {
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displayErrorMessages, false);
   this.context = BeachesSchema.namedContext('Create_Item_Page');
 });
 
-Template.Create_Item_Page.helpers({
+Template.Create_Beach_Form.helpers({
   errorClass() {
     return Template.instance().messageFlags.get(displayErrorMessages) ? 'error' : '';
   },
@@ -69,7 +37,7 @@ Template.Create_Item_Page.helpers({
   },
 });
 
-Template.Create_Item_Page.events({
+Template.Create_Beach_Form.events({
   'submit .create-item-data'(event, instance) {
     event.preventDefault();
     // Get name (text field)
@@ -100,4 +68,3 @@ Template.Create_Item_Page.events({
     }
   },
 });
-*/

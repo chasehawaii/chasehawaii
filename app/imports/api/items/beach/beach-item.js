@@ -32,7 +32,7 @@ export const BeachesSchema = new SimpleSchema({
   },
   tags: {
     label: 'tags',
-    type: String,
+    type: [String],
     optional: true,
   },
   picture: {

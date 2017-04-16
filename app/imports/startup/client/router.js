@@ -8,7 +8,7 @@ FlowRouter.route('/', {
   },
 });
 
-//Item routes
+// Item routes
 FlowRouter.route('/item', {
   name: 'Item_Page',
   action() {
@@ -26,7 +26,7 @@ FlowRouter.route('/item-feed', {
 FlowRouter.route('/create-item', {
   name: 'Create_Item_Page',
   action() {
-    BlazeLayout.render('App_Body', { main: 'Create_Item_Page' });
+    BlazeLayout.render('Create_Item_Page');
   },
 });
 
@@ -46,7 +46,12 @@ FlowRouter.route('/edit-profile', {
 
 
 
-
+FlowRouter.route('/profile', {
+  name: 'Profile_Page',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Profile_Page' });
+  },
+});
 
 /* ORIGINAL EXAMPLES
 
