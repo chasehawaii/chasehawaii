@@ -14,8 +14,6 @@ import '/imports/ui/pages/misc';
 
 import '/imports/ui/components/items';
 import '/imports/ui/components/form-controls';
-
 import '/imports/api/profiles';
-
 /* import the CAS landing authentication */
 import '/imports/ui/components/landing';
