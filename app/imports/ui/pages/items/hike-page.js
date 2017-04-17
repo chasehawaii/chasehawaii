@@ -8,5 +8,5 @@ Template.Hike_Page.onCreated(function onCreated() {
 });
 
 Template.Hike_Page.helpers({
-  doc: () => Hikes.findOne({ _id: FlowRouter.getParam('_id') }),
+  hik: () => Hikes.findOne({ _id: FlowRouter.getParam('_id') }),
 });

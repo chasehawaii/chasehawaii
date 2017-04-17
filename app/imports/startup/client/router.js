@@ -26,16 +26,16 @@ FlowRouter.route('/beach/:_id', {
 });
 
 FlowRouter.route('/hike/:_id', {
-  name: 'Beach_Page/',
+  name: 'Hike_Page/',
   action() {
-    BlazeLayout.render('App_Body', { main: 'Beach_Page' });
+    BlazeLayout.render('App_Body', { main: 'Hike_Page' });
   },
 });
 
 FlowRouter.route('/restaurant/:_id', {
-  name: 'Beach_Page/',
+  name: 'Restaurant_Page/',
   action() {
-    BlazeLayout.render('App_Body', { main: 'Beach_Page' });
+    BlazeLayout.render('App_Body', { main: 'Restaurant_Page' });
   },
 });
 
@@ -77,6 +77,12 @@ FlowRouter.route('/profile', {
     BlazeLayout.render('App_Body', { main: 'Profile_Page' });
   },
 });
+
+FlowRouter.notFound = {
+  action() {
+    BlazeLayout.render('App_Body', { main: 'App_Not_Found' });
+  },
+};
 
 /* ORIGINAL EXAMPLES
 

@@ -8,5 +8,5 @@ Template.Restaurant_Page.onCreated(function onCreated() {
 });
 
 Template.Restaurant_Page.helpers({
-  doc: () => Restaurant.findOne({ _id: FlowRouter.getParam('_id') }),
+  res: () => Restaurant.findOne({ _id: FlowRouter.getParam('_id') }),
 });

@@ -7,6 +7,6 @@ Template.Beach_Page.onCreated(function onCreated() {
   this.subscribe('Beaches');
 });
 
-Template.Item_Page.helpers({
-  doc: () => Beaches.findOne({ _id: FlowRouter.getParam('_id') }),
+Template.Beach_Page.helpers({
+  bea: () => Beaches.findOne({ _id: FlowRouter.getParam('_id') }),
 });
