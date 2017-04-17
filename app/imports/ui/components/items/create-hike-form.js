@@ -38,7 +38,7 @@ Template.Create_Hike_Form.helpers({
 });
 
 Template.Create_Hike_Form.events({
-  'submit .create-item-data'(event, instance) {
+  'submit .create-hike-data'(event, instance) {
     event.preventDefault();
     // Get name (text field)
     const title = event.target.Title.value;

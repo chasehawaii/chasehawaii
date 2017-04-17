@@ -19,10 +19,8 @@ div.footer.page{
 
 /* Item Pages CSS */
 div.item.feed.page{
+ background-color: #645473;
 
-  background: url('http://www.mrwallpaper.com/wallpapers/waikiki-beach-hawaii.jpg') no-repeat center center fixed;
-  background-size:cover;
-  height:750px;
 }
 
 div.create.item.page{

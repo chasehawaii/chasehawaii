@@ -1,7 +1,7 @@
 <template name="Beach_Cards">
   <div class="card">
     <div class="image">
-      <img src="/images/mockup-item-feed1.jpg">
+      <img src="/images/mockup-item-feed3.jpg">
     </div>
     <div class="content">
       <div class="header">{{ beach.title }}</div>
@@ -28,7 +28,7 @@
 <template name="Hike_Cards">
   <div class="card">
     <div class="image">
-      <img src="/images/mockup-item-feed2.jpg">
+      <img src="/images/mockup-item-feed1.jpg">
     </div>
     <div class="content">
       <div class="header">{{ hike.title }}</div>
@@ -54,8 +54,9 @@
 
 <template name="Restaurant_Cards">
   <div class="card">
+
     <div class="image">
-      <img src="/images/mockup-item-feed3.jpg">
+      <img src="/images/mockup-item-feed2.JPG">
     </div>
     <div class="content">
       <div class="header">{{ restaurant.title }}</div>
@@ -67,7 +68,10 @@
       </div>
     </div>
     <div class="extra content">
-          <span class="right floated">
+          <span class="left floated">
+        <a>{{restaurant.food }}</a>
+      </span>
+      <span class="right floated">
         <i class="like icon"></i>
         75 Likes
       </span>

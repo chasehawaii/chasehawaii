@@ -1,23 +1,23 @@
-/*
 import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { _ } from 'meteor/underscore';
-import { Hikes, HikesSchema } from '/imports/api/items/hike/hike-item.js';
+import { Restaurants, RestaurantsSchema } from '/imports/api/items/restaurant/restaurant-item.js';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
-/!* eslint-disable no-param-reassign *!/
+/* eslint-disable no-param-reassign */
 
 const displayErrorMessages = 'displayErrorMessages';
 export const locationList = ['Windward', 'Leeward', 'Central Oahu', 'Honoluu'];
-export const hikeTagList = ['Kid-friendly', 'Dog-friendly'];
+export const restaurantTagList = ['Kid-friendly', 'Dog-friendly'];
+export const foodTypeList = ['Chinese', 'Thai', 'Italian', 'Mexican', 'Local', 'Burgers', 'Japanese Grill', 'Sushi'];
 
-Template.Create_Hike_Form.onCreated(function onCreated() {
+Template.Create_Restaurant_Form.onCreated(function onCreated() {
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displayErrorMessages, false);
-  this.context = HikesSchema.namedContext('Create_Item_Page');
+  this.context = RestaurantsSchema.namedContext('Create_Item_Page');
 });
 
-Template.Create_Hike_Form.helpers({
+Template.Create_Restaurant_Form.helpers({
   errorClass() {
     return Template.instance().messageFlags.get(displayErrorMessages) ? 'error' : '';
   },
@@ -31,41 +31,48 @@ Template.Create_Hike_Form.helpers({
       return { label: location };
     });
   },
-  hikeTagChoice() {
-    return _.map(hikeTagList, function maketagObject(tag) {
+  foodTypeChoice() {
+    return _.map(foodTypeList, function makeFoodObject(choice) {
+      return { label: choice };
+    });
+  },
+  restaurantTagChoice() {
+    return _.map(restaurantTagList, function maketagObject(tag) {
       return { label: tag };
     });
   },
 });
 
-Template.Create_Hike_Form.events({
-  'submit .create-item-data'(event, instance) {
+Template.Create_Restaurant_Form.events({
+  'submit .create-restaurant-data'(event, instance) {
     event.preventDefault();
     // Get name (text field)
     const title = event.target.Title.value;
     const location = event.target.Location.value;
     const about = event.target.About.value;
+    const food = event.target.Food.value;
     const tags = [];
-    _.each(hikeTagList, function setTags(tag) {
+    _.each(restaurantTagList, function setTags(tag) {
       if (event.target[tag].checked) {
         tags.push(event.target[tag].value);
       }
     });
 
-    const newItemData = { title, location, about, tags };
+    const newItemData = { title, location, about, tags, food };
+    console.log(newItemData);
 
     // Clear out any old validation errors.
     instance.context.resetValidation();
     // Invoke clean so that newStudentData reflects what will be inserted.
-    HikesSchema.clean(newItemData);
+    RestaurantsSchema.clean(newItemData);
     // Determine validity.
     instance.context.validate(newItemData);
     if (instance.context.isValid()) {
-      Hikes.insert(newItemData);
+      Restaurants.insert(newItemData);
       instance.messageFlags.set(displayErrorMessages, false);
       FlowRouter.go('Item_Feed_Page');
     } else {
       instance.messageFlags.set(displayErrorMessages, true);
     }
   },
-});*/
+});

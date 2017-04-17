@@ -1,5 +1,5 @@
 <template name="Item_Feed_Page">
-  <div class="create item page">
+  <div class="item feed page">
     <div style="margin-top: 10px" class="ui container">
       <div class="ui cards">
 
@@ -11,7 +11,7 @@
         {{> Hike_Cards hike=hike}}
         {{/each}}
 
-        {{#each beach in beaches }}
+        {{#each restaurant in restaurants }}
         {{> Restaurant_Cards restaurant=restaurant}}
         {{/each}}
 
