@@ -11,6 +11,7 @@ import '/imports/ui/pages/items';
 import '/imports/ui/pages/landing';
 import '/imports/ui/pages/user';
 import '/imports/ui/pages/misc';
+
 import '/imports/ui/components/items';
 import '/imports/ui/components/form-controls';
 import '/imports/api/profiles';
