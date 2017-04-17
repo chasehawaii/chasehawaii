@@ -32,7 +32,7 @@ export const HikesSchema = new SimpleSchema({
   },
   tags: {
     label: 'tags',
-    type: String,
+    type: [String],
     optional: true,
   },
   picture: {
@@ -42,14 +42,17 @@ export const HikesSchema = new SimpleSchema({
   kind: {
     label: 'kind',
     type: String,
+    optional: true,
   },
   length: {
     label: 'length',
     type: String,
+    optional: true,
   },
   difficulty: {
     label: 'difficulty',
     type: String,
+    optional: true,
   },
 });
 export const Hikes = new Mongo.Collection('Hikes');
