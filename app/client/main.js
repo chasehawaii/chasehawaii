@@ -11,23 +11,10 @@ import '/imports/ui/pages/items';
 import '/imports/ui/pages/landing';
 import '/imports/ui/pages/user';
 import '/imports/ui/pages/misc';
-
-<<<<<<< HEAD
-<<<<<<< HEAD
 import '/imports/ui/components/items';
 import '/imports/ui/components/form-controls';
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/master
-import '/imports/api/profiles';
 
-import '/imports/ui/components/items';
+import '/imports/api/profiles';
 /* import the CAS landing authentication */
 import '/imports/ui/components/landing';
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> origin/master
-=======
->>>>>>> issue-17-redo
+
