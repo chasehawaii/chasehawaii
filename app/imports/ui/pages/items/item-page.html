@@ -2,15 +2,17 @@
       <div class="ui container">
         <div style="margin-top: 100px" class="ui segments">
           <div class="ui segment">
-            <h3>Kuliouou Ridge Trail</h3>
+            <h3>
+              {{doc.title}}
+            </h3>
             <div class="ui two column grid">
               <div class="column">
                 <div class="ui segment">
                   <table class="ui very basic celled table">
                     <thead>
                     <tr>
-                      <th>Type</th>
-                      <th>Length</th>
+                      <th>{{doc.type}}</th>
+                      <th>length</th>
                       <th>Difficulty</th>
                       <th>Tags</th>
                     </tr>
@@ -23,7 +25,7 @@
                         </div>
                       </td>
                       <td>
-                        3-4 miles
+                        {{doc.location}}
                       </td>
                       <td>
                         easy/intermediate
@@ -37,14 +39,7 @@
                   </table>
                 </div>
                 <h3>About</h3>
-                <p>Lorem ipsum dolor sit amet, ei agam disputando nam, illum solet deterruisset at vis, quando iudicabit ad
-                  est. Vel error definiebas te, mei elit saepe perpetua ut. Nostro atomorum eum cu, sed an insolens praesent
-                  recteque, id sit ludus feugiat. Nonumes facilisis mel te, ut apeirian consetetur pri. Libris antiopam an
-                  duo, soluta officiis consectetuer quo an, quod nonumes assueverit nam no.</p>
-                <p>No dico eros mediocritatem ius, ea habeo modus forensibus pro. Pri tritani partiendo cu. No dolor
-                  facilisis theophrastus usu, brute exerci neglegentur his cu. Scripta sanctus deterruisset no vim, ea per
-                  aeque assentior, at placerat persecuti eos. Usu ex voluptua instructior, qui te nibh detracto. Reque
-                  ancillae sed id.</p>
+                <p>{{doc.about}}</p>
               </div>
               <div style="margin-top: 50px" class="column">
                 <img class="ui fluid image" src="/images/mockup-item-page.jpg">

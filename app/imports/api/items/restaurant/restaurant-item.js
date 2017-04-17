@@ -8,7 +8,7 @@ export const RestaurantsSchema = new SimpleSchema({
   title: {
     label: 'title',
     type: String,
-    optional: true,
+    optional: false,
   },
   category: {
     label: 'category',
@@ -17,6 +17,11 @@ export const RestaurantsSchema = new SimpleSchema({
   },
   location: {
     label: 'location',
+    type: String,
+    optional: true,
+  },
+  food: {
+    label: 'food',
     type: String,
     optional: true,
   },
@@ -32,7 +37,7 @@ export const RestaurantsSchema = new SimpleSchema({
   },
   tags: {
     label: 'tags',
-    type: String,
+    type: [String],
     optional: true,
   },
   picture: {
