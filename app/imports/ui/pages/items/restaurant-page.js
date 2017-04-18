@@ -4,9 +4,9 @@ import { Restaurant } from '/imports/api/items/restaurant/restaurant-item.js';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
 Template.Restaurant_Page.onCreated(function onCreated() {
-  this.subscribe('Hike');
+  this.subscribe('Restaurant');
 });
 
 Template.Restaurant_Page.helpers({
-  res: () => Restaurant.findOne({ _id: FlowRouter.getParam('_id') }),
+  rest: () => Restaurants.findOne({ _id: FlowRouter.getParam('_id') }),
 });
