@@ -1,0 +1,7 @@
+<template name="User_Layout">
+  {{#If_Authorized}}
+    {{> Header}}
+    {{>Template.dynamic template=main}}
+    {{> Footer}}
+  {{/If_Authorized}}
+</template>

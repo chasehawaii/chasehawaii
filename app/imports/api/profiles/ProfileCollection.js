@@ -18,19 +18,19 @@ export const ProfilesSchema = new SimpleSchema({
   first: {
     label: 'first',
     type: String,
-    optional: false,
+    optional: true,
     max: 20,
   },
   last: {
     label: 'last',
     type: String,
-    optional: false,
+    optional: true,
     max: 20,
   },
   standing: {
     label: 'standing',
     type: String,
-    optional: false,
+    optional: true,
     max: 20,
   },
   /*
@@ -66,7 +66,7 @@ export const ProfilesSchema = new SimpleSchema({
   about: {
     label: 'about',
     type: String,
-    optional: false,
+    optional: true,
     max: 140,
   },
 });

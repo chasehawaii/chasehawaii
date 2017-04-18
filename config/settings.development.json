@@ -9,7 +9,10 @@
       "serviceParam": "service",
       "popupWidth": 810,
       "popupHeight": 610
-    },
-    "initialDatabaseFileName": "database/initial-collection-data.json"
-  }
+    }
+  },
+  "allowed_users": [
+    "johnson",
+    "rao642"
+  ]
 }

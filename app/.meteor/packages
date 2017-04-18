@@ -32,6 +32,8 @@ sacha:spin
 # Account management
 accounts-ui@1.1.9
 accounts-password@1.3.3
+atoy40:accounts-cas
+random@1.0.10
 
 # Routing
 kadira:flow-router
@@ -48,6 +50,7 @@ fabienb4:autoform-semantic-ui
 # For prototyping purposes, enable autopublish and insecure
 autopublish@1.0.7
 insecure@1.0.7
+
 
 
 
