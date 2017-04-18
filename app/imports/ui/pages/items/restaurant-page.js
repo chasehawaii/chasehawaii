@@ -1,10 +1,10 @@
 import './restaurant-page.html';
 import { Template } from 'meteor/templating';
-import { Restaurant } from '/imports/api/items/restaurant/restaurant-item.js';
+import { Restaurants } from '/imports/api/items/restaurant/restaurant-item.js';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
 Template.Restaurant_Page.onCreated(function onCreated() {
-  this.subscribe('Restaurant');
+  this.subscribe('Restaurants');
 });
 
 Template.Restaurant_Page.helpers({
