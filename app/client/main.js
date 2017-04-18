@@ -11,6 +11,7 @@ import '/imports/ui/pages/items';
 import '/imports/ui/pages/landing';
 import '/imports/ui/pages/user';
 import '/imports/ui/pages/misc';
+<<<<<<< HEAD
 import '/imports/ui/components/items';
 import '/imports/ui/components/form-controls';
 
@@ -18,3 +19,11 @@ import '/imports/api/profiles';
 /* import the CAS landing authentication */
 import '/imports/ui/components/landing';
 
+=======
+
+import '/imports/ui/components/items';
+import '/imports/ui/components/form-controls';
+import '/imports/api/profiles';
+/* import the CAS landing authentication */
+import '/imports/ui/components/landing';
+>>>>>>> master
