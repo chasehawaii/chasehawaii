@@ -5,6 +5,7 @@
 
       <div class="row">
         <div class="ui right aligned sixteen wide column">
+          {{> Cas_Login }}
         </div>
 
       </div>
@@ -12,6 +13,7 @@
         <div class="ui center aligned sixteen wide column">
           <h1 class="landing-section-1-welcome">Welcome to ChaseHawaii</h1>
           <h3 class="landing-section-1-tagline">Best Beaches, Hikes, and Restaurants</h3>
+          <p>Currently logged in user: {{ user }}</p>
         </div>
       </div>
     </div>
@@ -20,13 +22,13 @@
   <div class="landing-section-2">
     <div class="ui grid">
       <div class="ui eight wide column">
-        <a class="{{ isActiveRoute 'Create_Item_Page'}} item" href="{{ pathFor 'Create_Item_Page' }}"><img
+       <img
             class="ui centered large circular image"
-            src='http://www.hiltonhawaiianvillage.com/assets/img/home/hilton-hawaiian-village-sunset-beach-1680x1080.jpg'></a>
+            src='http://www.hiltonhawaiianvillage.com/assets/img/home/hilton-hawaiian-village-sunset-beach-1680x1080.jpg'>
       </div>
       <div class="ui eight wide middle aligned column">
         <h1 class="landing-section-header">Create a profile</h1>
-        <h1 class="landing subtext">Specify your interests to find the right adventure for you</h1>
+        <h1 class="landing subtext">Become an adventurer today</h1>
       </div>
     </div>
   </div>
@@ -34,8 +36,8 @@
   <div class="landing-section-3">
     <div class="ui grid">
       <div class="ui eight wide middle aligned column">
-        <h1 class="landing-section-header">Create a profile</h1>
-        <h1 class="landing subtext">Specify your interests to find the right adventure for you</h1>
+        <h1 class="landing-section-header">Share Your Experiences</h1>
+        <h1 class="landing subtext">Explore a compendium of adventures from the UH community</h1>
       </div>
       <div class="eight wide column">
         <a class="{{ isActiveRoute 'Item_Feed_Page'}} item" href="{{ pathFor 'Item_Feed_Page' }}"><img
@@ -46,41 +48,7 @@
     </div>
   </div>
 
-  <div class="landing-section-4">
-    <div class="ui grid">
-      <div class="ui eight wide column">
-        <a class="{{ isActiveRoute 'Create_Profile_Page'}} item" href="{{ pathFor 'Create_Profile_Page' }}">
-          <img class="ui centered large circular image"
-               src='https://1xbuf0262g0e3eimqo2anvwk-wpengine.netdna-ssl.com/wp-content/uploads/2016/07/relax_hawaii.jpg'></a>
-      </div>
-      <div class="ui eight wide middle aligned column">
-        <h1 class="landing-section-header">Returning users can get started</h1>
-        <h1 class="landing-section-header">New users can register below</h1>
 
-
-        <div class="ui animated black basic fade button" tabindex="0">
-          <div class="visible content">Get Started</div>
-          <div class="hidden content">
-            Login
-          </div>
-        </div>
-        <div class="ui animated black basic fade button" tabindex="0">
-          <div class="visible content">New User</div>
-          <div class="hidden content">
-            Register
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="landing-section-5">
-    <div class="ui grid">
-      <div class="ui center aligned sixteen wide column">
-      </div>
-    </div>
-  </div>
 
 
 </template>

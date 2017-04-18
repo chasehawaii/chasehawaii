@@ -3,6 +3,7 @@ import '/imports/startup/client';
 import '/imports/api/items/beach';
 import '/imports/ui/layouts';
 import '/imports/ui/layouts/items';
+import '/imports/ui/layouts/user';
 import '/imports/ui/pages';
 import '/imports/ui/stylesheets/style.css';
 
