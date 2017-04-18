@@ -6,3 +6,12 @@ import './item-feed-page.js';
 
 import './create-item-page.html';
 import './create-item-page.js';
+
+import './beach-page.html';
+import './beach-page.js';
+
+import './hike-page.html';
+import './hike-page.js';
+
+import './restaurant-page.html';
+import './restaurant-page.js';
