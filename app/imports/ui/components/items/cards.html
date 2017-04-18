@@ -4,7 +4,7 @@
       <img src="/images/mockup-item-feed3.jpg">
     </div>
     <div class="content">
-      <a class="{{ isActiveRoute 'Item_Page/:_id'}} item" href=" /item/{{beach._id}}">
+      <a class="{{ isActiveRoute 'Beach_Page/:_id'}} item" href=" /beach/{{beach._id}}">
         <div class="header">{{ beach.title }}</div>
       </a>
       <div class="meta">
@@ -33,7 +33,9 @@
       <img src="/images/mockup-item-feed1.jpg">
     </div>
     <div class="content">
-      <div class="header">{{ hike.title }}</div>
+      <a class="{{ isActiveRoute 'Hike_Page/:_id'}} item" href=" /hike/{{hike._id}}">
+        <div class="header">{{ hike.title }}</div>
+      </a>
       <div class="meta">
         <a>{{ hike.category }}</a>
       </div>
@@ -61,7 +63,9 @@
       <img src="/images/mockup-item-feed2.JPG">
     </div>
     <div class="content">
-      <div class="header">{{ restaurant.title }}</div>
+      <a class="{{ isActiveRoute 'Restaurant_Page/:_id'}} item" href=" /restaurant/{{restaurant._id}}">
+        <div class="header">{{ restaurant.title }}</div>
+      </a>
       <div class="meta">
         <a>{{ restaurant.category }}</a>
       </div>
