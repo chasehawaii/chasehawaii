@@ -19,7 +19,7 @@ div.footer.page{
 
 /* Item Pages CSS */
 div.item.feed.page{
- background-color: #645473;
+ background-color: whitesmoke;
 
 }
 
@@ -107,6 +107,7 @@ div.ui.not.found.center.aligned.top.container{
   font-family: 'Roboto', sans-serif;
   padding-top: 75px;
 }
+
 
 
 

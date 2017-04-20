@@ -1,0 +1,28 @@
+<template name="Filter">
+  <div class="ui left fixed vertical inverted menu">
+    <div style="padding-top: 100px; color: whitesmoke" class="ui multiple dropdown"> 
+      <input type="hidden" name="filters">
+      <i class="filter icon"></i> 
+      <span class="text">Filter Category</span> 
+      <div class="menu">
+        <div class="divider"></div>
+        <div class="category-filter"> 
+          <div class="scrolling menu"> 
+            <div class="item" data-value="Beach"> 
+              <div class="ui red empty circular label"></div>
+              Beach 
+            </div>
+            <div class="item" data-value="Hike"> 
+              <div class="ui blue empty circular label"></div>
+              Hike 
+            </div>
+            <div class="item" data-value="Restaurant"> 
+              <div class="ui black empty circular label"></div>
+              Restaurant 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
