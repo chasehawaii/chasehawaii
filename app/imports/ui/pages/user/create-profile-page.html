@@ -1,70 +1,55 @@
 <template name="Create_Profile_Page">
-<div class = "create profile background">
-  <div style="padding-top: 100px;" class="ui container">
-    <form class="ui form">
-      <h3 class="ui dividing header">Create Account</h3>
-      <div class="two fields">
-        <div class="field">
-          <label>First Name</label>
-          <input type="text">
-        </div>
-        <div class="field">
-          <label>Last Name</label>
-          <input type="text">
-        </div>
-      </div>
+  <div class="create profile background">
 
-      <div class="two fields">
-        <div class="field">
-          <label>UH Email</label>
-          <input type="text">
-        </div>
-        <div class="field">
-          <label>Username</label>
-          <input type="text">
-        </div>
-      </div>
+      <div style="padding: 20px;"  class="ui container">
+        <form class="ui form">
+          <h3 class="ui dividing large header">Create Your Profile</h3>
+          <div class="two fields">
+            <div class="field">
+              {{> Text_Form_Control label="First" }}
+            </div>
+            <div class="field">
+              {{> Text_Form_Control label="Last" }}
+            </div>
+          </div>
 
-      <div class="two fields">
-        <div class="field">
-          <label>Create Password</label>
-          <input type="password">
-        </div>
-        <div class="field">
-          <label>Verify Password</label>
-          <input type="password">
-        </div>
-      </div>
-
-      <div class="three fields">
           <div class="field">
-            <label>Add Facebook</label>
-            <div class="ui left icon input">
-              <input type="text" placeholder="Facebook URL">
-              <i class="facebook icon"></i>
+            {{> Select_Form_Control label="Class Standing"}}
+          </div>
+
+          <div class="field">
+            {{> Text_Form_Control label="Photo" placeholder="A url to a photo from Facebook, Imgur, etc..." }}
+          </div>
+
+          <div class="three fields">
+            <div class="field">
+              <label>Add Facebook</label>
+              <div class="ui left icon input">
+                <input type="text" placeholder="Facebook URL">
+                <i class="facebook icon"></i>
+              </div>
+            </div>
+            <div class="field">
+              <label>Add Instagram</label>
+              <div class="ui left icon input">
+                <input type="text" placeholder="Instagram URL">
+                <i class="instagram icon"></i>
+              </div>
+            </div>
+            <div class="field">
+              <label>Add Twitter</label>
+              <div class="ui left icon input">
+                <input type="text" placeholder="Twitter URL">
+                <i class="twitter icon"></i>
+              </div>
             </div>
           </div>
           <div class="field">
-            <label>Add Instagram</label>
-            <div class="ui left icon input">
-              <input type="text" placeholder="Instagram URL">
-              <i class="instagram icon"></i>
-            </div>
+              {{> TextArea_Form_Control label="About" placeholder="Tell us something about you..." }}
           </div>
-          <div class="field">
-            <label>Add Twitter</label>
-            <div class="ui left icon input">
-              <input type="text" placeholder="Twitter URL">
-              <i class="twitter icon"></i>
-            </div>
-          </div>
-        </div>
-      <div class="field">
-        <label>About You</label>
-        <textarea></textarea>
+          <div class="ui button">Submit</div>
+        </form>
       </div>
-      <div class="ui button">Submit</div>
-    </form>
-  </div>
-</div>
+    </div>
+
 </template>

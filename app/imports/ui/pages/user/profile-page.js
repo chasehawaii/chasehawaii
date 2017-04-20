@@ -1,9 +1,10 @@
 import { Template } from 'meteor/templating';
-import { _ } from 'meteor/underscore';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Profiles } from '/imports/api/profiles/ProfileCollection.js';
 
-
+Template.Profile_Page.onCreated(function onCreated() {
+  this.subscribe('Profiles');
+});
 
 Template.Profile_Page.helpers({
   username() {
