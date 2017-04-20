@@ -35,9 +35,8 @@ Template.Item_Feed_Page.helpers({
   beaches() {
     if (Template.instance().messageFlags.get('Beach')) {
       const allBeaches = Beaches.find().fetch();
-      console.log(allBeaches);
       const selectedBeaches = Template.instance().messageFlags.get('Locations');
-      console.log(_.each(allBeaches, beaches => beaches.location));
+      console.log(allBeaches[0].location);
       return _.filter(allBeaches, beach => _.intersection(beach.location, selectedBeaches).length > 0);
     } else {
       return Beaches.find().fetch();
