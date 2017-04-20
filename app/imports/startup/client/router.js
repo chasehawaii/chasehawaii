@@ -45,7 +45,7 @@ FlowRouter.route('/restaurant/:_id', {
 FlowRouter.route('/item-feed', {
   name: 'Item_Feed_Page',
   action() {
-    BlazeLayout.render('Items_Layout', { main: 'Item_Feed_Page' });
+    BlazeLayout.render('Item_Feed_Page', { main: 'Item_Feed_Page' });
   },
 });
 

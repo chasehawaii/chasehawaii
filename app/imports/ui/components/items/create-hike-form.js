@@ -7,7 +7,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 /* eslint-disable no-param-reassign */
 
 const displayErrorMessages = 'displayErrorMessages';
-export const locationList = ['Windward', 'Leeward', 'Central Oahu', 'Honoluu'];
+export const locationList = ['Windward', 'Leeward', 'Central Oahu', 'Honoluu', 'North Shore'];
 export const hikeTagList = ['Kid-friendly', 'Dog-friendly'];
 
 Template.Create_Hike_Form.onCreated(function onCreated() {
