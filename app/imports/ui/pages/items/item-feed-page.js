@@ -3,8 +3,10 @@ import { Beaches } from '/imports/api/items/beach/beach-item.js';
 import { Hikes } from '/imports/api/items/hike/hike-item.js';
 import { Restaurants } from '/imports/api/items/restaurant/restaurant-item.js';
 import { ReactiveDict } from 'meteor/reactive-dict';
+import { _ } from 'meteor/underscore';
 
-const categoryFilterList = ['Beach', 'Hike', 'Restaurant'];
+export const locationList = ['Windward', 'Leeward', 'Central Oahu', 'Honoluu', 'North Shore'];
+export const tagList = ['Dog-friendly', 'busy'];
 
 Template.Item_Feed_Page.onCreated(function onCreated() {
   this.subscribe('Beaches');
@@ -14,9 +16,8 @@ Template.Item_Feed_Page.onCreated(function onCreated() {
   this.messageFlags.set('Beach', false);
   this.messageFlags.set('Hike', false);
   this.messageFlags.set('Restaurant', false);
-  this.messageFlags.set('Westward', false);
-  this.messageFlags.set('Windward', false);
-  this.messageFlags.set('Leeward', false);
+  this.messageFlags.set('Locations', undefined);
+
 });
 
 Template.Item_Feed_Page.onRendered(function onRendered() {
@@ -33,12 +34,16 @@ Template.Item_Feed_Page.onRendered(function onRendered() {
 Template.Item_Feed_Page.helpers({
   beaches() {
     if (Template.instance().messageFlags.get('Beach')) {
-      console.log(Template.instance().messageFlags.get('Beach'));
-      return Beaches.find();
+      const allBeaches = Beaches.find().fetch();
+      console.log(allBeaches);
+      const selectedBeaches = Template.instance().messageFlags.get('Locations');
+      console.log(_.each(allBeaches, beaches => beaches.location));
+      return _.filter(allBeaches, beach => _.intersection(beach.location, selectedBeaches).length > 0);
     } else {
-      return [];
+      return Beaches.find().fetch();
     }
   },
+
   hikes() {
     if (Template.instance().messageFlags.get('Hike')) {
       console.log(Template.instance().messageFlags.get('Hike'));
@@ -55,9 +60,14 @@ Template.Item_Feed_Page.helpers({
       return [];
     }
   },
-  categoryFilterChoice() {
-    return _.map(categoryFilterList, function makefilterObject(category) {
-      return { label: category };
+  locationFilterChoice() {
+    return _.map(locationList, function makefilterObject(location) {
+      return { label: location };
+    });
+  },
+  tagFilterChoice() {
+    return _.map(tagList, function makefilterObject(tag) {
+      return { label: tag };
     });
   },
 });
@@ -74,5 +84,11 @@ Template.Item_Feed_Page.events({
     // Get name (text field)
     const clickedFilter = event.target.closest('button');
     Template.instance().messageFlags.set($(clickedFilter).attr('data-location'), true);
+  },
+  'submit .filter-data-form'(event, instance) {
+    event.preventDefault();
+    const selectedOptions = _.filter(event.target.Location.selectedOptions, (option) => option.selected);
+    instance.messageFlags.set('Locations', _.map(selectedOptions, (option) => option.value));
+    console.log(instance.messageFlags.get('Locations'));
   },
 });

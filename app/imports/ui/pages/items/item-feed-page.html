@@ -1,6 +1,6 @@
 <template name="Item_Feed_Page">
   <div class="item feed page">
-    <div class="ui left fixed vertical inverted menu">
+    <div style="width: 250px" class="ui left fixed vertical inverted menu">
       <div style="margin: 100px 10px 10px 10px" class="treemenu boxed">
         <h2 style="color: whitesmoke">Filters</h2>
         <div class="ui fluid styled accordion">
@@ -17,26 +17,31 @@
           <div class="title">
             <i class="dropdown icon"></i> Location
           </div>
-          <div style="margin-left: 5px" class="ui vertical buttons">
-            <div class="filter-location">
-              <button class="ui button" data-location="Westward" type="submit">Westward</button>
-              <button class="ui button" data-location="Windward" type="submit">Windward</button>
-              <button class="ui button" data-location="Leeward" type="submit">Leeward</button>
-              <button class="ui button" data-location="NorthShore" type="submit">North Shore</button>
-              <button class="ui button" data-location="Honoluu" type="submit">Honoluu</button>
-              <button class="ui button" data-location="CentralOahu" type="submit">Central Oahu</button>
+          <form style="padding: 5px" class="ui form filter-data-form">
+            <div class="field">
+              {{> Select_Form_Control label="Location" options=locationFilterChoice multiple=true }}
             </div>
-          </div>
+            <button class="ui teal button" type="submit">Filter</button>
+          </form>
+          <!--<div style="margin-left: 5px" class="ui vertical buttons">-->
+            <!--<div class="filter-location">-->
+              <!--<button class="ui button" data-location="Westward" type="submit">Westward</button>-->
+              <!--<button class="ui button" data-location="Windward" type="submit">Windward</button>-->
+              <!--<button class="ui button" data-location="Leeward" type="submit">Leeward</button>-->
+              <!--<button class="ui button" data-location="NorthShore" type="submit">North Shore</button>-->
+              <!--<button class="ui button" data-location="Honoluu" type="submit">Honoluu</button>-->
+              <!--<button class="ui button" data-location="CentralOahu" type="submit">Central Oahu</button>-->
+            <!--</div>-->
+          <!--</div>-->
           <div class="title">
             <i class="dropdown icon"></i> Tags
           </div>
-          <div style="margin-left: 5px" class="ui vertical buttons">
-            <div class="filter-category">
-              <button class="ui button" data-category="Beach" type="submit">Beach</button>
-              <button class="ui button" data-category="Hike" type="submit">Hike</button>
-              <button class="ui button" data-category="Restaurant" type="submit">Restaurant</button>
+          <form style="padding: 5px" class="ui form filter-data-form">
+            <div class="field">
+              {{> Select_Form_Control label="Tags" options=tagFilterChoice multiple=true }}
             </div>
-          </div>
+            <button class="ui teal button" type="submit">Filter</button>
+          </form>
         </div>
       </div>
     </div>
