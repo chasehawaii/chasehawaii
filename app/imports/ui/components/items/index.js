@@ -5,3 +5,5 @@ import './create-restaurant-form.html';
 import './create-beach-form.js';
 import './create-hike-form.js';
 import './create-restaurant-form.js';
+import './filter.html';
+import './filter.js';
