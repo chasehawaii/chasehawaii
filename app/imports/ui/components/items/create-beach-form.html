@@ -1,5 +1,5 @@
 <template name="Create_Beach_Form">
-  <form class="ui form create-beach-data">
+  <form style="padding-top: 50px" class="ui form create-beach-data">
     <h3 class="ui dividing header">Add Beach</h3>
     <div class="two fields">
       {{> Text_Form_Control label="Title" }}
@@ -8,7 +8,9 @@
     <div class="field">
       {{> TextArea_Form_Control label="About" }}
     </div>
-    {{> Checkbox_Form_Control label="Tags" checkboxes=beachTagChoice checked=true}}
+    <div class="field">
+      {{> Select_Form_Control label="Tags" options=beachTagChoice multiple=true }}
+    </div>
     <div class="field">
     </div>
     <button class="ui button" type="submit">Submit</button>

@@ -6,9 +6,9 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 
 
 Template.Create_Item_Page.onCreated(function () {
-  this.currentTab = new ReactiveVar('Create_Beach_Form');
-  this.currentTab = new ReactiveVar('Create_Hike_Form');
-  this.currentTab = new ReactiveVar('Create_Restaurant_Form');
+  this.currentTab = new ReactiveVar();
+  this.currentTab = new ReactiveVar();
+  this.currentTab = new ReactiveVar();
 });
 
 Template.Create_Item_Page.helpers({

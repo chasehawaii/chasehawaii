@@ -44,15 +44,10 @@ Template.Create_Hike_Form.events({
     const title = event.target.Title.value;
     const location = event.target.Location.value;
     const about = event.target.About.value;
-    const tags = [];
-    _.each(hikeTagList, function setTags(tag) {
-      if (event.target[tag].checked) {
-        tags.push(event.target[tag].value);
-      }
-    });
-
+    const selectedTags = _.filter(event.target.Tags.selectedOptions, (option) => option.selected);
+    const tags = _.map(selectedTags, (option) => option.value);
+    tags.push(location);
     const newItemData = { title, location, about, tags };
-    console.log(newItemData);
 
     // Clear out any old validation errors.
     instance.context.resetValidation();
