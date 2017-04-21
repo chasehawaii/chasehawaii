@@ -4,9 +4,17 @@
       <img src="/images/mockup-item-feed3.jpg">
     </div>
     <div class="content">
+      <div class="extra content">
+        <span class="left floated">
       <a class="{{ isActiveRoute 'Beach_Page/:_id'}} item" href=" /beach/{{beach._id}}">
-        <div class="header">{{ beach.title }}</div>
+       <h3> {{ beach.title }} </h3>
       </a>
+        </span>
+        <span class="right floated">
+        <i class="like icon"></i>
+        75 Likes
+      </span>
+      </div>
       <div class="meta">
         <a>{{ beach.category }}</a>
       </div>
@@ -15,12 +23,13 @@
       </div>
     </div>
     <div class="extra content">
-          <span class="right floated">
-        <i class="like icon"></i>
-        75 Likes
+          <span class="left floated">
+            {{#each tag in beach.tags }}
+            <a class="ui mini tag label">{{tag}}</a>
+            {{/each}}
       </span>
     </div>
-    <div class="ui teal bottom attached button">
+    <div class="ui blue bottom attached button">
       <i class="add icon"></i>
       Add to Bucket List
     </div>
@@ -33,9 +42,17 @@
       <img src="/images/mockup-item-feed1.jpg">
     </div>
     <div class="content">
+      <div class="extra content">
+        <span class="left floated">
       <a class="{{ isActiveRoute 'Hike_Page/:_id'}} item" href=" /hike/{{hike._id}}">
-        <div class="header">{{ hike.title }}</div>
+       <h3> {{ hike.title }} </h3>
       </a>
+        </span>
+        <span class="right floated">
+        <i class="like icon"></i>
+        75 Likes
+      </span>
+      </div>
       <div class="meta">
         <a>{{ hike.category }}</a>
       </div>
@@ -44,9 +61,10 @@
       </div>
     </div>
     <div class="extra content">
-          <span class="right floated">
-        <i class="like icon"></i>
-        75 Likes
+          <span class="left floated">
+            {{#each tag in hike.tags }}
+            <a class="ui mini tag label">{{tag}}</a>
+            {{/each}}
       </span>
     </div>
     <div class="ui teal bottom attached button">
@@ -63,9 +81,17 @@
       <img src="/images/mockup-item-feed2.JPG">
     </div>
     <div class="content">
+      <div class="extra content">
+        <span class="left floated">
       <a class="{{ isActiveRoute 'Restaurant_Page/:_id'}} item" href=" /restaurant/{{restaurant._id}}">
-        <div class="header">{{ restaurant.title }}</div>
+       <h3> {{ restaurant.title }} </h3>
       </a>
+        </span>
+        <span class="right floated">
+        <i class="like icon"></i>
+        75 Likes
+      </span>
+      </div>
       <div class="meta">
         <a>{{ restaurant.category }}</a>
       </div>
@@ -75,14 +101,12 @@
     </div>
     <div class="extra content">
           <span class="left floated">
-        <a>{{restaurant.food }}</a>
-      </span>
-      <span class="right floated">
-        <i class="like icon"></i>
-        75 Likes
+            {{#each tag in restaurant.tags }}
+            <a class="ui mini tag label">{{tag}}</a>
+            {{/each}}
       </span>
     </div>
-    <div class="ui teal bottom attached button">
+    <div class="ui violet bottom attached button">
       <i class="add icon"></i>
       Add to Bucket List
     </div>

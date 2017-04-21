@@ -7,8 +7,8 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 /* eslint-disable no-param-reassign */
 
 const displayErrorMessages = 'displayErrorMessages';
-export const locationList = ['Windward', 'Leeward', 'Central Oahu', 'Honoluu'];
-export const restaurantTagList = ['Kid-friendly', 'Dog-friendly'];
+export const locationList = ['Windward', 'Leeward', 'Central Oahu', 'Honoluu', 'North Shore'];
+export const restaurantTagList = ['Kid-friendly', 'Dog-friendly', 'Busy', 'Quiet'];
 export const foodTypeList = ['Chinese', 'Thai', 'Italian', 'Mexican', 'Local', 'Burgers', 'Japanese Grill', 'Sushi'];
 
 Template.Create_Restaurant_Form.onCreated(function onCreated() {
@@ -51,16 +51,10 @@ Template.Create_Restaurant_Form.events({
     const location = event.target.Location.value;
     const about = event.target.About.value;
     const food = event.target.Food.value;
-    const tags = [];
-    _.each(restaurantTagList, function setTags(tag) {
-      if (event.target[tag].checked) {
-        tags.push(event.target[tag].value);
-      }
-    });
-
+    const selectedTags = _.filter(event.target.Tags.selectedOptions, (option) => option.selected);
+    const tags = _.map(selectedTags, (option) => option.value);
+    tags.push(location, food);
     const newItemData = { title, location, about, tags, food };
-    console.log(newItemData);
-
     // Clear out any old validation errors.
     instance.context.resetValidation();
     // Invoke clean so that newStudentData reflects what will be inserted.

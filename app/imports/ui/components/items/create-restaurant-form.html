@@ -1,5 +1,5 @@
 <template name="Create_Restaurant_Form">
-  <form class="ui form create-restaurant-data">
+  <form  style="padding-top: 50px" class="ui form create-restaurant-data">
     <h3 class="ui dividing header">Add Restaurant</h3>
     <div class="two fields">
       {{> Text_Form_Control label="Title" }}
@@ -9,7 +9,9 @@
     <div class="field">
       {{> TextArea_Form_Control label="About" }}
     </div>
-    {{> Checkbox_Form_Control label="Tags" checkboxes=restaurantTagChoice checked=true}}
+    <div class="field">
+      {{> Select_Form_Control label="Tags" options=restaurantTagChoice multiple=true }}
+    </div>
     <div class="field"></div>
     <button class="ui button" type="submit">Submit</button>
   </form>
