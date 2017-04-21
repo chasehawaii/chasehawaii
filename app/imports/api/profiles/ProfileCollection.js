@@ -33,35 +33,29 @@ export const ProfilesSchema = new SimpleSchema({
     optional: true,
     max: 20,
   },
-  /*
+  image: {
+    label: 'image',
+    type: String,
+    optional: true,
+    max: 200,
+  },
   facebook: {
     label: 'facebook',
     type: String,
     optional: true,
     max: 20,
   },
-  insta: {
-    label: 'insta',
+  instagram: {
+    label: 'instagram',
     type: String,
     optional: true,
     max: 20,
-    autoform: {
-      group: 'Stuff',
-      placeholder: '3',
-    },
   },
   twitter: {
     label: 'twitter',
     type: String,
     optional: true,
     max: 20,
-  },
-  */
-  image: {
-    label: 'image',
-    type: String,
-    optional: true,
-    max: 200,
   },
   about: {
     label: 'about',

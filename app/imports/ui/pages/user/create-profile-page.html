@@ -2,7 +2,7 @@
   <div class="create profile background">
 
       <div style="padding: 20px;"  class="ui container">
-        <form class="ui form">
+        <form class="ui form create-profile-data">
           <h3 class="ui dividing large header">Create Your Profile</h3>
           <div class="two fields">
             <div class="field">
@@ -14,40 +14,28 @@
           </div>
 
           <div class="field">
-            {{> Select_Form_Control label="Class Standing"}}
+            {{> Select_Form_Control label="Standing" options=standingChoice}}
           </div>
 
           <div class="field">
-            {{> Text_Form_Control label="Photo" placeholder="A url to a photo from Facebook, Imgur, etc..." }}
+            {{> Text_Form_Control label="Image" placeholder="A url to a photo from Facebook, Imgur, etc..." }}
           </div>
 
           <div class="three fields">
             <div class="field">
-              <label>Add Facebook</label>
-              <div class="ui left icon input">
-                <input type="text" placeholder="Facebook URL">
-                <i class="facebook icon"></i>
-              </div>
+              {{> Text_Form_Control label="Facebook" }}
             </div>
             <div class="field">
-              <label>Add Instagram</label>
-              <div class="ui left icon input">
-                <input type="text" placeholder="Instagram URL">
-                <i class="instagram icon"></i>
-              </div>
+              {{> Text_Form_Control label="Instagram" }}
             </div>
             <div class="field">
-              <label>Add Twitter</label>
-              <div class="ui left icon input">
-                <input type="text" placeholder="Twitter URL">
-                <i class="twitter icon"></i>
-              </div>
+              {{> Text_Form_Control label="Twitter" }}
             </div>
           </div>
           <div class="field">
-              {{> TextArea_Form_Control label="About" placeholder="Tell us something about you..." }}
+              {{> TextArea_Form_Control label="About" placeholder="Tell us somethings about you..." }}
           </div>
-          <div class="ui button">Submit</div>
+          <button class="ui button">Create Profile</button>
         </form>
       </div>
     </div>
