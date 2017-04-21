@@ -31,8 +31,9 @@
                       easy/intermediate
                     </td>
                     <td>
-                      <a class="ui tag label">Intermediate</a>
-                      <a class="ui tag label">Dog Friendly </a>
+                      {{#each tag in bea.tags }}
+                      <a class="ui mini tag label">{{tag}}</a>
+                      {{/each}}
                     </td>
                   </tr>
                   </tbody>
