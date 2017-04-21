@@ -19,7 +19,9 @@ div.footer.page{
 
 /* Item Pages CSS */
 div.item.feed.page{
- background-color: whitesmoke;
+  background: url('https://static1.squarespace.com/static/55554893e4b0c59a453e854c/t/58b411abd1758e0132a1b586/1488196026905/') no-repeat center center fixed;
+  background-size:cover;
+  height:800px;
 
 }
 
@@ -28,7 +30,6 @@ div.create.item.page{
   background: url('http://www.hiltonhawaiianvillage.com/assets/img/home/hilton-hawaiian-village-sunset-beach-1680x1080.jpg') no-repeat center center fixed;
   background-size:cover;
   height:750px;
-
 }
 
 /* User Pages Styles*/
@@ -106,6 +107,9 @@ div.ui.not.found.center.aligned.top.container{
   font-size: larger;
   font-family: 'Roboto', sans-serif;
   padding-top: 75px;
+}
+h3 {
+  color: black;
 }
 
 

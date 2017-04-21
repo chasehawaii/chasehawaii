@@ -1,4 +1,5 @@
 import './cards.html';
+import './cards.js';
 import './create-beach-form.html';
 import './create-hike-form.html';
 import './create-restaurant-form.html';
