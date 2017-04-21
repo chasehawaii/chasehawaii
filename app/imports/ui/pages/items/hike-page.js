@@ -4,7 +4,7 @@ import { Hikes } from '/imports/api/items/hike/hike-item.js';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
 Template.Hike_Page.onCreated(function onCreated() {
-  this.subscribe('Hike');
+  this.subscribe('Hikes');
 });
 
 Template.Hike_Page.helpers({
