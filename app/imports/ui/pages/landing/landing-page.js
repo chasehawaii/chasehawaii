@@ -1,8 +1,12 @@
-
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { Profiles } from '/imports/api/profiles/ProfileCollection.js';
 
-/* eslint-disable object-shorthand */
+Template.Landing_Page.onCreated(function onCreated() {
+  this.subscribe('Profiles');
+  window.Profiles = Profiles;
+});
+
 
 Template.Landing_Page.helpers({
   /**
@@ -10,5 +14,8 @@ Template.Landing_Page.helpers({
    */
   user: function user() {
     return Meteor.user() ? Meteor.user().profile.name : 'No logged in user';
+  },
+  clear: function clear() {
+    return Profiles.remove();
   },
 });
