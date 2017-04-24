@@ -9,6 +9,13 @@ FlowRouter.route('/', {
   },
 });
 
+FlowRouter.route('/admin', {
+  name: 'Admin_Page',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Admin_Page' });
+  },
+});
+
 // Item routes
 /*
 FlowRouter.route('/item/:_id', {
