@@ -1,6 +1,6 @@
 <template name="Restaurant_Page">
     <div class="restaurant background" style="overflow-y: scroll">
-      <div class="ui container">
+      <div class="ui container" style = "filter:alpha(opacity=85); opacity:0.85;">
         <div style="margin-top: 100px" class="ui segments">
           <div class="ui segment">
             <h3>
@@ -44,7 +44,7 @@
                 <p>{{rest.about}}</p>
               </div>
               <div style="margin-top: 50px" class="column">
-                <img class="ui fluid image" src="http://www.ics.hawaii.edu/wp-content/uploads/2013/08/Gerald_Lau-2014.jpg">
+                <img class="ui fluid image" src="/images/mockup-item-page.jpg">
               </div>
             </div>
           </div>
@@ -52,9 +52,6 @@
             <div class="ui compact menu">
               <a class="item">
                 <i class="thumbs up icon"></i> Like
-              </a>
-              <a class="item">
-                <i class="angle double right icon"></i> Share
               </a>
               <a class="item">
                 <i class="plus icon"></i> Add to your bucket list
@@ -65,11 +62,11 @@
         </div>
 
 
-        <div class="ui comments">
+        <div class="ui restaurant comments" style = "filter:alpha(opacity=90); opacity:0.95; background-color: #FFFFFF;">
           <h3 class="ui dividing header">Comments</h3>
-          <div class="comment">
+          <div class="restaurant comment" >
             <a class="ui avatar image">
-              <img src="/images/profile.jpg">
+              <img src="http://www.ics.hawaii.edu/wp-content/uploads/2013/08/Gerald_Lau-2014.jpg">
             </a>
             <div class="content">
               <a class="author">User123</a>
@@ -84,7 +81,7 @@
               </div>
             </div>
           </div>
-          <div class="comment">
+          <div class="restaurant comment">
             <a class="avatar">
               <img src="http://www.ics.hawaii.edu/wp-content/uploads/2013/08/Gerald_Lau-2014.jpg">
             </a>

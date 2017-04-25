@@ -48,11 +48,29 @@ div.beach.background{
   height:750px;
 }
 
+div.ui.hike.comments{
+
+  margin-bottom: 25px;
+}
+
+div.hike.comment{
+  background-color: #FFFFFF;
+}
+
 div.hike.background{
 
   background: url('http://4.bp.blogspot.com/-a6V_uW0qz_w/UHwXSLS2I9I/AAAAAAAADqM/oU3zMiAdOF8/s1600/beautiful-tourist-place-Honolulu-Hawaii-0008.jpg') no-repeat center center fixed;
   background-size:cover;
   height:750px;
+}
+
+div.ui.restaurant.comments{
+
+  margin-bottom: 25px;
+}
+
+div.restaurant.comment{
+  background-color: #FFFFFF;
 }
 
 div.restaurant.background{
