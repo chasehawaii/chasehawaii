@@ -1,6 +1,4 @@
 body {
-  padding-top: 61px; /* Move body of page below navbar. */
-
 }
 
 /* Header Style */
@@ -45,7 +43,7 @@ div.beach.background{
 
   background: url('https://static.pexels.com/photos/7847/pexels-photo.jpg') no-repeat center center fixed;
   background-size:cover;
-  height:750px;
+  height:1000px;
 }
 
 div.ui.hike.comments{
@@ -61,7 +59,7 @@ div.hike.background{
 
   background: url('http://4.bp.blogspot.com/-a6V_uW0qz_w/UHwXSLS2I9I/AAAAAAAADqM/oU3zMiAdOF8/s1600/beautiful-tourist-place-Honolulu-Hawaii-0008.jpg') no-repeat center center fixed;
   background-size:cover;
-  height:750px;
+  height:1000px;
 }
 
 div.ui.restaurant.comments{
@@ -77,7 +75,7 @@ div.restaurant.background{
 
   background: url('http://photolisticlife.com/wp-content/uploads/2015/06/0615_untitled_014-2.jpg') no-repeat center center fixed;
   background-size:cover;
-  height:750px;
+  height:1000px;
 }
 
 
