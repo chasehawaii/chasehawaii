@@ -1,117 +1,119 @@
 <template name="Hike_Page">
-  <div class="ui container">
-    <div style="margin-top: 100px" class="ui segments">
-      <div class="ui segment">
-        <h3>
-          {{hik.title}}
-        </h3>
-        <div class="ui two column grid">
-          <div class="column">
-            <div class="ui segment">
-              <table class="ui very basic celled table">
-                <thead>
-                <tr>
-                  <th>{{hik.location}}</th>
-                  <th>length</th>
-                  <th>Difficulty</th>
-                  <th>Tags</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>
-                    <div class="content">
-                      Ridge
-                    </div>
-                  </td>
-                  <td>
-                    {{hik.location}}
-                  </td>
-                  <td>
-                    easy/intermediate
-                  </td>
-                  <td>
-                    {{#each tag in hik.tags }}
-                    <a class="ui mini tag label">{{tag}}</a>
-                    {{/each}}
-                  </td>
-                </tr>
-                </tbody>
-              </table>
+  <div class="hike background" style="overflow-y: scroll">
+    <div class="ui container">
+      <div style="margin-top: 100px" class="ui segments">
+        <div class="ui segment">
+          <h3>
+            {{hik.title}}
+          </h3>
+          <div class="ui two column grid">
+            <div class="column">
+              <div class="ui segment">
+                <table class="ui very basic celled table">
+                  <thead>
+                  <tr>
+                    <th>{{hik.location}}</th>
+                    <th>length</th>
+                    <th>Difficulty</th>
+                    <th>Tags</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>
+                      <div class="content">
+                        Ridge
+                      </div>
+                    </td>
+                    <td>
+                      {{hik.location}}
+                    </td>
+                    <td>
+                      easy/intermediate
+                    </td>
+                    <td>
+                      {{#each tag in hik.tags }}
+                        <a class="ui mini tag label">{{tag}}</a>
+                      {{/each}}
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <h3>About</h3>
+              <p>{{hik.about}}</p>
             </div>
-            <h3>About</h3>
-            <p>{{hik.about}}</p>
-          </div>
-          <div style="margin-top: 50px" class="column">
-            <img class="ui fluid image" src="/images/mockup-item-page.jpg">
+            <div style="margin-top: 50px" class="column">
+              <img class="ui fluid image" src="/images/mockup-item-page.jpg">
+            </div>
           </div>
         </div>
-      </div>
-      <div class="ui segment">
-        <div class="ui compact menu">
-          <a class="item">
-            <i class="thumbs up icon"></i> Like
-          </a>
-          <a class="item">
-            <i class="angle double right icon"></i> Share
-          </a>
-          <a class="item">
-            <i class="plus icon"></i> Add to your bucket list
-          </a>
+        <div class="ui segment">
+          <div class="ui compact menu">
+            <a class="item">
+              <i class="thumbs up icon"></i> Like
+            </a>
+            <a class="item">
+              <i class="angle double right icon"></i> Share
+            </a>
+            <a class="item">
+              <i class="plus icon"></i> Add to your bucket list
+            </a>
+          </div>
         </div>
+
       </div>
+
+
+      <div class="ui comments">
+        <h3 class="ui dividing header">Comments</h3>
+        <div class="comment">
+          <a class="ui avatar image">
+            <img src="http://www.ics.hawaii.edu/wp-content/uploads/2013/08/Gerald_Lau-2014.jpg">
+          </a>
+          <div class="content">
+            <a class="author">User123</a>
+            <div class="metadata">
+              <span class="date">Today at 5:42PM</span>
+            </div>
+            <div class="text">
+              Great hike!
+            </div>
+            <div class="actions">
+              <a class="reply">Reply</a>
+            </div>
+          </div>
+        </div>
+        <div class="comment">
+          <a class="avatar">
+            <img src="http://www.ics.hawaii.edu/wp-content/uploads/2013/08/Gerald_Lau-2014.jpg">
+          </a>
+          <div class="content">
+            <a class="author">Bob</a>
+            <div class="metadata">
+              <span class="date">Yesterday at 12:30AM</span>
+            </div>
+            <div class="text">
+              <p>Im going tomorrow, who wants to join!?</p>
+            </div>
+            <div class="actions">
+              <a class="reply">Reply</a>
+            </div>
+          </div>
+        </div>
+
+        <form class="ui reply form">
+          <div class="field">
+            <textarea></textarea>
+          </div>
+          <div class="ui blue labeled submit icon button">
+            <i class="icon edit"></i> Add Reply
+          </div>
+        </form>
+      </div>
+
 
     </div>
-
-
-    <div class="ui comments">
-      <h3 class="ui dividing header">Comments</h3>
-      <div class="comment">
-        <a class="ui avatar image">
-          <img src="/images/profile.jpg">
-        </a>
-        <div class="content">
-          <a class="author">User123</a>
-          <div class="metadata">
-            <span class="date">Today at 5:42PM</span>
-          </div>
-          <div class="text">
-            Great hike!
-          </div>
-          <div class="actions">
-            <a class="reply">Reply</a>
-          </div>
-        </div>
-      </div>
-      <div class="comment">
-        <a class="avatar">
-          <img src="/images/avatar/small/elliot.jpg">
-        </a>
-        <div class="content">
-          <a class="author">Bob</a>
-          <div class="metadata">
-            <span class="date">Yesterday at 12:30AM</span>
-          </div>
-          <div class="text">
-            <p>Im going tomorrow, who wants to join!?</p>
-          </div>
-          <div class="actions">
-            <a class="reply">Reply</a>
-          </div>
-        </div>
-      </div>
-
-      <form class="ui reply form">
-        <div class="field">
-          <textarea></textarea>
-        </div>
-        <div class="ui blue labeled submit icon button">
-          <i class="icon edit"></i> Add Reply
-        </div>
-      </form>
-    </div>
-
-
   </div>
 
 </template>

@@ -1,4 +1,5 @@
 <template name="Beach_Page">
+  <div class="beach background" style = "overflow-y: scroll">
     <div class="ui container">
       <div style="margin-top: 100px" class="ui segments">
         <div class="ui segment">
@@ -11,28 +12,18 @@
                 <table class="ui very basic celled table">
                   <thead>
                   <tr>
-                    <th>type</th>
-                    <th>length</th>
-                    <th>Difficulty</th>
+                    <th>Location</th>
                     <th>Tags</th>
                   </tr>
                   </thead>
                   <tbody>
                   <tr>
                     <td>
-                      <div class="content">
-                        Ridge
-                      </div>
-                    </td>
-                    <td>
                       {{bea.location}}
                     </td>
                     <td>
-                      easy/intermediate
-                    </td>
-                    <td>
                       {{#each tag in bea.tags }}
-                      <a class="ui mini tag label">{{tag}}</a>
+                        <a class="ui mini tag label">{{tag}}</a>
                       {{/each}}
                     </td>
                   </tr>
@@ -64,11 +55,11 @@
       </div>
 
 
-      <div class="ui comments">
+      <div class="ui beach comments">
         <h3 class="ui dividing header">Comments</h3>
         <div class="comment">
           <a class="ui avatar image">
-            <img src="/images/profile.jpg">
+            <img src="http://www.ics.hawaii.edu/wp-content/uploads/2013/08/Gerald_Lau-2014.jpg">
           </a>
           <div class="content">
             <a class="author">User123</a>
@@ -83,9 +74,9 @@
             </div>
           </div>
         </div>
-        <div class="comment">
+        <div class="beach comment">
           <a class="avatar">
-            <img src="/images/avatar/small/elliot.jpg">
+            <img src="http://www.ics.hawaii.edu/wp-content/uploads/2013/08/Gerald_Lau-2014.jpg">
           </a>
           <div class="content">
             <a class="author">Bob</a>
@@ -113,5 +104,6 @@
 
 
     </div>
+  </div>
 
 </template>
