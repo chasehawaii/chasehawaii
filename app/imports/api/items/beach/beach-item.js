@@ -39,6 +39,21 @@ export const BeachesSchema = new SimpleSchema({
     type: SimpleSchema.RegEx.Url,
     optional: true,
   },
+  comments: {
+    label: 'comments',
+    type: [{
+      username: {
+        label: 'username',
+        type: String,
+      },
+      comment: {
+        label: 'comment',
+        type: String,
+      },
+    }],
+    optional: true,
+  },
 });
+
 export const Beaches = new Mongo.Collection('Beaches');
 Beaches.attachSchema(BeachesSchema);
