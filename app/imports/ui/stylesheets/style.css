@@ -1,6 +1,4 @@
 body {
-  padding-top: 61px; /* Move body of page below navbar. */
-
 }
 
 /* Header Style */
@@ -29,15 +27,64 @@ div.create.item.page{
 
   background: url('http://www.hiltonhawaiianvillage.com/assets/img/home/hilton-hawaiian-village-sunset-beach-1680x1080.jpg') no-repeat center center fixed;
   background-size:cover;
-  height:750px;
+  height:870px;
 }
+
+div.ui.beach.comments{
+
+  margin-bottom: 25px;
+}
+
+div.beach.comment{
+  background-color: #FFFFFF;
+}
+
+div.beach.background{
+
+  background: url('https://static.pexels.com/photos/7847/pexels-photo.jpg') no-repeat center center fixed;
+  background-size:cover;
+  height:1000px;
+}
+
+div.ui.hike.comments{
+
+  margin-bottom: 25px;
+}
+
+div.hike.comment{
+  background-color: #FFFFFF;
+}
+
+div.hike.background{
+
+  background: url('http://4.bp.blogspot.com/-a6V_uW0qz_w/UHwXSLS2I9I/AAAAAAAADqM/oU3zMiAdOF8/s1600/beautiful-tourist-place-Honolulu-Hawaii-0008.jpg') no-repeat center center fixed;
+  background-size:cover;
+  height:1000px;
+}
+
+div.ui.restaurant.comments{
+
+  margin-bottom: 25px;
+}
+
+div.restaurant.comment{
+  background-color: #FFFFFF;
+}
+
+div.restaurant.background{
+
+  background: url('http://photolisticlife.com/wp-content/uploads/2015/06/0615_untitled_014-2.jpg') no-repeat center center fixed;
+  background-size:cover;
+  height:1000px;
+}
+
 
 /* User Pages Styles*/
 div.create.profile.background{
-
+  /* */
   background: url('https://1xbuf0262g0e3eimqo2anvwk-wpengine.netdna-ssl.com/wp-content/uploads/2016/07/relax_hawaii.jpg') no-repeat center center fixed;
   background-size:cover;
-  height:750px;
+  height:870px;
 }
 
 
