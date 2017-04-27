@@ -1,0 +1,44 @@
+<template name="Hike_Row">
+
+  <tr>
+    <td class="single line">
+      {{hike.title}}
+    </td>
+    <td class="single line">
+      {{hike.status}}
+    </td>
+    <td class="single line">
+      {{hike.location}}
+    </td>
+    <td>
+      {{#each tag in hike.tags }}
+      {{tag}}
+      <br/>
+      {{/each}}
+    </td>
+    <td>
+      {{hike.kind}}
+    </td>
+    <td>
+      {{hike.length}}
+    </td>
+    <td>
+      {{hike.difficulty}}
+    </td>
+
+    <td>
+      {{hike.about}}
+    </td>
+
+    <td>
+      <button value="{{ hike._id }}" class="ui green button approve_hike">
+        Approve
+      </button>
+      <br><br>
+      <button value="{{ hike._id }}" class="ui red button deny_hike">
+        Deny
+      </button>
+    </td>
+  </tr>
+
+</template>

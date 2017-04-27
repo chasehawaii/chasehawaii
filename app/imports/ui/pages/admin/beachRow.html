@@ -3,6 +3,9 @@
     <td class="single line">
       {{beach.title}}
     </td>
+    <td class="single line">
+      {{beach.status}}
+    </td>
     <td id="{{ beach._id }}">
       {{ beach._id }}
     </td>
@@ -21,11 +24,11 @@
     </td>
 
     <td>
-      <button value="{{ beach._id }}" class="ui green button approve_button">
+      <button value="{{ beach._id }}" class="ui green button approve_beach">
         Approve
       </button>
       <br><br>
-      <button value="{{ beach._id }}" class="ui red button deny_button">
+      <button value="{{ beach._id }}" class="ui red button deny_beach">
         Deny
       </button>
     </td>

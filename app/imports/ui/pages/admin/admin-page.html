@@ -6,6 +6,7 @@
       <thead>
       <tr>
         <th class="single line">Title</th>
+        <th>Status</th>
         <th>ID</th>
         <th>Location</th>
         <th>Tags</th>
@@ -13,7 +14,6 @@
         <th>Approve/Delete</th>
       </tr>
       </thead>
-
 
       <tbody>
       {{#each beach in beachesList}}
@@ -28,7 +28,7 @@
       <thead>
       <tr>
         <th class="single line">Title</th>
-        <th>Image</th>
+        <th>Status</th>
         <th>Location</th>
         <th>Tags</th>
         <th>Kind</th>
@@ -39,50 +39,10 @@
       </tr>
       </thead>
 
-
       <tbody>
       {{#each hike in hikesList}}
-      <tr>
-        <td class="single line">
-          {{hike.title}}
-        </td>
-        <td>
-          <img class="ui small image" src="{{hike.picture}}">
-        </td>
-        <td class="single line">
-          {{hike.location}}
-        </td>
-        <td>
-          {{#each tag in hike.tags }}
-          {{tag}}
-          <br/>
-          {{/each}}
-        </td>
-        <td>
-          {{hike.kind}}
-        </td>
-        <td>
-          {{hike.length}}
-        </td>
-        <td>
-          {{hike.difficulty}}
-        </td>
-
-        <td>
-          {{hike.about}}
-        </td>
-
-        <td>
-          <button class="ui green button">
-            Approve
-          </button>
-          <br><br>
-          <button class="ui red button">
-            Deny
-          </button>
-        </td>
-      </tr>
-      {{/each}}
+       {{> Hike_Row hike=hike}}
+      {{ /each }}
       </tbody>
     </table>
 
@@ -92,7 +52,7 @@
       <thead>
       <tr>
         <th class="single line">Title</th>
-        <th>Image</th>
+        <th>Status</th>
         <th>Location</th>
         <th>Tags</th>
         <th>Food</th>
@@ -104,41 +64,7 @@
 
       <tbody>
       {{#each restaurant in restaurantsList}}
-      <tr>
-        <td class="single line">
-          {{restaurant.title}}
-        </td>
-        <td>
-          <img class="ui small image" src="{{restaurant.picture}}">
-        </td>
-        <td class="single line">
-          {{restaurant.location}}
-        </td>
-        <td>
-          {{#each tag in restaurant.tags }}
-          {{tag}}
-          <br/>
-          {{/each}}
-        </td>
-
-        <td>
-          {{restaurant.food}}
-        </td>
-
-        <td>
-          {{restaurant.about}}
-        </td>
-
-        <td>
-          <button class="ui green button">
-            Approve
-          </button>
-          <br><br>
-          <button class="ui red button">
-            Deny
-          </button>
-        </td>
-      </tr>
+        {{> Restaurant_Row restaurant=restaurant}}
       {{/each}}
       </tbody>
     </table>

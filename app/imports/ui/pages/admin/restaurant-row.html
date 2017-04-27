@@ -1,0 +1,37 @@
+<template name="Restaurant_Row">
+  <tr>
+    <td class="single line">
+      {{restaurant.title}}
+    </td>
+    <td>
+      {{restaurant.status}}
+    </td>
+    <td class="single line">
+      {{restaurant.location}}
+    </td>
+    <td>
+      {{#each tag in restaurant.tags }}
+      {{tag}}
+      <br/>
+      {{/each}}
+    </td>
+
+    <td>
+      {{restaurant.food}}
+    </td>
+
+    <td>
+      {{restaurant.about}}
+    </td>
+
+    <td>
+      <button value="{{ restaurant._id }}" class="ui green button approve_restaurant">
+        Approve
+      </button>
+      <br><br>
+      <button value="{{ restaurant._id }}" class="ui red button deny_restaurant">
+        Deny
+      </button>
+    </td>
+  </tr>
+</template>

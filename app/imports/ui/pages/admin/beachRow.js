@@ -15,3 +15,16 @@ Template.Beach_Row.helpers({
   },
   */
 });
+
+Template.Beach_Row.events({
+  'click .approve_beach'(event) {
+    event.preventDefault();
+    const key = event.target.value;
+    Beaches.update(key, { $set: { status: 1 } });
+  },
+  'click .deny_beach'(event) {
+    event.preventDefault();
+    const key = event.target.value;
+    Beaches.update(key, { $set: { status: 0 } });
+  },
+});
