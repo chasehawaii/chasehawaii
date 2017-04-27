@@ -9,4 +9,7 @@ Template.Beach_Page.onCreated(function onCreated() {
 
 Template.Beach_Page.helpers({
   bea: () => Beaches.findOne({ _id: FlowRouter.getParam('_id') }),
+
+
 });
+
