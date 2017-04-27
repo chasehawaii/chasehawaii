@@ -14,6 +14,14 @@ const profileSeeds = [
     image: 'http://cdn.eluniversal.com/2014/10/29/hideaki-anno-el-anime-no-.jpg',
     about: 'I am a third year Computer Science Major and other than exploring hawaii, I enjoy programming.',
   },
+  {
+    username: 'cepugh',
+    first: 'Chaselyn',
+    last: 'Pugh',
+    standing: 'Junior',
+    image: '',
+    about: 'I am a third year Computer Science Major and other than exploring hawaii, I enjoy programming.',
+  },
 ];
 
 if (Profiles.find().count() === 0) {

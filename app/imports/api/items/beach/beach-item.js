@@ -54,6 +54,10 @@ import { Mongo } from 'meteor/mongo';
       }],
       optional: true,
     },
+    createdAt: {
+      label: 'createdAt',
+      type: Date,
+    },
   });
 
 export const Beaches = new Mongo.Collection('Beaches');

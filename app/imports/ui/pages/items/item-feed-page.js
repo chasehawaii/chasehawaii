@@ -6,7 +6,9 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 import { _ } from 'meteor/underscore';
 
 export const locationList = ['Windward', 'Leeward', 'Central Oahu', 'Honoluu', 'North Shore'];
-export const tagList = ['Busy', 'Secluded', 'Kid-friendly', 'Dog-friendly', 'Good waves', 'No waves', 'Windward', 'Leeward', 'Central Oahu', 'Honoluu', 'North Shore', 'Chinese', 'Thai', 'Italian', 'Mexican', 'Local', 'Burgers', 'Japanese Grill', 'Sushi'];
+export const tagList = ['Busy', 'Secluded', 'Kid-friendly', 'Dog-friendly', 'Good waves', 'No waves', 'Windward',
+  'Leeward', 'Central Oahu', 'Honoluu', 'North Shore', 'Chinese', 'Thai', 'Italian', 'Mexican', 'Local', 'Burgers',
+  'Japanese Grill', 'Sushi'];
 
 Template.Item_Feed_Page.onCreated(function onCreated() {
   this.subscribe('Beaches');
@@ -15,7 +17,6 @@ Template.Item_Feed_Page.onCreated(function onCreated() {
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set('Tags', undefined);
   this.messageFlags.set('Filtered', false);
-
 });
 
 Template.Item_Feed_Page.onRendered(function onRendered() {

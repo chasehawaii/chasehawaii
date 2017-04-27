@@ -63,6 +63,11 @@ export const ProfilesSchema = new SimpleSchema({
     optional: true,
     max: 140,
   },
+  bucketlist: {
+    label: 'bucketlist',
+    type: [String],
+    optional: true,
+  },
 });
 
 Profiles.attachSchema(ProfilesSchema);

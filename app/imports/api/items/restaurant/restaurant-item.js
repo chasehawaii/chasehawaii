@@ -44,6 +44,15 @@ export const RestaurantsSchema = new SimpleSchema({
     type: SimpleSchema.RegEx.Url,
     optional: true,
   },
+  likes: {
+    label: 'likes',
+    type: Number,
+    optional: true,
+  },
+  createdAt: {
+    label: 'createdAt',
+    type: Date,
+  },
 });
 export const Restaurants = new Mongo.Collection('Restaurants');
 Restaurants.attachSchema(RestaurantsSchema);
