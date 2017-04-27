@@ -4,7 +4,7 @@ import { Hikes } from '/imports/api/items/hike/hike-item.js';
 import { Restaurants } from '/imports/api/items/restaurant/restaurant-item.js';
 import { Profiles } from '/imports/api/profiles/ProfileCollection.js';
 import { Meteor } from 'meteor/meteor';
-import moment from 'meteor/moment.js';
+//import moment from 'meteor/moment.js';
 
 /* eslint-env node, jquery */
 
