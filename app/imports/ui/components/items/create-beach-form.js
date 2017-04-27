@@ -47,7 +47,8 @@ Template.Create_Beach_Form.events({
     const selectedTags = _.filter(event.target.Tags.selectedOptions, (option) => option.selected);
     const tags = _.map(selectedTags, (option) => option.value);
     tags.push(location);
-    const newItemData = { title, location, about, tags };
+    const createdAt = Date.now();
+    const newItemData = { title, location, about, tags, createdAt };
 
     // Clear out any old validation errors.
     instance.context.resetValidation();

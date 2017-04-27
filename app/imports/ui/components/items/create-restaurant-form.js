@@ -54,7 +54,8 @@ Template.Create_Restaurant_Form.events({
     const selectedTags = _.filter(event.target.Tags.selectedOptions, (option) => option.selected);
     const tags = _.map(selectedTags, (option) => option.value);
     tags.push(location, food);
-    const newItemData = { title, location, about, tags, food };
+    const createdAt = Date.now();
+    const newItemData = { title, location, about, tags, createdAt };
     // Clear out any old validation errors.
     instance.context.resetValidation();
     // Invoke clean so that newStudentData reflects what will be inserted.

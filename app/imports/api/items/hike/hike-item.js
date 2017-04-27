@@ -54,6 +54,15 @@ export const HikesSchema = new SimpleSchema({
     type: String,
     optional: true,
   },
+  likes: {
+    label: 'likes',
+    type: Number,
+    optional: true,
+  },
+  createdAt: {
+    label: 'createdAt',
+    type: Date,
+  },
 });
 export const Hikes = new Mongo.Collection('Hikes');
 Hikes.attachSchema(HikesSchema);

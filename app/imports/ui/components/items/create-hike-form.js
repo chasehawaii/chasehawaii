@@ -40,6 +40,7 @@ Template.Create_Hike_Form.helpers({
 Template.Create_Hike_Form.events({
   'submit .create-hike-data'(event, instance) {
     event.preventDefault();
+    console.log("working?");
     // Get name (text field)
     const title = event.target.Title.value;
     const location = event.target.Location.value;
@@ -47,7 +48,8 @@ Template.Create_Hike_Form.events({
     const selectedTags = _.filter(event.target.Tags.selectedOptions, (option) => option.selected);
     const tags = _.map(selectedTags, (option) => option.value);
     tags.push(location);
-    const newItemData = { title, location, about, tags };
+    const createdAt = Date.now();
+    const newItemData = { title, location, about, tags, createdAt };
 
     // Clear out any old validation errors.
     instance.context.resetValidation();

@@ -9,7 +9,7 @@
         <img style="height: 250px" class="ui fluid image" src="{{image}}">
 
         <div class="ui container">
-          <h4>Name: {{first}}  {{last}}</h4>
+          <h4>Name: {{first}} {{last}}</h4>
           <h4>Standing: {{standing}}</h4>
           <h4>About</h4>
           <p>{{about}}</p>
@@ -66,32 +66,20 @@
 
         <div style="margin-top: 100px" class="ui segment">
           <h2>Your Bucket List</h2>
-          <table class="ui celled padded table">
-            <thead>
-            <tr>
-              <th class="single line">Title</th>
-              <th>Category</th>
-              <th>Tags</th>
-              <th>Snippet</th>
-              <th> Completed</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td class="single line">
-                Opal Thai
-              </td>
-              <td class="single line">
-                Restaurant
-              </td>
-              <td class="single line">
-                Thai food, North Shore
-              </td>
-              <td>Short summary blurb...
-              </td>
-            </tr>
-            </tbody>
-          </table>
+          <div class="ui cards">
+            {{#each beach in beaches }}
+            {{> Beach_Cards beach=beach}}
+            {{/each}}
+
+            {{#each hike in hikes }}
+            {{> Hike_Cards hike=hike}}
+            {{/each}}
+
+            {{#each restaurant in restaurants }}
+            {{> Restaurant_Cards restaurant=restaurant}}
+            {{/each}}
+
+          </div>
         </div>
       </div>
     </div>

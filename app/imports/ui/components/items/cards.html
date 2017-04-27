@@ -1,5 +1,5 @@
 <template name="Beach_Cards">
-  <div class="card">
+  <div class="card beach-card">
     <div class="image">
       <img src="/images/mockup-item-feed3.jpg">
     </div>
@@ -10,16 +10,23 @@
        <h3> {{ beach.title }} </h3>
       </a>
         </span>
+        <div class="beach-likes">
+          <div data-id="{{ beach._id }}">
         <span class="right floated">
-        <i class="like icon"></i>
-        75 Likes
+        <i class="like icon" data-id="{{ beach._id }}"></i>
+        {{ beach.likes }} Likes
       </span>
+          </div>
+        </div>
       </div>
       <div class="meta">
         <a>{{ beach.category }}</a>
       </div>
       <div class="description">
         {{ beach.about }}
+      </div>
+      <div style="font-size: x-small" class="date">
+        {{ displayDate date=beach.createdAt }}
       </div>
     </div>
     <div class="extra content">
@@ -29,15 +36,17 @@
             {{/each}}
       </span>
     </div>
-    <div class="ui blue bottom attached button">
-      <i class="add icon"></i>
-      Add to Bucket List
+    <div class="beach-bucket">
+      <div class="ui blue bottom attached button" data-id="{{ beach._id }}">
+        <i class="add icon"></i>
+        Add to Bucket List
+      </div>
     </div>
   </div>
 </template>
 
 <template name="Hike_Cards">
-  <div class="card">
+  <div class="card hike-card">
     <div class="image">
       <img src="/images/mockup-item-feed1.jpg">
     </div>
@@ -48,16 +57,23 @@
        <h3> {{ hike.title }} </h3>
       </a>
         </span>
+        <div class="hike-likes">
+          <div data-id="{{ hike._id }}">
         <span class="right floated">
-        <i class="like icon"></i>
-        75 Likes
+        <i class="like icon" data-id="{{ hike._id }}"></i>
+        {{ hike.likes }} Likes
       </span>
+          </div>
+        </div>
       </div>
       <div class="meta">
         <a>{{ hike.category }}</a>
       </div>
       <div class="description">
         {{ hike.about }}
+      </div>
+      <div style="font-size: x-small" class="date">
+        {{ displayDate date=beach.createdAt }}
       </div>
     </div>
     <div class="extra content">
@@ -67,16 +83,17 @@
             {{/each}}
       </span>
     </div>
-    <div class="ui teal bottom attached button">
-      <i class="add icon"></i>
-      Add to Bucket List
+    <div class="hike-bucket">
+      <div class="ui blue bottom attached button" data-id="{{ hike._id }}">
+        <i class="add icon"></i>
+        Add to Bucket List
+      </div>
     </div>
   </div>
 </template>
 
 <template name="Restaurant_Cards">
-  <div class="card">
-
+  <div class="card restaurant-card">
     <div class="image">
       <img src="/images/mockup-item-feed2.JPG">
     </div>
@@ -87,16 +104,23 @@
        <h3> {{ restaurant.title }} </h3>
       </a>
         </span>
+        <div class="restaurant-likes">
+          <div data-id="{{ restaurant._id }}">
         <span class="right floated">
-        <i class="like icon"></i>
-        75 Likes
+        <i class="like icon" data-id="{{ restaurant._id }}"></i>
+        {{ restaurant.likes }} Likes
       </span>
+          </div>
+        </div>
       </div>
       <div class="meta">
         <a>{{ restaurant.category }}</a>
       </div>
       <div class="description">
         {{ restaurant.about }}
+      </div>
+      <div style="font-size: x-small" class="date">
+        {{ displayDate date=beach.createdAt }}
       </div>
     </div>
     <div class="extra content">
@@ -106,9 +130,11 @@
             {{/each}}
       </span>
     </div>
-    <div class="ui violet bottom attached button">
-      <i class="add icon"></i>
-      Add to Bucket List
+    <div class="restaurant-bucket">
+      <div class="ui violet bottom attached button" data-id="{{ restaurant._id }}">
+        <i class="add icon"></i>
+        Add to Bucket List
+      </div>
     </div>
   </div>
 </template>
