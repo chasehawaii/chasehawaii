@@ -45,7 +45,6 @@ Template.Create_Profile_Page.events({
     const about = event.target.About.value;
 
     const newItemData = { username, first, last, standing, image, facebook, instagram, twitter, about };
-    console.log(newItemData);
 
     // Clear out any old validation errors.
     instance.context.resetValidation();

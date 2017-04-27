@@ -4,6 +4,10 @@ import { Hikes } from '/imports/api/items/hike/hike-item.js';
 import { Restaurants } from '/imports/api/items/restaurant/restaurant-item.js';
 import { Profiles } from '/imports/api/profiles/ProfileCollection.js';
 import { Meteor } from 'meteor/meteor';
+import moment from 'meteor/moment.js';
+
+/* eslint-env node, jquery */
+
 
 Template.Beach_Cards.onCreated(function onCreated() {
   this.subscribe('Beaches');
@@ -43,7 +47,6 @@ Template.Beach_Cards.events({
     const profileId = profileName._id;
     const cardId = $(clickedCard).attr('data-id');
     Profiles.update(profileId, { $push: { bucketlist: cardId } });
-
   },
   'click .beach-likes'(event) {
     event.preventDefault();
@@ -86,7 +89,6 @@ Template.Restaurant_Cards.events({
     const profileName = Profiles.findOne({ username: usernameCurrent });
     const profileId = profileName._id;
     const cardId = $(clickedCard).attr('data-id');
-    console.log(cardId);
     Profiles.update(profileId, { $push: { bucketlist: cardId } });
   },
   'click .restaurant-likes'(event) {

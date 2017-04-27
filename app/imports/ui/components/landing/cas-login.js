@@ -1,6 +1,8 @@
 import { Template } from 'meteor/templating';
 import { Meteor } from 'meteor/meteor';
 
+/* eslint no-console: ["error", { allow: ["log"] }]*/
+
 Template.Cas_Login.events({
   /**
    * Handle the click on the logout link.

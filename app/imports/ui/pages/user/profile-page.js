@@ -11,7 +11,6 @@ Template.Profile_Page.onCreated(function onCreated() {
   this.subscribe('Beaches');
   this.subscribe('Hikes');
   this.subscribe('Restaurants');
-
 });
 
 Template.Profile_Page.helpers({
@@ -48,16 +47,22 @@ Template.Profile_Page.helpers({
   beaches() {
     const currUser = FlowRouter.getParam('username');
     const profile = Profiles.findOne({ username: currUser });
-    return _.filter(profile.bucketlist, function (id) {return Beaches.findOne({ _id: id });});
+    return _.filter(profile.bucketlist, function beaches(id) {
+      return Beaches.findOne({ _id: id });
+    });
   },
   hikes() {
     const currUser = FlowRouter.getParam('username');
     const profile = Profiles.findOne({ username: currUser });
-    return _.filter(profile.bucketlist, function (id) {return Hikes.findOne({ _id: id });});
+    return _.filter(profile.bucketlist, function hikes(id) {
+      return Hikes.findOne({ _id: id });
+    });
   },
   restaurants() {
     const currUser = FlowRouter.getParam('username');
     const profile = Profiles.findOne({ username: currUser });
-    return _.filter(profile.bucketlist, function (id) {return Restaurants.findOne({ _id: id });});
+    return _.filter(profile.bucketlist, function restaurants(id) {
+      return Restaurants.findOne({ _id: id });
+    });
   },
 });

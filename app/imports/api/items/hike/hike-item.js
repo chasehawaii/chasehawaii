@@ -66,5 +66,3 @@ export const HikesSchema = new SimpleSchema({
 });
 export const Hikes = new Mongo.Collection('Hikes');
 Hikes.attachSchema(HikesSchema);
-
-
