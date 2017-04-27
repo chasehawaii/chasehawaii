@@ -1,0 +1,33 @@
+<template name="Beach_Row">
+  <tr>
+    <td class="single line">
+      {{beach.title}}
+    </td>
+    <td id="{{ beach._id }}">
+      {{ beach._id }}
+    </td>
+    <td class="single line">
+      {{beach.location}}
+    </td>
+    <td>
+      {{#each tag in beach.tags }}
+      {{tag}}
+      <br/>
+      {{/each}}
+    </td>
+
+    <td>
+      {{beach.about}}
+    </td>
+
+    <td>
+      <button value="{{ beach._id }}" class="ui green button approve_button">
+        Approve
+      </button>
+      <br><br>
+      <button value="{{ beach._id }}" class="ui red button deny_button">
+        Deny
+      </button>
+    </td>
+  </tr>
+</template>

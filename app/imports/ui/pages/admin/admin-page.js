@@ -31,4 +31,3 @@ Template.Admin_Page.helpers({
     return Restaurants.find();
   },
 });
-

@@ -1,6 +1,28 @@
 <template name="Admin_Page">
   <div style="margin-top: 20px; margin-bottom: 20px" class="ui container">
-    <h2>Items to Review</h2>
+    <h2>Beaches</h2>
+    <table class="ui celled padded table">
+
+      <thead>
+      <tr>
+        <th class="single line">Title</th>
+        <th>ID</th>
+        <th>Location</th>
+        <th>Tags</th>
+        <th>Description</th>
+        <th>Approve/Delete</th>
+      </tr>
+      </thead>
+
+
+      <tbody>
+      {{#each beach in beachesList}}
+        {{> Beach_Row beach=beach}}
+      {{/each}}
+      </tbody>
+    </table>
+
+    <h2>Hikes</h2>
     <table class="ui celled padded table">
 
       <thead>
@@ -9,6 +31,9 @@
         <th>Image</th>
         <th>Location</th>
         <th>Tags</th>
+        <th>Kind</th>
+        <th>Length</th>
+        <th>Difficulty</th>
         <th>Description</th>
         <th>Approval</th>
       </tr>
@@ -16,27 +41,92 @@
 
 
       <tbody>
-      {{#each beach in beachesList}}
+      {{#each hike in hikesList}}
       <tr>
         <td class="single line">
-          {{beach.title}}
+          {{hike.title}}
         </td>
         <td>
-          <img class="ui small image" src="{{beach.picture}}">
+          <img class="ui small image" src="{{hike.picture}}">
         </td>
         <td class="single line">
-          {{beach.location}}
+          {{hike.location}}
         </td>
         <td>
-          {{#each tag in beach.tags }}
+          {{#each tag in hike.tags }}
+          {{tag}}
+          <br/>
+          {{/each}}
+        </td>
+        <td>
+          {{hike.kind}}
+        </td>
+        <td>
+          {{hike.length}}
+        </td>
+        <td>
+          {{hike.difficulty}}
+        </td>
+
+        <td>
+          {{hike.about}}
+        </td>
+
+        <td>
+          <button class="ui green button">
+            Approve
+          </button>
+          <br><br>
+          <button class="ui red button">
+            Deny
+          </button>
+        </td>
+      </tr>
+      {{/each}}
+      </tbody>
+    </table>
+
+    <h2>Restaurant</h2>
+    <table class="ui celled padded table">
+
+      <thead>
+      <tr>
+        <th class="single line">Title</th>
+        <th>Image</th>
+        <th>Location</th>
+        <th>Tags</th>
+        <th>Food</th>
+        <th>Description</th>
+        <th>Approval</th>
+      </tr>
+      </thead>
+
+
+      <tbody>
+      {{#each restaurant in restaurantsList}}
+      <tr>
+        <td class="single line">
+          {{restaurant.title}}
+        </td>
+        <td>
+          <img class="ui small image" src="{{restaurant.picture}}">
+        </td>
+        <td class="single line">
+          {{restaurant.location}}
+        </td>
+        <td>
+          {{#each tag in restaurant.tags }}
           {{tag}}
           <br/>
           {{/each}}
         </td>
 
+        <td>
+          {{restaurant.food}}
+        </td>
 
         <td>
-          {{beach.about}}
+          {{restaurant.about}}
         </td>
 
         <td>
