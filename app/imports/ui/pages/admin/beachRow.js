@@ -20,11 +20,11 @@ Template.Beach_Row.events({
   'click .approve_beach'(event) {
     event.preventDefault();
     const key = event.target.value;
-    Beaches.update(key, { $set: { status: 1 } });
+    Beaches.update(key, { $set: { status: 'Approved' } });
   },
   'click .deny_beach'(event) {
     event.preventDefault();
     const key = event.target.value;
-    Beaches.update(key, { $set: { status: 0 } });
+    Beaches.update(key, { $set: { status: 'Denied' } });
   },
 });

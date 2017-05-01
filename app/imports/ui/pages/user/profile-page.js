@@ -47,22 +47,49 @@ Template.Profile_Page.helpers({
   beaches() {
     const currUser = FlowRouter.getParam('username');
     const profile = Profiles.findOne({ username: currUser });
-    return _.filter(profile.bucketlist, function beaches(id) {
+    const filteredBeaches =  _.filter(profile.bucketlist, function beaches(id) {
       return Beaches.findOne({ _id: id });
     });
+    return _.map(filteredBeaches, function beaches(beach) { return Beaches.findOne({ _id: beach }); });
+  },
+  userbeach() {
+    const currUser = FlowRouter.getParam('username');
+    const profile = Profiles.findOne({ username: currUser });
+    const filteredBeaches =  _.filter(profile.youritems, function beaches(id) {
+      return Beaches.findOne({ _id: id });
+    });
+    return _.map(filteredBeaches, function beaches(beach) { return Beaches.findOne({ _id: beach }); });
   },
   hikes() {
     const currUser = FlowRouter.getParam('username');
     const profile = Profiles.findOne({ username: currUser });
-    return _.filter(profile.bucketlist, function hikes(id) {
+    const filteredHike = _.filter(profile.bucketlist, function hikes(id) {
       return Hikes.findOne({ _id: id });
     });
+    return _.map(filteredHike, function hikes(hike) { return Hikes.findOne({ _id: hike }); });
+  },
+  userhike() {
+    const currUser = FlowRouter.getParam('username');
+    const profile = Profiles.findOne({ username: currUser });
+    const filteredHikes =  _.filter(profile.youritems, function hikes(id) {
+      return Hikes.findOne({ _id: id });
+    });
+    return _.map(filteredHikes, function hikes(hike) { return Hikes.findOne({ _id: hike }); });
   },
   restaurants() {
     const currUser = FlowRouter.getParam('username');
     const profile = Profiles.findOne({ username: currUser });
-    return _.filter(profile.bucketlist, function restaurants(id) {
+    const filteredRestaurants = _.filter(profile.bucketlist, function restaurants(id) {
       return Restaurants.findOne({ _id: id });
     });
+    return _.map(filteredRestaurants, function restaurants(restaurant) { return Restaurants.findOne({ _id: restaurant }); });
+  },
+  userrestaurant() {
+    const currUser = FlowRouter.getParam('username');
+    const profile = Profiles.findOne({ username: currUser });
+    const filteredRestaurant =  _.filter(profile.youritems, function restaurant(id) {
+      return Restaurants.findOne({ _id: id });
+    });
+    return _.map(filteredRestaurant, function restaurants(restaurant) { return Restaurants.findOne({ _id: restaurant }); });
   },
 });

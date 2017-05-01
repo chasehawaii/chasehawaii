@@ -1,6 +1,6 @@
 <template name="Profile_Page">
 
-  <div class="ui internally celled grid">
+  <div style="padding-top: 75px" class="ui internally celled grid">
     <div class="row">
 
       <div class="four wide column" style="background-color: #A2D9FF">
@@ -16,56 +16,28 @@
         </div>
 
       </div>
-      <div class="nine wide column">
-        <div style="margin-top: 10px" class="ui segment">
+      <div class="ten wide column">
+        <div style="margin-top: 10px" class="ui container">
           <h2>Your Items</h2>
-          <table class="ui celled padded table">
-            <thead>
-            <tr>
-              <th class="single line">Title</th>
-              <th>Category</th>
-              <th>Tags</th>
-              <th>Ratings</th>
-              <th>Snippet</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td class="single line">
-                Kuliouou Ridge Trail
-              </td>
-              <td class="single line">
-                Hike
-              </td>
-              <td class="single line">
-                Intermediate, dog-friendly
-              </td>
-              <td>
-                <div class="ui star rating" data-rating="3" data-max-rating="3"></div>
-              </td>
-              <td>Short summary blurb...
-              </td>
-            </tr>
-            <tr>
-              <td class="single line">Lanikai Pillboxes Hike</td>
-              <td class="single line">
-                Hike
-              </td>
-              <td class="single line">
-                Easy, Kid-friendly
-              </td>
-              <td>
-                <div class="ui star rating" data-rating="3" data-max-rating="3"></div>
-              </td>
-              <td>Short summary blurb
-              </td>
-            </tr>
-            </tbody>
-          </table>
+          <div class="ui divider"></div>
+          <div class="ui cards">
+            {{#each beach in userbeach }}
+            {{> Beach_User_Cards beach=beach}}
+            {{/each}}
+
+            {{#each hike in userhike }}
+            {{> Hike_User_Cards hike=hike}}
+            {{/each}}
+
+            {{#each restaurant in userrestaurant }}
+            {{> Restaurant_User_Cards restaurant=restaurant}}
+            {{/each}}
+          </div>
         </div>
 
-        <div style="margin-top: 100px" class="ui segment">
+        <div style="margin-top: 100px" class="ui container">
           <h2>Your Bucket List</h2>
+          <div class="ui divider"></div>
           <div class="ui cards">
             {{#each beach in beaches }}
             {{> Beach_Cards beach=beach}}

@@ -3,6 +3,8 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 import { _ } from 'meteor/underscore';
 import { Beaches, BeachesSchema } from '/imports/api/items/beach/beach-item.js';
 import { FlowRouter } from 'meteor/kadira:flow-router';
+import { Profiles } from '/imports/api/profiles/ProfileCollection.js';
+import { Meteor } from 'meteor/meteor';
 
 /* eslint-disable no-param-reassign */
 
@@ -11,9 +13,11 @@ export const locationList = ['Windward', 'Leeward', 'Central Oahu', 'Honoluu'];
 export const beachTagList = ['Busy', 'Secluded', 'Kid-friendly', 'Dog-friendly', 'Good waves', 'No waves'];
 
 Template.Create_Beach_Form.onCreated(function onCreated() {
+  this.subscribe('Profiles');
+  this.subscribe('Beaches');
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displayErrorMessages, false);
-  this.context = BeachesSchema.namedContext('Create_Item_Page');
+  this.context = BeachesSchema.namedContext('Create_Beach_Form');
 });
 
 Template.Create_Beach_Form.helpers({
@@ -48,8 +52,9 @@ Template.Create_Beach_Form.events({
     const tags = _.map(selectedTags, (option) => option.value);
     tags.push(location);
     const createdAt = Date.now();
-    const newItemData = { title, location, about, tags, createdAt };
-
+    const status = 'Pending';
+    const newItemData = { title, location, about, tags, status, createdAt };
+    const currentTitle = title;
     // Clear out any old validation errors.
     instance.context.resetValidation();
     // Invoke clean so that newStudentData reflects what will be inserted.
@@ -59,6 +64,10 @@ Template.Create_Beach_Form.events({
     if (instance.context.isValid()) {
       Beaches.insert(newItemData);
       instance.messageFlags.set(displayErrorMessages, false);
+      const usernameCurrent = Meteor.user().profile.name;
+      const profileId = Profiles.findOne({ username: usernameCurrent })._id;
+      const currentBeach = Beaches.findOne({ title: currentTitle })._id;
+      Profiles.update(profileId, { $push: { youritems: currentBeach } });
       FlowRouter.go('Item_Feed_Page');
     } else {
       instance.messageFlags.set(displayErrorMessages, true);

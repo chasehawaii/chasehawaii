@@ -1,0 +1,114 @@
+<template name="Beach_User_Cards">
+  <div class="card beach-card">
+    <div class="content">
+      <div class="extra content">
+        <span class="left floated">
+      <a class="{{ isActiveRoute 'Beach_Page/:_id'}} item" href=" /beach/{{beach._id}}">
+       <h3> {{ beach.title }} </h3>
+      </a>
+        </span>
+        <div class="beach-likes">
+          <div data-id="{{ beach._id }}">
+        <span class="right floated">
+        <i class="like icon" data-id="{{ beach._id }}"></i>
+        {{ beach.likes }} Likes
+      </span>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <a>{{ beach.category }}</a>
+      </div>
+      <div style="font-size: x-small" class="date">
+        <!--{{ displayDate date=beach.createdAt }}-->
+      </div>
+    </div>
+    <div class="extra content">
+          <span class="left floated">
+            Status: {{ beach.status }}
+      </span>
+    </div>
+    <div class="ui two buttons" data-id="{{ beach._id }}">
+      <div class="ui basic red button">Request Delete</div>
+        <div class="ui basic green beach-edit button">Edit</div>
+    </div>
+  </div>
+</template>
+
+<template name="Hike_User_Cards">
+  <div class="card hike-card">
+    <div class="content">
+      <div class="extra content">
+        <span class="left floated">
+      <a class="{{ isActiveRoute 'Hike_Page/:_id'}} item" href=" /hike/{{hike._id}}">
+       <h3> {{ hike.title }} </h3>
+      </a>
+        </span>
+        <div class="hike-likes">
+          <div data-id="{{ hike._id }}">
+        <span class="right floated">
+        <i class="like icon" data-id="{{ hike._id }}"></i>
+        {{ hike.likes }} Likes
+      </span>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <a>{{ hike.category }}</a>
+      </div>
+      <div style="font-size: x-small" class="date">
+        <!--{{ displayDate date=hike.createdAt }}-->
+      </div>
+    </div>
+    <div class="extra content">
+          <span class="left floated">
+            Status: {{ hike.status }}
+      </span>
+    </div>
+    <div class="hike-edit">
+      <div class="ui two buttons" data-id="{{ hike._id }}">
+        <div class="ui basic red button">Request Delete</div>
+        <div class="ui basic green hike-edit button">Edit</div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="Restaurant_User_Cards">
+  <div class="card restaurant-card">
+    <div class="content">
+      <div class="extra content">
+        <span class="left floated">
+      <a class="{{ isActiveRoute 'Restaurant_Page/:_id'}} item" href=" /restaurant/{{restaurant._id}}">
+       <h3> {{ restaurant.title }} </h3>
+      </a>
+        </span>
+        <div class="restaurant-likes">
+          <div data-id="{{ restaurant._id }}">
+        <span class="right floated">
+        <i class="like icon" data-id="{{ restaurant._id }}"></i>
+        {{ restaurant.likes }} Likes
+      </span>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <a>{{ restaurant.category }}</a>
+      </div>
+      <div style="font-size: x-small" class="date">
+        <!--{{ displayDate date=restaurant.createdAt }}-->
+      </div>
+    </div>
+    <div class="extra content">
+          <span class="left floated">
+            Status: {{ restaurant.status }}
+      </span>
+    </div>
+    <div class="restaurant-edit">
+      <div class="ui two buttons" data-id="{{ restaurant._id }}">
+        <div class="ui basic red button">Request Delete</div>
+        <div class="ui basic green restaurant-edit button">Edit</div>
+      </div>
+    </div>
+  </div>
+</template>

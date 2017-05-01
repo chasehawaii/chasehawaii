@@ -68,6 +68,11 @@ export const ProfilesSchema = new SimpleSchema({
     type: [String],
     optional: true,
   },
+  youritems: {
+    label: 'youritems',
+    type: [String],
+    optional: true,
+  },
 });
 
 Profiles.attachSchema(ProfilesSchema);
