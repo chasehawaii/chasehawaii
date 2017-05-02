@@ -1,5 +1,6 @@
 <template name="Admin_Page">
-  <div style="margin-top: 20px; margin-bottom: 20px" class="ui container">
+{{#if isAdmin}}
+  <div style="margin-top: 100px; margin-bottom: 20px" class="ui container">
     <h2>Beaches</h2>
     <table class="ui celled padded table">
 
@@ -61,7 +62,6 @@
       </tr>
       </thead>
 
-
       <tbody>
       {{#each restaurant in restaurantsList}}
         {{> Restaurant_Row restaurant=restaurant}}
@@ -70,4 +70,10 @@
     </table>
 
   </div>
+
+  {{else}}
+
+  {{ >Not_Admin }}
+
+  {{/if}}
 </template>
