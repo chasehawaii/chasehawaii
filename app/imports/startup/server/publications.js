@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Hikes } from '/imports/api/items/hike/hike-item.js';
 import { Restaurants } from '/imports/api/items/restaurant/restaurant-item.js';
 import { Profiles } from '/imports/api/profiles/ProfileCollection.js';
+import { Comments } from '/imports/api/comments/CommentsCollection.js';
 
 Meteor.publish('Beaches', function publishContacts() {
   return Beaches.find();
