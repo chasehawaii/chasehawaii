@@ -5,11 +5,11 @@ Template.Hike_Row.events({
   'click .approve_hike'(event) {
     event.preventDefault();
     const key = event.target.value;
-    Hikes.update(key, { $set: { status: 1 } });
+    Hikes.update(key, { $set: { status: 'Approved' } });
   },
   'click .deny_hike'(event) {
     event.preventDefault();
     const key = event.target.value;
-    Hikes.update(key, { $set: { status: 0 } });
+    Hikes.update(key, { $set: { status: 'Denied' } });
   },
 });
