@@ -12,4 +12,9 @@ Template.Hike_Row.events({
     const key = event.target.value;
     Hikes.update(key, { $set: { status: 0 } });
   },
+  'click .delete_hike'(event) {
+    event.preventDefault();
+    const key = event.target.value;
+    Hikes.remove(key);
+  },
 });
