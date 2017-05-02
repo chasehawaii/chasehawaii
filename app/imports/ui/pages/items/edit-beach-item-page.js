@@ -40,7 +40,8 @@ Template.Edit_Beach_Page.helpers({
     });
   },
   editBeachField(fieldName) {
-    const beachData = Beaches.findOne(Session.get('beachID'));
+    const beachData = Beaches.findOne(FlowRouter.getParam('_id'));
+    console.log(beachData);
     return beachData && beachData[fieldName];
   },
 });
