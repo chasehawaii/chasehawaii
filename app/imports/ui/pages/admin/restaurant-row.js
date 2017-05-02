@@ -8,11 +8,11 @@ Template.Restaurant_Row.events({
   'click .approve_restaurant'(event) {
     event.preventDefault();
     const key = event.target.value;
-    Restaurants.update(key, { $set: { status: 1 } });
+    Restaurants.update(key, { $set: { status: 'Approved' } });
   },
   'click .deny_restaurant'(event) {
     event.preventDefault();
     const key = event.target.value;
-    Restaurants.update(key, { $set: { status: 0 } });
+    Restaurants.update(key, { $set: { status: 'Denied' } });
   },
 });

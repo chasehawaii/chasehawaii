@@ -8,3 +8,5 @@ import './create-hike-form.js';
 import './create-restaurant-form.js';
 import './filter.html';
 import './filter.js';
+import './user-cards.html';
+import './user-cards.js';

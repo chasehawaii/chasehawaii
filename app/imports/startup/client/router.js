@@ -58,6 +58,27 @@ FlowRouter.route('/create-profile', {
   },
 });
 
+FlowRouter.route('/edit-beach', {
+  name: 'Edit_Beach_Page',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Edit_Beach_Page' });
+  },
+});
+
+FlowRouter.route('/edit-hike', {
+  name: 'Edit_Hike_Page',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Edit_Hike_Page' });
+  },
+});
+
+FlowRouter.route('/edit-restaurant', {
+  name: 'Edit_Restaurant_Page',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Edit_Restaurant_Page' });
+  },
+});
+
 FlowRouter.route('/edit-profile', {
   name: 'Edit_Profile_Page',
   action() {

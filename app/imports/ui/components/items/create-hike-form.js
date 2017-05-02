@@ -3,6 +3,8 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 import { _ } from 'meteor/underscore';
 import { Hikes, HikesSchema } from '/imports/api/items/hike/hike-item.js';
 import { FlowRouter } from 'meteor/kadira:flow-router';
+import { Profiles } from '/imports/api/profiles/ProfileCollection.js';
+import { Meteor } from 'meteor/meteor';
 
 /* eslint-disable no-param-reassign */
 
@@ -11,6 +13,8 @@ export const locationList = ['Windward', 'Leeward', 'Central Oahu', 'Honoluu', '
 export const hikeTagList = ['Kid-friendly', 'Dog-friendly'];
 
 Template.Create_Hike_Form.onCreated(function onCreated() {
+  this.subscribe('Profiles');
+  this.subscribe('Hikes');
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displayErrorMessages, false);
   this.context = HikesSchema.namedContext('Create_Item_Page');
@@ -48,7 +52,9 @@ Template.Create_Hike_Form.events({
     const tags = _.map(selectedTags, (option) => option.value);
     tags.push(location);
     const createdAt = Date.now();
-    const newItemData = { title, location, about, tags, createdAt };
+    const status = 'Pending';
+    const newItemData = { title, location, about, tags, status, createdAt };
+    const currentTitle = title;
 
     // Clear out any old validation errors.
     instance.context.resetValidation();
@@ -59,6 +65,10 @@ Template.Create_Hike_Form.events({
     if (instance.context.isValid()) {
       Hikes.insert(newItemData);
       instance.messageFlags.set(displayErrorMessages, false);
+      const usernameCurrent = Meteor.user().profile.name;
+      const profileId = Profiles.findOne({ username: usernameCurrent })._id;
+      const currentHike = Hikes.findOne({ title: currentTitle })._id;
+      Profiles.update(profileId, { $push: { youritems: currentHike } });
       FlowRouter.go('Item_Feed_Page');
     } else {
       instance.messageFlags.set(displayErrorMessages, true);

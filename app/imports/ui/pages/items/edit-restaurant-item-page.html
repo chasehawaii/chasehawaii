@@ -1,0 +1,24 @@
+<template name="Edit_Restaurant_Page">
+  <div class="create item page">
+    <div class="ui container">
+      <form  style="padding-top: 100px" class="ui form edit-restaurant-data">
+        <h3 class="ui dividing header">Edit Restaurant</h3>
+        <div class="two fields">
+          {{> Text_Form_Control label="Title" value=(editRestaurantField 'title') }}
+          {{> Select_Form_Control label="Food" value=(editRestaurantField 'food') options=foodTypeChoice }}
+          {{> Select_Form_Control label="Location" value=(editRestaurantField 'location') options=locationChoice }}
+        </div>
+        <div class="field">
+          {{> TextArea_Form_Control label="About" value=(editRestaurantField 'about')}}
+        </div>
+        <div class="field">
+          {{> Select_Form_Control label="Tags" value=(editRestaurantField 'tags') options=restaurantTagChoice multiple=true }}
+        </div>
+        <div class="field"></div>
+        <button class="ui button" type="submit">Update</button>
+      </form>
+    </div>
+  </div>
+  {{> Header}}
+  {{> Footer}}
+</template>
