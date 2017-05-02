@@ -53,6 +53,7 @@
 
 
       <div class="ui beach comments" style="filter:alpha(opacity=85); opacity:0.85; background-color: #FFFFFF;">
+        <form class="ui form beach-comment-form">
         <h3 class="ui dividing header">Comments</h3>
         {{#each comment in Comments}}
           <div class="comment">
@@ -73,7 +74,7 @@
             </div>
           </div>
         {{/each}}
-        <form class="ui form beach-comment-form">
+
           <div class="field">
             {{> TextArea_Form_Control label="About" placeholder="Add a comment" }}
           </div>
