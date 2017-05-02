@@ -1,9 +1,24 @@
 <template name="Edit_Beach_Page">
-  <div class="create item page">
-    <div style="padding-top: 50px" class="ui container">
-      {{>Create_Beach_Form }}
+    <div class="create item page">
+      <div class="ui container">
+      <form style="padding-top: 100px" class="ui form edit-beach-data">
+        <h3 class="ui dividing header">Edit Beach</h3>
+        <div class="two fields">
+          {{> Text_Form_Control label="Title" value=(editBeachField 'title') }}
+          {{> Select_Form_Control label="Location" value=(editBeachField 'location') options=locationChoice }}
+        </div>
+        <div class="field">
+          {{> TextArea_Form_Control label="About" value=(editBeachField 'about')}}
+        </div>
+        <div class="field">
+          {{> Select_Form_Control label="Tags" value=(editBeachField 'tags') options=beachTagChoice multiple=true }}
+        </div>
+        <div class="field">
+        </div>
+        <button class="ui button" type="submit">Update</button>
+      </form>
     </div>
-  </div>
+    </div>
   {{> Header}}
   {{> Footer}}
 </template>

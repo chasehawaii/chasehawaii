@@ -1,7 +1,22 @@
 <template name="Edit_Hike_Page">
   <div class="create item page">
-    <div style="padding-top: 50px" class="ui container">
-      {{>Create_Hike_Form }}
+    <div class="ui container">
+      <form style="padding-top: 100px" class="ui form edit-hike-data">
+        <h3 class="ui dividing header">Edit Hike</h3>
+        <div class="two fields">
+          {{> Text_Form_Control label="Title" value=(editHikeField 'title') }}
+          {{> Select_Form_Control label="Location" value=(editHikeField 'location') options=locationChoice }}
+        </div>
+        <div class="field">
+          {{> TextArea_Form_Control label="About" value=(editHikeField 'about')}}
+        </div>
+        <div class="field">
+          {{> Select_Form_Control label="Tags" value=(editHikeField 'tags') options=hikeTagChoice multiple=true }}
+        </div>
+        <div class="field">
+        </div>
+        <button class="ui button" type="submit">Update</button>
+      </form>
     </div>
   </div>
   {{> Header}}
