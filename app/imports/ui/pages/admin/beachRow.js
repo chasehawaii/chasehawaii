@@ -27,4 +27,9 @@ Template.Beach_Row.events({
     const key = event.target.value;
     Beaches.update(key, { $set: { status: 'Denied' } });
   },
+  'click .delete_beach'(event) {
+    event.preventDefault();
+    const key = event.target.value;
+    Beaches.remove(key);
+  },
 });

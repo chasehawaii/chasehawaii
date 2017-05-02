@@ -15,4 +15,9 @@ Template.Restaurant_Row.events({
     const key = event.target.value;
     Restaurants.update(key, { $set: { status: 'Denied' } });
   },
+  'click .delete_restaurant'(event) {
+    event.preventDefault();
+    const key = event.target.value;
+    Restaurants.remove(key);
+  },
 });
