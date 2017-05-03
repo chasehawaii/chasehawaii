@@ -20,6 +20,11 @@ Template.Restaurant_Page.helpers({
     return Comments.find();
   },
 
+  displayDate() {
+    return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
+  },
+
+
 });
 
 Template.Restaurant_Page.events({

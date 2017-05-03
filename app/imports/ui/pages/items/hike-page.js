@@ -20,6 +20,11 @@ Template.Hike_Page.helpers({
     return Comments.find();
   },
 
+  displayDate() {
+    return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
+  },
+
+
 });
 
 Template.Hike_Page.events({

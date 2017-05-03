@@ -20,6 +20,10 @@ Template.Beach_Page.helpers({
     return Comments.find();
   },
 
+  displayDate() {
+    return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
+  },
+
 });
 
 Template.Beach_Page.events({

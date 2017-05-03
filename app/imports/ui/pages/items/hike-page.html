@@ -73,7 +73,7 @@
                 <div class="content">
                   <a class="author">{{comment.username}}</a>
                   <div class="metadata">
-                    <span class="date">Today at 5:42PM</span>
+                    <span class="date">{{ displayDate date=commment.createdAt }}</span>
                   </div>
                   <div class="text">
                     {{comment.about}}
