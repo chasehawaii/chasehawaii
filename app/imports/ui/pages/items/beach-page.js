@@ -10,12 +10,13 @@ import { _ } from 'meteor/underscore';
 Template.Beach_Page.onCreated(function onCreated() {
   this.subscribe('Beaches');
   this.context = CommentsSchema.namedContext('Beach_Page')
+  this.subscribe('Comments');
 });
 
 Template.Beach_Page.helpers({
   bea: () => Beaches.findOne({ _id: FlowRouter.getParam('_id') }),
 
-  CommentsList() {
+  Comments() {
     return Comments.find();
   },
 
@@ -26,19 +27,26 @@ Template.Beach_Page.events({
     event.preventDefault();
     // Get name (text field)
     const username = Meteor.user().profile.name;
-    const about = event.target.About.value;
+    const about = event.target.about.value;
     const newItemData = { username, about };
 
+
+    console.log(username);
+    console.log(about);
+
     // Clear out any old validation errors.
-    instance.context.resetValidation();
+   // instance.context.resetValidation();
     // Invoke clean so that newStudentData reflects what will be inserted.
-    CommentsSchema.clean(newItemData);
+   // CommentsSchema.clean(newItemData);
     // Determine validity.
     instance.context.validate(newItemData);
-
-    Comments.insert(newItemData);
-  //  instance.messageFlags.set(displayErrorMessages, false);
-    FlowRouter.reload();
-
+    //if (instance.context.isValid()) {
+      Comments.insert(newItemData);
+      //Comments.update(Session.get(''), { $set: newItemData });
+    //  instance.messageFlags.set(displayErrorMessages, false);
+     // FlowRouter.reload();
+  //  } else {
+   //   instance.messageFlags.set(displayErrorMessages, true);
+    //}
   },
 });
