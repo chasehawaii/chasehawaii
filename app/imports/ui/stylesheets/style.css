@@ -160,7 +160,7 @@ div.not.found{
 
   background: url('https://upload.wikimedia.org/wikipedia/commons/d/d1/Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg') no-repeat center center fixed;
   background-size:cover;
-  height:750px;
+  height:900px;
 }
 
 div.ui.not.found.center.aligned.top.container{
@@ -168,7 +168,7 @@ div.ui.not.found.center.aligned.top.container{
   color: #FFFFFF;
   font-size: larger;
   font-family: 'Roboto', sans-serif;
-  padding-top: 75px;
+  padding-top: 150px;
 }
 h3 {
   color: black;

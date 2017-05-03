@@ -2,14 +2,14 @@
 <div class = "header page">
   <div class="ui top fixed borderless inverted menu" style="filter:alpha(opacity=75); opacity:0.75;">
     <div class="ui container">
-      <a class="item" href="{{pathFor 'Landing_Page'}}"><h1>ChaseHawaii</h1></a>
+      <a class="item" href="{{pathFor 'Item_Feed_Page'}}"><h1>ChaseHawaii</h1></a>
 
       <a class="{{ isActiveRoute 'Item_Feed_Page'}} item" href="{{ pathFor 'Item_Feed_Page' }}">Adventure Feed </a>
       <a class="{{ isActiveRoute 'Create_Item_Page'}} item" href="{{ pathFor 'Create_Item_Page' }}">Create Adventure</a>
 
     </div>
-    <div class = "right aligned item"><a class="{{ isActiveRoute '/username/profile`'}} item" href="{{ pathFor '`/username/profile`' }}">  <img class="ui mini circular image" src="http://www.ics.hawaii.edu/wp-content/uploads/2013/08/Gerald_Lau-2014.jpg"> </a> </div>
-    <div style = "padding-left:-10px" class="right aligned item">{{> Cas_Login }}</div>
+    <div style = "margin-right:-150px" class = "float right item"><a href="{{pathFor 'Profile_Page' username = profpath}}">  <img class="ui mini circular image" src="http://www.ics.hawaii.edu/wp-content/uploads/2013/08/Gerald_Lau-2014.jpg"> </a> </div>
+    <div class="float right item">{{> Cas_Login }}</div>
   </div>
 </div>
 </template>

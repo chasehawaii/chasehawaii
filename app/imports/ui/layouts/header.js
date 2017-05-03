@@ -11,11 +11,15 @@ Template.Header.onRendered(function enableDropDown() {
   this.$('.dropdown').dropdown();
 });
 
+Template.Header.helpers({
+
+  profpath() {
+    console.log(Meteor.user().profile.name)
+    return Meteor.user().profile.name
+  },
+});
+
 Template.Header.events({
 
-  'click img': function () {
-    //const username = Meteor.user().profile.name;
-    FlowRouter.go(`/${Meteor.user().profile.name}/profile`);
-  }
 
 });
