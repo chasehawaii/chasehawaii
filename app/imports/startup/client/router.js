@@ -25,7 +25,7 @@ FlowRouter.route('/beach/:_id', {
 FlowRouter.route('/hike/:_id', {
   name: 'Hike_Page/',
   action() {
-    BlazeLayout.render('App_Body', { main: 'Hike_Page' });
+    BlazeLayout.render('App_Body', { main: 'Restaurant_Page' });
   },
 });
 
