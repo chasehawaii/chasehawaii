@@ -11,14 +11,18 @@ Template.Beach_Page.onCreated(function onCreated() {
   this.subscribe('Beaches');
   this.context = CommentsSchema.namedContext('Beach_Page')
   this.subscribe('Comments');
+
 });
 
 Template.Beach_Page.helpers({
   bea: () => Beaches.findOne({ _id: FlowRouter.getParam('_id') }),
 
   Comments() {
-    return Comments.find();
+    return Comments.find( {itemid: FlowRouter.getParam('_id')} );
   },
+
+
+
 
   displayDate() {
     return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
@@ -32,11 +36,13 @@ Template.Beach_Page.events({
     // Get name (text field)
     const username = Meteor.user().profile.name;
     const about = event.target.about.value;
-    const newItemData = { username, about };
+    const itemid = FlowRouter.getParam('_id');
+    const newItemData = { username, about, itemid };
 
 
     console.log(username);
     console.log(about);
+    console.log(itemid);
 
     // Clear out any old validation errors.
    // instance.context.resetValidation();
@@ -46,6 +52,7 @@ Template.Beach_Page.events({
     instance.context.validate(newItemData);
     //if (instance.context.isValid()) {
       Comments.insert(newItemData);
+   // template.find("form").reset();
       //Comments.update(Session.get(''), { $set: newItemData });
     //  instance.messageFlags.set(displayErrorMessages, false);
      // FlowRouter.reload();
