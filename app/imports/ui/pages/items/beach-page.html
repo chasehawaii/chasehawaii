@@ -54,26 +54,23 @@
 
       <div class="ui beach comments" style="filter:alpha(opacity=85); opacity:0.85; background-color: #FFFFFF;">
         <form class="ui form beach-comment-form">
-        <h3 class="ui dividing header">Comments</h3>
-        {{#each comment in Comments}}
-          <div class="comment">
-            <a class="ui avatar image">
-              <img src="http://www.ics.hawaii.edu/wp-content/uploads/2013/08/Gerald_Lau-2014.jpg">
-            </a>
-            <div class="content">
-              <a class="author">{{comment.username}}</a>
-              <div class="metadata">
-                <span class="date">{{ displayDate date=commment.createdAt }}</span>
-              </div>
-              <div class="text">
-                {{comment.about}}
-              </div>
-              <div class="actions">
-                <a class="reply">Reply</a>
+          <h3 class="ui dividing header">Comments</h3>
+          {{#each comment in Comments}}
+            <div class="comment">
+              <a class="ui avatar image">
+                <img src="http://www.ics.hawaii.edu/wp-content/uploads/2013/08/Gerald_Lau-2014.jpg">
+              </a>
+              <div class="content">
+                <a class="author">{{comment.username}}</a>
+                <div class="metadata">
+                  <span class="date">{{ displayDate date=comment.createdAt }}</span>
+                </div>
+                <div class="text">
+                  {{comment.about}}
+                </div>
               </div>
             </div>
-          </div>
-        {{/each}}
+          {{/each}}
 
           <div class="field">
             {{> TextArea_Form_Control label="about" placeholder="Add a comment" }}

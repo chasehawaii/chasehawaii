@@ -21,6 +21,12 @@ export const CommentsSchema = new SimpleSchema({
     optional: true,
     max: 500,
   },
+  itemid: {
+    label: 'itemid',
+    type: SimpleSchema.RegEx.Url,
+    optional: false,
+    max: 200,
+  },
 });
 
 export const Comments = new Mongo.Collection('Comments');

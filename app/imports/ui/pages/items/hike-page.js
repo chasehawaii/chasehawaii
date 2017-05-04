@@ -1,6 +1,6 @@
 import './hike-page.html';
 import { Template } from 'meteor/templating';
-import { Hikes } from '/imports/api/items/beach/beach-item.js';
+import { Hikes } from '/imports/api/items/hike/hike-item.js';
 import { Comments, CommentsSchema } from '/imports/api/comments/CommentsCollection.js';
 import { Meteor } from 'meteor/meteor';
 import { FlowRouter } from 'meteor/kadira:flow-router';
@@ -9,35 +9,40 @@ import { _ } from 'meteor/underscore';
 
 Template.Hike_Page.onCreated(function onCreated() {
   this.subscribe('Hikes');
-  this.context = CommentsSchema.namedContext('Hike_Page');
+  this.context = CommentsSchema.namedContext('Hike_Page')
   this.subscribe('Comments');
+
 });
 
 Template.Hike_Page.helpers({
   hik: () => Hikes.findOne({ _id: FlowRouter.getParam('_id') }),
 
   Comments() {
-    return Comments.find();
+    return Comments.find( {itemid: FlowRouter.getParam('_id')} );
   },
+
+
+
 
   displayDate() {
     return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
   },
-
 
 });
 
 Template.Hike_Page.events({
   'submit .hike-comment-form'(event, instance) {
     event.preventDefault();
-    // Get name (text field)vali
+    // Get name (text field)
     const username = Meteor.user().profile.name;
     const about = event.target.about.value;
-    const newItemData = { username, about };
+    const itemid = FlowRouter.getParam('_id');
+    const newItemData = { username, about, itemid };
 
 
     console.log(username);
     console.log(about);
+    console.log(itemid);
 
     // Clear out any old validation errors.
     // instance.context.resetValidation();
@@ -47,6 +52,7 @@ Template.Hike_Page.events({
     instance.context.validate(newItemData);
     //if (instance.context.isValid()) {
     Comments.insert(newItemData);
+    // template.find("form").reset();
     //Comments.update(Session.get(''), { $set: newItemData });
     //  instance.messageFlags.set(displayErrorMessages, false);
     // FlowRouter.reload();
