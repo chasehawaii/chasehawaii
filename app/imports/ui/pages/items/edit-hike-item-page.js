@@ -16,6 +16,7 @@ Template.Edit_Hike_Page.onCreated(function onCreated() {
   this.subscribe('Hikes');
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displayErrorMessages, false);
+  this.currentId = new ReactiveDict();
   this.context = HikesSchema.namedContext('Create_Hike_Form');
 });
 
@@ -39,7 +40,8 @@ Template.Edit_Hike_Page.helpers({
     });
   },
   editHikeField(fieldName) {
-    const hikeData = Hikes.findOne(Session.get('hikeID'));
+    const hikeData = Hikes.findOne(FlowRouter.getParam('_id'));
+    Template.instance().currentId.set('current', hikeData);
     return hikeData && hikeData[fieldName];
   },
 });
@@ -55,8 +57,9 @@ Template.Edit_Hike_Page.events({
     const tags = _.map(selectedTags, (option) => option.value);
     tags.push(location);
     const createdAt = Date.now();
+    const picture = event.target.Picture.value;
     const status = 'Pending';
-    const newItemData = { title, location, about, tags, status, createdAt };
+    const newItemData = { title, location, about, tags, status, picture, createdAt };
 
     // Clear out any old validation errors.
     instance.context.resetValidation();
@@ -66,7 +69,7 @@ Template.Edit_Hike_Page.events({
     // Determine validity.
     instance.context.validate(newItemData);
     if (instance.context.isValid()) {
-      Hikes.update(Session.get('hikeID'), { $set: newItemData });
+      Hikes.update(instance.currentId.get('current')._id, { $set: newItemData });
       instance.messageFlags.set(displayErrorMessages, false);
       FlowRouter.go('Item_Feed_Page');
     } else {

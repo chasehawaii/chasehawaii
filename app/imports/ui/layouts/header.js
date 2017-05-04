@@ -14,8 +14,7 @@ Template.Header.onRendered(function enableDropDown() {
 Template.Header.helpers({
 
   profpath() {
-    console.log(Meteor.user().profile.name)
-    return Meteor.user().profile.name
+    return Meteor.user().profile.name;
   },
 });
 

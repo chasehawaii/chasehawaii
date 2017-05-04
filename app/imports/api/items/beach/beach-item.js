@@ -61,6 +61,7 @@ export const BeachesSchema = new SimpleSchema({
   deleteRequest: {
     label: 'deleteRequest',
     type: Boolean,
+    optional: true,
   },
 });
 

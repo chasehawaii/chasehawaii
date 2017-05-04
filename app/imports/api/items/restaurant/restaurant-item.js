@@ -56,6 +56,7 @@ export const RestaurantsSchema = new SimpleSchema({
   deleteRequest: {
     label: 'deleteRequest',
     type: Boolean,
+    optional: true,
   },
 });
 export const Restaurants = new Mongo.Collection('Restaurants');

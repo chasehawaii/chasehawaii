@@ -28,7 +28,7 @@ Template.Restaurant_Cards.onCreated(function onCreated() {
 
 Template.Beach_Cards.helpers({
   displayDate() {
-    return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
+    return moment(this.createdAt).format('MM/DD/YYYY');
   },
   inBucketList() {
     const usernameCurrent = Meteor.user().profile.name;
@@ -38,7 +38,7 @@ Template.Beach_Cards.helpers({
 });
 Template.Hike_Cards.helpers({
   displayDate() {
-    return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
+    return moment(this.createdAt).format('MM/DD/YYYY');
   },
   inBucketList() {
     const usernameCurrent = Meteor.user().profile.name;
@@ -48,7 +48,7 @@ Template.Hike_Cards.helpers({
 });
 Template.Restaurant_Cards.helpers({
   displayDate() {
-    return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
+    return moment(this.createdAt).format('MM/DD/YYYY');
   },
   inBucketList() {
     const usernameCurrent = Meteor.user().profile.name;
