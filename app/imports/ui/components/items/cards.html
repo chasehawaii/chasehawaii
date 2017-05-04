@@ -36,12 +36,27 @@
             {{/each}}
       </span>
     </div>
-    <div class="beach-bucket">
+    {{#if isNotActivePath regex='item-feed'}}
+    <div class="beach-bucket-remove">
       <div class="ui blue bottom attached button" data-id="{{ beach._id }}">
-        <i class="add icon"></i>
-        Add to Bucket List
+        <i class="minus icon"></i>
+        Remove from Bucket list
       </div>
     </div>
+    {{/if}}
+    {{#if isActivePath regex='item-feed'}}
+    <div class="beach-bucket">
+      <div class="ui blue bottom attached button" data-id="{{ beach._id }}">
+        {{#if inBucketList item=beach._id}}
+        <i class="white star icon"></i>
+        In your bucket list!
+        {{else}}
+        <i class="add icon"></i>
+        Add to Bucket List
+        {{/if}}
+      </div>
+    </div>
+    {{/if}}
   </div>
 </template>
 
@@ -83,11 +98,28 @@
             {{/each}}
       </span>
     </div>
-    <div class="hike-bucket">
-      <div class="ui blue bottom attached button" data-id="{{ hike._id }}">
-        <i class="add icon"></i>
-        Add to Bucket List
+    <div class="{{isActiveRoute regex='/^profile/'}}">
+      {{#if isNotActivePath regex='item-feed'}}
+      <div class="hike-bucket-remove">
+        <div class="ui blue bottom attached button" data-id="{{ hike._id }}">
+          <i class="minus icon"></i>
+          Remove from Bucket list
+        </div>
       </div>
+      {{/if}}
+      {{#if isActivePath regex='item-feed'}}
+      <div class="hike-bucket">
+        <div class="ui violet bottom attached button" data-id="{{ hike._id }}">
+          {{#if inBucketList item=hike._id}}
+          <i class="white star icon"></i>
+          In your bucket list!
+          {{else}}
+          <i class="add icon"></i>
+          Add to Bucket List
+          {{/if}}
+        </div>
+      </div>
+      {{/if}}
     </div>
   </div>
 </template>
@@ -130,11 +162,28 @@
             {{/each}}
       </span>
     </div>
-    <div class="restaurant-bucket">
-      <div class="ui violet bottom attached button" data-id="{{ restaurant._id }}">
-        <i class="add icon"></i>
-        Add to Bucket List
+    <div class="{{isActiveRoute regex='/^profile/'}}">
+      {{#if isNotActivePath regex='item-feed'}}
+      <div class="restaurant-bucket-remove">
+      <div class="ui blue bottom attached button" data-id="{{ restaurant._id }}">
+        <i class="minus icon"></i>
+        Remove from Bucket list
       </div>
+      </div>
+      {{/if}}
+      {{#if isActivePath regex='item-feed'}}
+      <div class="restaurant-bucket">
+        <div class="ui red bottom attached button" data-id="{{ restaurant._id }}">
+          {{#if inBucketList item=restaurant._id}}
+          <i class="white star icon"></i>
+          In your bucket list!
+          {{else}}
+          <i class="add icon"></i>
+          Add to Bucket List
+          {{/if}}
+        </div>
+      </div>
+      {{/if}}
     </div>
   </div>
 </template>

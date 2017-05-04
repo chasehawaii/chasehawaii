@@ -4,6 +4,10 @@ import { Hikes } from '/imports/api/items/hike/hike-item.js';
 import { Restaurants } from '/imports/api/items/restaurant/restaurant-item.js';
 import { Profiles } from '/imports/api/profiles/ProfileCollection.js';
 import { Meteor } from 'meteor/meteor';
+import { _ } from 'meteor/underscore';
+import { ReactiveDict } from 'meteor/reactive-dict';
+
+
 
 /* eslint-env node, jquery */
 
@@ -11,13 +15,14 @@ import { Meteor } from 'meteor/meteor';
 Template.Beach_Cards.onCreated(function onCreated() {
   this.subscribe('Beaches');
   this.subscribe('Profiles');
+  this.cards = new ReactiveDict();
 });
 Template.Hike_Cards.onCreated(function onCreated() {
   this.subscribe('Hikes');
   this.subscribe('Profiles');
 });
 Template.Restaurant_Cards.onCreated(function onCreated() {
-  this.subscribe('Hikes');
+  this.subscribe('Restaurants');
   this.subscribe('Profiles');
 });
 
@@ -25,79 +30,112 @@ Template.Beach_Cards.helpers({
   displayDate() {
     return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
   },
+  inBucketList() {
+    const usernameCurrent = Meteor.user().profile.name;
+    const bucketlist = Profiles.findOne({ username: usernameCurrent }).bucketlist;
+    return _.contains(bucketlist, this.beach._id);
+  },
 });
 Template.Hike_Cards.helpers({
   displayDate() {
     return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
+  },
+  inBucketList() {
+    const usernameCurrent = Meteor.user().profile.name;
+    const bucketlist = Profiles.findOne({ username: usernameCurrent }).bucketlist;
+    return _.contains(bucketlist, this.hike._id);
   },
 });
 Template.Restaurant_Cards.helpers({
   displayDate() {
     return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
   },
+  inBucketList() {
+    const usernameCurrent = Meteor.user().profile.name;
+    const bucketlist = Profiles.findOne({ username: usernameCurrent }).bucketlist;
+    return _.contains(bucketlist, this.restaurant._id);
+  },
 });
 
 Template.Beach_Cards.events({
-  'click .beach-bucket'(event) {
+  'click .beach-bucket'(event, instance) {
     event.preventDefault();
-    const clickedCard = event.target.closest('div');
     const usernameCurrent = Meteor.user().profile.name;
     const profileName = Profiles.findOne({ username: usernameCurrent });
     const profileId = profileName._id;
-    const cardId = $(clickedCard).attr('data-id');
+    const cardId = this.beach._id;
     Profiles.update(profileId, { $push: { bucketlist: cardId } });
   },
   'click .beach-likes'(event) {
     event.preventDefault();
-    const clickedCard = event.target.closest('div');
-    const cardId = $(clickedCard).attr('data-id');
+    const cardId = this.beach._id;
     let initialLikes = Beaches.findOne({ _id: cardId }).likes;
     if (!initialLikes) {
       initialLikes = 0;
     }
     Beaches.update(cardId, { $set: { likes: initialLikes + 1 } });
   },
+  'click .beach-bucket-remove'(event) {
+    event.preventDefault();
+    const usernameCurrent = Meteor.user().profile.name;
+    const profileName = Profiles.findOne({ username: usernameCurrent });
+    const profileId = profileName._id;
+    const cardId = this.beach._id;
+    Profiles.update(profileId, { $set: { bucketlist: _.without(profileName.bucketlist, cardId) } });
+  },
 });
 
 Template.Hike_Cards.events({
   'click .hike-bucket'(event) {
     event.preventDefault();
-    const clickedCard = event.target.closest('div');
     const usernameCurrent = Meteor.user().profile.name;
     const profileName = Profiles.findOne({ username: usernameCurrent });
     const profileId = profileName._id;
-    const cardId = $(clickedCard).attr('data-id');
+    const cardId = this.hike._id;
     Profiles.update(profileId, { $push: { bucketlist: cardId } });
   },
   'click .hike-likes'(event) {
     event.preventDefault();
-    const clickedCard = event.target.closest('div');
-    const cardId = $(clickedCard).attr('data-id');
+    const cardId = this.hike._id;
     let initialLikes = Hikes.findOne({ _id: cardId }).likes;
     if (!initialLikes) {
       initialLikes = 0;
     }
     Hikes.update(cardId, { $set: { likes: initialLikes + 1 } });
   },
+  'click .hike-bucket-remove'(event) {
+    event.preventDefault();
+    const usernameCurrent = Meteor.user().profile.name;
+    const profileName = Profiles.findOne({ username: usernameCurrent });
+    const profileId = profileName._id;
+    const cardId = this.hike._id;
+    Profiles.update(profileId, { $set: { bucketlist: _.without(profileName.bucketlist, cardId) } });
+  },
 });
 Template.Restaurant_Cards.events({
   'click .restaurant-bucket'(event) {
     event.preventDefault();
-    const clickedCard = event.target.closest('div');
     const usernameCurrent = Meteor.user().profile.name;
     const profileName = Profiles.findOne({ username: usernameCurrent });
     const profileId = profileName._id;
-    const cardId = $(clickedCard).attr('data-id');
+    const cardId = this.restaurant._id;
     Profiles.update(profileId, { $push: { bucketlist: cardId } });
   },
   'click .restaurant-likes'(event) {
     event.preventDefault();
-    const clickedCard = event.target.closest('div');
-    const cardId = $(clickedCard).attr('data-id');
+    const cardId = this.restaurant._id;
     let initialLikes = Restaurants.findOne({ _id: cardId }).likes;
     if (!initialLikes) {
       initialLikes = 0;
     }
     Restaurants.update(cardId, { $set: { likes: initialLikes + 1 } });
+  },
+  'click .restaurant-bucket-remove'(event) {
+    event.preventDefault();
+    const usernameCurrent = Meteor.user().profile.name;
+    const profileName = Profiles.findOne({ username: usernameCurrent });
+    const profileId = profileName._id;
+    const cardId = this.restaurant._id;
+    Profiles.update(profileId, { $set: { bucketlist: _.without(profileName.bucketlist, cardId) } });
   },
 });
