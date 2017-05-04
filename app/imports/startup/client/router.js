@@ -79,7 +79,7 @@ FlowRouter.route('/edit-restaurant/:_id', {
   },
 });
 
-FlowRouter.route('/edit-profile', {
+FlowRouter.route('/edit-profile/:_id', {
   name: 'Edit_Profile_Page',
   action() {
     BlazeLayout.render('App_Body', { main: 'Edit_Profile_Page' });

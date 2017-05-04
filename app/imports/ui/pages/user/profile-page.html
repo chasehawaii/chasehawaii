@@ -6,13 +6,16 @@
       <div class="four wide column" style="background-color: #A2D9FF">
 
         <div class="ui large dividing header">Welcome, {{username}}!</div>
-        <img style="height: 250px" class="ui fluid image" src="{{image}}">
+        <img style="height: 250px" class="ui medium rounded bordered image" src="{{image}}">
 
         <div class="ui container">
           <h4>Name: {{first}} {{last}}</h4>
           <h4>Standing: {{standing}}</h4>
           <h4>About</h4>
-          <p>{{about}}</p>
+          <p style=" white-space:pre-wrap; width: 300px; word-break: break-all; ">{{about}}</p>
+          <button value="{{ userID }}" class="ui green button edit_profile">
+            Edit Profile
+          </button>
         </div>
 
       </div>
