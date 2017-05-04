@@ -1,13 +1,10 @@
 <template name="Beach_Row">
   <tr>
-    <td class="single line">
+    <td class="single line" style=" white-space:pre-wrap; width: 300px; word-break: break-all; ">
       {{beach.title}}
     </td>
     <td class="single line">
       {{beach.status}}
-    </td>
-    <td id="{{ beach._id }}">
-      {{ beach._id }}
     </td>
     <td class="single line">
       {{beach.location}}
@@ -19,11 +16,14 @@
       {{/each}}
     </td>
 
-    <td>
-      {{beach.about}}
+    <td style=" white-space:pre-wrap; width: 300px; word-break: break-all; ">
+
+        {{beach.about}}
+
     </td>
 
     <td>
+
       <button value="{{ beach._id }}" class="ui green button approve_beach">
         Approve
       </button>
@@ -31,6 +31,7 @@
       <button value="{{ beach._id }}" class="ui yellow button deny_beach">
         Deny
       </button>
+
       <br><br>
       <button value="{{ beach._id }}" class="ui red button delete_beach">
         Delete
