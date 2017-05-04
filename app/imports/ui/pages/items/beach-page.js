@@ -21,9 +21,6 @@ Template.Beach_Page.helpers({
     return Comments.find( {itemid: FlowRouter.getParam('_id')} );
   },
 
-
-
-
   displayDate() {
     return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
   },

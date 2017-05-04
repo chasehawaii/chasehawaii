@@ -35,6 +35,10 @@ Template.Beach_Cards.helpers({
     const bucketlist = Profiles.findOne({ username: usernameCurrent }).bucketlist;
     return _.contains(bucketlist, this.beach._id);
   },
+  beachAbout() {
+    const about = this.beach.about;
+    return about.substring(0, 100);
+  },
 });
 Template.Hike_Cards.helpers({
   displayDate() {
@@ -45,6 +49,10 @@ Template.Hike_Cards.helpers({
     const bucketlist = Profiles.findOne({ username: usernameCurrent }).bucketlist;
     return _.contains(bucketlist, this.hike._id);
   },
+  hikeAbout() {
+    const about = this.hike.about;
+    return about.substring(0, 100);
+  },
 });
 Template.Restaurant_Cards.helpers({
   displayDate() {
@@ -54,6 +62,10 @@ Template.Restaurant_Cards.helpers({
     const usernameCurrent = Meteor.user().profile.name;
     const bucketlist = Profiles.findOne({ username: usernameCurrent }).bucketlist;
     return _.contains(bucketlist, this.restaurant._id);
+  },
+  restaurantAbout() {
+    const about = this.restaurant.about;
+    return about.substring(0, 100);
   },
 });
 
