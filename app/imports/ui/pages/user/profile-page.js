@@ -14,6 +14,11 @@ Template.Profile_Page.onCreated(function onCreated() {
 });
 
 Template.Profile_Page.helpers({
+  userID() {
+    const currUser = FlowRouter.getParam('username');
+    const profile = Profiles.findOne({ username: currUser });
+    return profile._id;
+  },
   username() {
     const currUser = FlowRouter.getParam('username');
     const profile = Profiles.findOne({ username: currUser });
@@ -91,5 +96,13 @@ Template.Profile_Page.helpers({
       return Restaurants.findOne({ _id: id });
     });
     return _.map(filteredRestaurant, function restaurants(restaurant) { return Restaurants.findOne({ _id: restaurant }); });
+  },
+});
+
+Template.Profile_Page.events({
+  'click .edit_profile'(event) {
+    event.preventDefault();
+    const id = event.target.value;
+    FlowRouter.go(`/edit-profile/${id}`);
   },
 });

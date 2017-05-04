@@ -1,3 +1,42 @@
 <template name="Edit_Profile_Page">
+  <div class="create profile background">
 
+    <div style="padding: 20px;"  class="ui container">
+      <form class="ui form edit-profile-data" style="padding-top: 100px">
+        <h3 class="ui dividing large header">Edit Profile</h3>
+        <div class="two fields">
+          <div class="field">
+            {{> Text_Form_Control value=(profileDataField 'first') label="First" }}
+          </div>
+          <div class="field">
+            {{> Text_Form_Control value=(profileDataField 'last') label="Last" }}
+          </div>
+        </div>
+
+        <div class="field">
+          {{> Select_Form_Control label="Standing" value=(profileDataField 'standing') options=standingChoice}}
+        </div>
+
+        <div class="field">
+          {{> Text_Form_Control label="Image" value=(profileDataField 'image') }}
+        </div>
+
+        <div class="three fields">
+          <div class="field">
+            {{> Text_Form_Control label="Facebook" value=(profileDataField 'facebook') }}
+          </div>
+          <div class="field">
+            {{> Text_Form_Control label="Instagram"  value=(profileDataField 'instagram')}}
+          </div>
+          <div class="field">
+            {{> Text_Form_Control label="Twitter" value=(profileDataField 'twitter')}}
+          </div>
+        </div>
+        <div class="field">
+          {{> TextArea_Form_Control label="About" value=(profileDataField 'about') }}
+        </div>
+        <button class="ui button" type="submit">Apply Changes</button>
+      </form>
+    </div>
+  </div>
 </template>
