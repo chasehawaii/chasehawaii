@@ -29,7 +29,7 @@
       </span>
     </div>
     <div class="ui two buttons" data-id="{{ beach._id }}">
-      <div class="ui basic red button">Request Delete</div>
+      <div class="ui basic red beach-delete button">Request Delete</div>
       <div class="ui basic green beach-edit button">
         <a href="{{pathFor 'Edit_Beach_Page' _id=beach._id}}">Edit</a>
       </div>
@@ -69,7 +69,7 @@
     </div>
     <div class="hike-edit">
       <div class="ui two buttons" data-id="{{ hike._id }}">
-        <div class="ui basic red button">Request Delete</div>
+        <div class="ui basic red hike-delete button">Request Delete</div>
         <div class="ui basic green hike-edit button">
           <a href="{{pathFor 'Edit_Hike_Page' _id=hike._id}}">Edit</a>
         </div>
@@ -110,7 +110,7 @@
     </div>
     <div class="restaurant-edit">
       <div class="ui two buttons" data-id="{{ restaurant._id }}">
-        <div class="ui basic red button">Request Delete</div>
+        <div class="ui basic red restaurant-delete  button">Request Delete</div>
         <div class="ui basic green restaurant-edit button">
           <a href="{{pathFor 'Edit_Restaurant_Page' _id=restaurant._id}}">Edit</a>
         </div>

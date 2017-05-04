@@ -58,6 +58,10 @@ export const BeachesSchema = new SimpleSchema({
     label: 'createdAt',
     type: Date,
   },
+  deleteRequest: {
+    label: 'deleteRequest',
+    type: Boolean,
+  },
 });
 
 export const Beaches = new Mongo.Collection('Beaches');

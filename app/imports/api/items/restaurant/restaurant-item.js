@@ -53,6 +53,10 @@ export const RestaurantsSchema = new SimpleSchema({
     label: 'createdAt',
     type: Date,
   },
+  deleteRequest: {
+    label: 'deleteRequest',
+    type: Boolean,
+  },
 });
 export const Restaurants = new Mongo.Collection('Restaurants');
 Restaurants.attachSchema(RestaurantsSchema);
