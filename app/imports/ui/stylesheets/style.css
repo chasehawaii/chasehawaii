@@ -98,6 +98,16 @@ div.landing.background{
 
 }
 
+div.profile.page{
+
+  background: url('https://img0.etsystatic.com/109/0/10556877/il_fullxfull.921205216_r6lj.jpg') no-repeat center center fixed;
+  background-size:cover;
+  height:870px;
+
+}
+
+
+
 div.aloha{
 
   font-family: 'Lobster', cursive;
