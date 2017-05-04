@@ -1,9 +1,6 @@
 import './profile-page.html';
 import './profile-page.js';
 
-import './public-profile-page.html';
-import './public-profile-page';
-
 import './create-profile-page.html';
 import './create-profile-page.js';
 

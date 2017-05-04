@@ -85,6 +85,13 @@ FlowRouter.route('/edit-profile', {
     BlazeLayout.render('App_Body', { main: 'Edit_Profile_Page' });
   },
 });
+
+FlowRouter.route('/p-profile', {
+  name: 'Public_Profile_Page',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Public_Profile_Page' });
+  },
+});
 //
 // function addUserBodyClass() {
 //   $('body').addClass('user-layout-body');
