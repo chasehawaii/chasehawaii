@@ -1,76 +1,77 @@
 <template name="Admin_Page">
-{{#if isAdmin}}
-  <div style="margin-top: 100px; margin-bottom: 20px" class="ui container">
-    <h2>Beaches</h2>
-    <table class="ui celled padded table">
+  {{#if isAdmin}}
+  <div class="admin background" style="overflow-y: scroll">
+    <div style="margin-top: 100px; margin-bottom: 20px" class="ui container">
+      <h2 style="color: #FFFFFF;">Beaches</h2>
+      <table class="ui celled padded table">
 
-      <thead>
-      <tr>
-        <th class="single line">Title</th>
-        <th>Status</th>
-        <th>ID</th>
-        <th>Location</th>
-        <th>Tags</th>
-        <th>Description</th>
-        <th>Approve/Delete</th>
-      </tr>
-      </thead>
+        <thead>
+        <tr>
+          <th class="single line">Title</th>
+          <th>Status</th>
+          <th>ID</th>
+          <th>Location</th>
+          <th>Tags</th>
+          <th>Description</th>
+          <th>Approve/Delete</th>
+        </tr>
+        </thead>
 
-      <tbody>
-      {{#each beach in beachesList}}
+        <tbody>
+        {{#each beach in beachesList}}
         {{> Beach_Row beach=beach}}
-      {{/each}}
-      </tbody>
-    </table>
+        {{/each}}
+        </tbody>
+      </table>
 
-    <h2>Hikes</h2>
-    <table class="ui celled padded table">
+      <h2 style="color: #FFFFFF;">Hikes</h2>
+      <table class="ui celled padded table">
 
-      <thead>
-      <tr>
-        <th class="single line">Title</th>
-        <th>Status</th>
-        <th>Location</th>
-        <th>Tags</th>
-        <th>Kind</th>
-        <th>Length</th>
-        <th>Difficulty</th>
-        <th>Description</th>
-        <th>Approval</th>
-      </tr>
-      </thead>
+        <thead>
+        <tr>
+          <th class="single line">Title</th>
+          <th>Status</th>
+          <th>Location</th>
+          <th>Tags</th>
+          <th>Kind</th>
+          <th>Length</th>
+          <th>Difficulty</th>
+          <th>Description</th>
+          <th>Approval</th>
+        </tr>
+        </thead>
 
-      <tbody>
-      {{#each hike in hikesList}}
-       {{> Hike_Row hike=hike}}
-      {{ /each }}
-      </tbody>
-    </table>
+        <tbody>
+        {{#each hike in hikesList}}
+        {{> Hike_Row hike=hike}}
+        {{ /each }}
+        </tbody>
+      </table>
 
-    <h2>Restaurant</h2>
-    <table class="ui celled padded table">
+      <h2 style="color: #FFFFFF;">Restaurant</h2>
+      <table class="ui celled padded table">
 
-      <thead>
-      <tr>
-        <th class="single line">Title</th>
-        <th>Status</th>
-        <th>Location</th>
-        <th>Tags</th>
-        <th>Food</th>
-        <th>Description</th>
-        <th>Approval</th>
-      </tr>
-      </thead>
+        <thead>
+        <tr>
+          <th class="single line">Title</th>
+          <th>Status</th>
+          <th>Location</th>
+          <th>Tags</th>
+          <th>Food</th>
+          <th>Description</th>
+          <th>Approval</th>
+        </tr>
+        </thead>
 
-      <tbody>
-      {{#each restaurant in restaurantsList}}
+        <tbody>
+        {{#each restaurant in restaurantsList}}
         {{> Restaurant_Row restaurant=restaurant}}
-      {{/each}}
-      </tbody>
-    </table>
+        {{/each}}
+        </tbody>
+      </table>
 
+    </div>
   </div>
-
   {{else}}
 
   {{ >Not_Admin }}

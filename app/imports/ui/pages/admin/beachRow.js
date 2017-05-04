@@ -14,6 +14,7 @@ Template.Beach_Row.helpers({
     return Beaches.find();
   },
   */
+
 });
 
 Template.Beach_Row.events({
