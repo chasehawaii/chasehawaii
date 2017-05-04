@@ -17,3 +17,6 @@ Meteor.publish('Restaurants', function publishContacts() {
 Meteor.publish('Profiles', function publishContacts() {
   return Profiles.find();
 });
+Meteor.publish('Comments', function publishContacts() {
+  return Comments.find();
+});

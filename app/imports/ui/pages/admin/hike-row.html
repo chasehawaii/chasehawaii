@@ -1,7 +1,7 @@
 <template name="Hike_Row">
 
   <tr>
-    <td class="single line">
+    <td class="single line" style=" white-space:pre-wrap; width: 300px; word-break: break-all; ">
       {{hike.title}}
     </td>
     <td class="single line">
@@ -24,10 +24,11 @@
     </td>
     <td>
       {{hike.difficulty}}
+
     </td>
 
-    <td>
-      {{hike.about}}
+    <td style=" white-space:pre-wrap; width: 300px; word-break: break-all; ">
+        {{hike.about}}
     </td>
 
     <td>

@@ -15,11 +15,17 @@ export const CommentsSchema = new SimpleSchema({
     optional: true,
     max: 20,
   },
-  content: {
-    label: 'content',
+  about: {
+    label: 'about',
     type: String,
     optional: true,
     max: 500,
+  },
+  itemid: {
+    label: 'itemid',
+    type: SimpleSchema.RegEx.Url,
+    optional: false,
+    max: 200,
   },
 });
 
