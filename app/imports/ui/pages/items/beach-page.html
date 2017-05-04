@@ -63,10 +63,10 @@
             <div class="content">
               <a class="author">{{comment.username}}</a>
               <div class="metadata">
-                <span class="date">Today at 5:42PM</span>
+                <span class="date">{{ displayDate date=commment.createdAt }}</span>
               </div>
               <div class="text">
-                {{comment.content}}
+                {{comment.about}}
               </div>
               <div class="actions">
                 <a class="reply">Reply</a>
@@ -76,7 +76,7 @@
         {{/each}}
 
           <div class="field">
-            {{> TextArea_Form_Control label="About" placeholder="Add a comment" }}
+            {{> TextArea_Form_Control label="about" placeholder="Add a comment" }}
           </div>
           <button class="ui button">Add Comment</button>
         </form>
