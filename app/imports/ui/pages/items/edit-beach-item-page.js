@@ -17,6 +17,7 @@ Template.Edit_Beach_Page.onCreated(function onCreated() {
   this.subscribe('Beaches');
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displayErrorMessages, false);
+  this.currentId = new ReactiveDict();
   this.context = BeachesSchema.namedContext('Create_Beach_Form');
 });
 
@@ -41,7 +42,7 @@ Template.Edit_Beach_Page.helpers({
   },
   editBeachField(fieldName) {
     const beachData = Beaches.findOne(FlowRouter.getParam('_id'));
-    console.log(beachData);
+    Template.instance().currentId.set('current', beachData);
     return beachData && beachData[fieldName];
   },
 });
@@ -57,8 +58,9 @@ Template.Edit_Beach_Page.events({
     const tags = _.map(selectedTags, (option) => option.value);
     tags.push(location);
     const createdAt = Date.now();
+    const picture = event.target.Picture.value;
     const status = 'Pending';
-    const newItemData = { title, location, about, tags, status, createdAt };
+    const newItemData = { title, location, about, tags, status, picture, createdAt };
 
     // Clear out any old validation errors.
     instance.context.resetValidation();
@@ -68,7 +70,7 @@ Template.Edit_Beach_Page.events({
     // Determine validity.
     instance.context.validate(newItemData);
     if (instance.context.isValid()) {
-      Beaches.update(Session.get('beachID'), { $set: newItemData });
+      Beaches.update(instance.currentId.get('current')._id, { $set: newItemData });
       instance.messageFlags.set(displayErrorMessages, false);
       FlowRouter.go('Item_Feed_Page');
     } else {

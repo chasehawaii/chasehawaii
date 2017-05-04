@@ -67,7 +67,9 @@ export const HikesSchema = new SimpleSchema({
     label: 'deleteRequest',
     optional: true,
     type: Boolean,
+    optional: true,
   },
+
 });
 export const Hikes = new Mongo.Collection('Hikes');
 Hikes.attachSchema(HikesSchema);

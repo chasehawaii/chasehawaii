@@ -52,8 +52,9 @@ Template.Create_Beach_Form.events({
     const tags = _.map(selectedTags, (option) => option.value);
     tags.push(location);
     const createdAt = Date.now();
+    const picture = event.target.Picture.value;
     const status = 'Pending';
-    const newItemData = { title, location, about, tags, status, createdAt };
+    const newItemData = { title, location, about, tags, status, picture, createdAt };
     const currentTitle = title;
     // Clear out any old validation errors.
     instance.context.resetValidation();
