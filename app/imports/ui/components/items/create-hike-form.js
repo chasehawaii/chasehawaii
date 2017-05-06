@@ -10,7 +10,11 @@ import { Meteor } from 'meteor/meteor';
 
 const displayErrorMessages = 'displayErrorMessages';
 export const locationList = ['Windward', 'Leeward', 'Central Oahu', 'Honoluu', 'North Shore'];
-export const hikeTagList = ['Kid-friendly', 'Dog-friendly'];
+export const hikeTagList = ['Kid-friendly', 'Dog-friendly','Loop', 'Point-to-point'];
+export const difficultyList = ['Stroll', 'Easy', 'Moderate', 'Difficult', 'Extreme'];
+export const lengthList = ['0-1 Miles', '1-2 Miles', ' 2-4 Miles', '4-6 Miles', 'More than 6 Miles'];
+export const typeList = ['Ridge', 'Valley', 'Paved', 'Peak'];
+
 
 Template.Create_Hike_Form.onCreated(function onCreated() {
   this.subscribe('Profiles');
@@ -39,6 +43,21 @@ Template.Create_Hike_Form.helpers({
       return { label: tag };
     });
   },
+  difficultyChoice() {
+    return _.map(difficultyList, function maketagObject(tag) {
+      return { label: tag };
+    });
+  },
+  lengthChoice() {
+    return _.map(lengthList, function maketagObject(tag) {
+      return { label: tag };
+    });
+  },
+  typeChoice() {
+    return _.map(typeList, function maketagObject(tag) {
+      return { label: tag };
+    });
+  },
 });
 
 Template.Create_Hike_Form.events({
@@ -48,13 +67,16 @@ Template.Create_Hike_Form.events({
     const title = event.target.Title.value;
     const location = event.target.Location.value;
     const about = event.target.About.value;
+    const length = event.target.Length.value;
+    const difficulty = event.target.Difficulty.value;
+    const kind = event.target.Type.value;
     const selectedTags = _.filter(event.target.Tags.selectedOptions, (option) => option.selected);
     const tags = _.map(selectedTags, (option) => option.value);
-    tags.push(location);
+    tags.push(location, length, difficulty, kind);
     const createdAt = Date.now();
     const picture = event.target.Picture.value;
     const status = 'Pending';
-    const newItemData = { title, location, about, tags, status, picture, createdAt };
+    const newItemData = { title, location, about, length, difficulty, kind, tags, status, picture, createdAt };
     const currentTitle = title;
 
     // Clear out any old validation errors.

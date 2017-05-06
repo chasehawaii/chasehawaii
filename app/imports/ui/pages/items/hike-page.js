@@ -1,4 +1,3 @@
-import './hike-page.html';
 import { Template } from 'meteor/templating';
 import { Hikes } from '/imports/api/items/hike/hike-item.js';
 import { Comments, CommentsSchema } from '/imports/api/comments/CommentsCollection.js';
@@ -6,11 +5,15 @@ import { Meteor } from 'meteor/meteor';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { _ } from 'meteor/underscore';
+import { Profiles } from '/imports/api/profiles/ProfileCollection.js';
+
 
 Template.Hike_Page.onCreated(function onCreated() {
   this.subscribe('Hikes');
-  this.context = CommentsSchema.namedContext('Hike_Page')
+  this.subscribe('Profiles');
   this.subscribe('Comments');
+  this.context = CommentsSchema.namedContext('Hike_Page')
+
 
 });
 
@@ -20,6 +23,7 @@ Template.Hike_Page.helpers({
   Comments() {
     return Comments.find( {itemid: FlowRouter.getParam('_id')} );
   },
+<<<<<<< HEAD
 
   profpath() {
     //console.log(Meteor.user().profile.name);
@@ -27,6 +31,13 @@ Template.Hike_Page.helpers({
   },
 
 
+=======
+  inBucketList() {
+    const usernameCurrent = Meteor.user().profile.name;
+    const bucketlist = Profiles.findOne({ username: usernameCurrent }).bucketlist;
+    return _.contains(bucketlist, FlowRouter.getParam('_id'));
+  },
+>>>>>>> issue-70
   displayDate() {
     return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
   },
@@ -64,5 +75,13 @@ Template.Hike_Page.events({
     //  } else {
     //   instance.messageFlags.set(displayErrorMessages, true);
     //}
+  },
+  'click .hike-bucket'(event, instance) {
+    event.preventDefault();
+    const usernameCurrent = Meteor.user().profile.name;
+    const profileName = Profiles.findOne({ username: usernameCurrent });
+    const profileId = profileName._id;
+    const itemid = FlowRouter.getParam('_id');
+    Profiles.update(profileId, { $push: { bucketlist: itemid } });
   },
 });

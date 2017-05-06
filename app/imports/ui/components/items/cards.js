@@ -53,6 +53,9 @@ Template.Hike_Cards.helpers({
     const about = this.hike.about;
     return about.substring(0, 100);
   },
+  equal(a, b) {
+    return a === b;
+  },
 });
 Template.Restaurant_Cards.helpers({
   displayDate() {

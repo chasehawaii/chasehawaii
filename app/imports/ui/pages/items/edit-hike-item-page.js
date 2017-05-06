@@ -1,4 +1,3 @@
-import { Session } from 'meteor/session';
 import { Template } from 'meteor/templating';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Hikes, HikesSchema } from '/imports/api/items/hike/hike-item.js';
@@ -10,7 +9,10 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 
 const displayErrorMessages = 'displayErrorMessages';
 export const locationList = ['Windward', 'Leeward', 'Central Oahu', 'Honoluu', 'North Shore'];
-export const hikeTagList = ['Kid-friendly', 'Dog-friendly'];
+export const hikeTagList = ['Kid-friendly', 'Dog-friendly','Loop', 'Point-to-point'];
+export const difficultyList = ['Stroll', 'Easy', 'Moderate', 'Difficult', 'Extreme'];
+export const lengthList = ['0-1 Miles', '1-2 Miles', ' 2-4 Miles', '4-6 Miles', 'More than 6 Miles'];
+export const typeList = ['Ridge', 'Valley', 'Paved', 'Peak'];
 
 Template.Edit_Hike_Page.onCreated(function onCreated() {
   this.subscribe('Hikes');
@@ -44,6 +46,21 @@ Template.Edit_Hike_Page.helpers({
     Template.instance().currentId.set('current', hikeData);
     return hikeData && hikeData[fieldName];
   },
+  difficultyChoice() {
+    return _.map(difficultyList, function maketagObject(tag) {
+      return { label: tag };
+    });
+  },
+  lengthChoice() {
+    return _.map(lengthList, function maketagObject(tag) {
+      return { label: tag };
+    });
+  },
+  typeChoice() {
+    return _.map(typeList, function maketagObject(tag) {
+      return { label: tag };
+    });
+  },
 });
 
 Template.Edit_Hike_Page.events({
@@ -53,13 +70,16 @@ Template.Edit_Hike_Page.events({
     const title = event.target.Title.value;
     const location = event.target.Location.value;
     const about = event.target.About.value;
+    const length = event.target.Length.value;
+    const difficulty = event.target.Difficulty.value;
+    const kind = event.target.Type.value;
     const selectedTags = _.filter(event.target.Tags.selectedOptions, (option) => option.selected);
     const tags = _.map(selectedTags, (option) => option.value);
-    tags.push(location);
+    tags.push(location, length, difficulty, kind);
     const createdAt = Date.now();
     const picture = event.target.Picture.value;
     const status = 'Pending';
-    const newItemData = { title, location, about, tags, status, picture, createdAt };
+    const newItemData = { title, location, about, length, difficulty, kind, tags, status, picture, createdAt };
 
     // Clear out any old validation errors.
     instance.context.resetValidation();
