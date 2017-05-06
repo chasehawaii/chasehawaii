@@ -21,15 +21,10 @@ Template.Restaurant_Page.helpers({
   Comments() {
     return Comments.find({ itemid: FlowRouter.getParam('_id') });
   },
-<<<<<<< HEAD
-
   profpath() {
     //console.log(Meteor.user().profile.name);
     return Meteor.user().profile.name;
   },
-
-=======
->>>>>>> issue-70
   displayDate() {
     return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
   },

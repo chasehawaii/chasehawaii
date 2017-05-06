@@ -23,25 +23,18 @@ Template.Hike_Page.helpers({
   Comments() {
     return Comments.find( {itemid: FlowRouter.getParam('_id')} );
   },
-<<<<<<< HEAD
-
   profpath() {
     //console.log(Meteor.user().profile.name);
     return Meteor.user().profile.name;
   },
-
-
-=======
   inBucketList() {
     const usernameCurrent = Meteor.user().profile.name;
     const bucketlist = Profiles.findOne({ username: usernameCurrent }).bucketlist;
     return _.contains(bucketlist, FlowRouter.getParam('_id'));
   },
->>>>>>> issue-70
   displayDate() {
     return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
   },
-
 });
 
 Template.Hike_Page.events({

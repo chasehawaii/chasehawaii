@@ -18,17 +18,11 @@ Template.Beach_Page.helpers({
   bea: () => Beaches.findOne({ _id: FlowRouter.getParam('_id') }),
   Comments() {
     return Comments.find({ itemid: FlowRouter.getParam('_id') });
-  }
-  
+  },
   profpath() {
     //console.log(Meteor.user().profile.name);
     return Meteor.user().profile.name;
   },
-<<<<<<< HEAD
-
-
-=======
->>>>>>> issue-70
   displayDate() {
     return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
   },
