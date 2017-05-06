@@ -1,12 +1,12 @@
 <template name="Public_Profile_Page">
-  <div class="profile page">
+  <div class="public profile page">
 
     <div style="padding-top: 75px" class="ui internally celled grid">
       <div class="row">
 
         <div class="four wide column" style="background-color: #FFFFFF; filter:alpha(opacity=74); opacity:0.74;">
 
-          <div class="ui large dividing header">Welcome to {{username}}'s profile</div>
+          <div class="ui large dividing header">Welcome, {{username}}!</div>
           <img style="height: 250px" class="ui medium rounded bordered image" src="{{image}}">
 
           <div class="ui container">
@@ -19,23 +19,23 @@
             </button>
           </div>
 
-          <div style="margin-top: 100px" class="ui container">
-            <h2>{{username}}'s Bucket List</h2>
-            <div class="ui divider"></div>
-            <div class="ui cards">
-              {{#each beach in beaches }}
-                {{> Beach_Cards beach=beach}}
-              {{/each}}
+        </div>
+        <div style="margin-top: 100px" class="ui container">
+          <h2>{{username}}'s Bucket List</h2>
+          <div class="ui divider"></div>
+          <div class="ui cards">
+            {{#each beach in beaches }}
+              {{> Beach_Cards beach=beach}}
+            {{/each}}
 
-              {{#each hike in hikes }}
-                {{> Hike_Cards hike=hike}}
-              {{/each}}
+            {{#each hike in hikes }}
+              {{> Hike_Cards hike=hike}}
+            {{/each}}
 
-              {{#each restaurant in restaurants }}
-                {{> Restaurant_Cards restaurant=restaurant}}
-              {{/each}}
+            {{#each restaurant in restaurants }}
+              {{> Restaurant_Cards restaurant=restaurant}}
+            {{/each}}
 
-            </div>
           </div>
         </div>
       </div>
