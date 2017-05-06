@@ -86,7 +86,7 @@ FlowRouter.route('/edit-profile/:_id', {
   },
 });
 
-FlowRouter.route('/p-profile', {
+FlowRouter.route('/public-profile', {
   name: 'Public_Profile_Page',
   action() {
     BlazeLayout.render('App_Body', { main: 'Public_Profile_Page' });
