@@ -12,7 +12,7 @@
                 <table class="ui very basic celled table">
                   <thead>
                   <tr>
-                    <th>{{hik.location}}</th>
+                    <th>Location</th>
                     <th>length</th>
                     <th>Difficulty</th>
                     <th>Tags</th>
@@ -22,14 +22,14 @@
                   <tr>
                     <td>
                       <div class="content">
-                        Ridge
+                        {{hik.location}}
                       </div>
                     </td>
                     <td>
-                      {{hik.location}}
+                      {{hik.length}}
                     </td>
                     <td>
-                      easy/intermediate
+                      {{hik.difficulty}}
                     </td>
                     <td>
                       {{#each tag in hik.tags }}
@@ -50,12 +50,17 @@
         </div>
         <div class="ui segment">
           <div class="ui compact menu">
-            <a class="item">
-              <i class="thumbs up icon"></i> Like
-            </a>
-            <a class="item">
-              <i class="plus icon"></i> Add to your bucket list
-            </a>
+            <div class="hike-bucket">
+              <div class="ui blue bottom attached button" data-id="{{ hik._id }}">
+                {{#if inBucketList item=hik._id}}
+                <i class="white star icon"></i>
+                In your bucket list!
+                {{else}}
+                <i class="add icon"></i>
+                Add to Bucket List
+                {{/if}}
+              </div>
+            </div>
           </div>
         </div>
 

@@ -1,30 +1,32 @@
-import './beach-page.html';
 import { Template } from 'meteor/templating';
 import { Beaches } from '/imports/api/items/beach/beach-item.js';
 import { Comments, CommentsSchema } from '/imports/api/comments/CommentsCollection.js';
 import { Meteor } from 'meteor/meteor';
 import { FlowRouter } from 'meteor/kadira:flow-router';
-import { ReactiveDict } from 'meteor/reactive-dict';
 import { _ } from 'meteor/underscore';
+import { Profiles } from '/imports/api/profiles/ProfileCollection.js';
 
 Template.Beach_Page.onCreated(function onCreated() {
   this.subscribe('Beaches');
   this.context = CommentsSchema.namedContext('Beach_Page')
   this.subscribe('Comments');
+  this.subscribe('Profiles');
 
 });
 
 Template.Beach_Page.helpers({
   bea: () => Beaches.findOne({ _id: FlowRouter.getParam('_id') }),
-
   Comments() {
     return Comments.find( {itemid: FlowRouter.getParam('_id')} );
   },
-
   displayDate() {
     return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
   },
-
+  inBucketList() {
+    const usernameCurrent = Meteor.user().profile.name;
+    const bucketlist = Profiles.findOne({ username: usernameCurrent }).bucketlist;
+    return _.contains(bucketlist, FlowRouter.getParam('_id'));
+  },
 });
 
 Template.Beach_Page.events({
@@ -56,5 +58,13 @@ Template.Beach_Page.events({
   //  } else {
    //   instance.messageFlags.set(displayErrorMessages, true);
     //}
+  },
+  'click .beach-bucket'(event, instance) {
+    event.preventDefault();
+    const usernameCurrent = Meteor.user().profile.name;
+    const profileName = Profiles.findOne({ username: usernameCurrent });
+    const profileId = profileName._id;
+    const itemid = FlowRouter.getParam('_id');
+    Profiles.update(profileId, { $push: { bucketlist: itemid } });
   },
 });

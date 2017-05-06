@@ -50,12 +50,17 @@
         </div>
         <div class="ui segment">
           <div class="ui compact menu">
-            <a class="item">
-              <i class="thumbs up icon"></i> Like
-            </a>
-            <a class="item">
-              <i class="plus icon"></i> Add to your bucket list
-            </a>
+            <div class="restaurant-bucket">
+              <div class="ui purple bottom attached button" data-id="{{ hik._id }}">
+                {{#if inBucketList item=rest._id}}
+                <i class="white star icon"></i>
+                In your bucket list!
+                {{else}}
+                <i class="add icon"></i>
+                Add to Bucket List
+                {{/if}}
+              </div>
+            </div>
           </div>
         </div>
 
