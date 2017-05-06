@@ -86,12 +86,12 @@ FlowRouter.route('/edit-profile/:_id', {
   },
 });
 
-FlowRouter.route('/p-profile', {
-  name: 'Public_Profile_Page',
-  action() {
-    BlazeLayout.render('App_Body', { main: 'Public_Profile_Page' });
-  },
-});
+//FlowRouter.route('/public-profile', {
+//  name: 'Public_Profile_Page',
+//  action() {
+//    BlazeLayout.render('App_Body', { main: 'Public_Profile_Page' });
+//  },
+//});
 //
 // function addUserBodyClass() {
 //   $('body').addClass('user-layout-body');
@@ -113,6 +113,14 @@ userRoutes.route('/profile', {
   name: profilePageRouteName,
   action() {
     BlazeLayout.render('User_Layout', { main: profilePageRouteName });
+  },
+});
+
+export const publicprofilePageRouteName = 'Public_Profile_Page';
+userRoutes.route('/publicprofile', {
+  name: publicprofilePageRouteName,
+  action() {
+    BlazeLayout.render('User_Layout', { main: publicprofilePageRouteName });
   },
 });
 

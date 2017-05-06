@@ -9,3 +9,6 @@ import './edit-profile-page.js';
 
 import './home-page.html';
 import './home-page.js';
+
+import './public-profile-page.html';
+import './public-profile-page.js';
