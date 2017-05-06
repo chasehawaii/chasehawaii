@@ -21,6 +21,10 @@ Template.Hike_Page.helpers({
     return Comments.find( {itemid: FlowRouter.getParam('_id')} );
   },
 
+  profpath() {
+    //console.log(Meteor.user().profile.name);
+    return Meteor.user().profile.name;
+  },
 
 
   displayDate() {

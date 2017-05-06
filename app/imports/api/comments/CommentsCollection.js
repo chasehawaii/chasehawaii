@@ -18,7 +18,7 @@ export const CommentsSchema = new SimpleSchema({
   about: {
     label: 'about',
     type: String,
-    optional: true,
+    optional: false,
     max: 500,
   },
   itemid: {
