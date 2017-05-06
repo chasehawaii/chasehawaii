@@ -14,6 +14,7 @@
           {{> Select_Form_Control label="Tags" value=(editBeachField 'tags') options=beachTagChoice multiple=true }}
         </div>
         <div class="field">
+          {{> Text_Form_Control label="Picture" value=(editBeachField 'picture') placeholder="A url to a photo from Facebook, Imgur, etc..." }}
         </div>
         <button class="ui button" type="submit">Update</button>
       </form>

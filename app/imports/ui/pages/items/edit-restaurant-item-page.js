@@ -17,6 +17,7 @@ Template.Edit_Restaurant_Page.onCreated(function onCreated() {
   this.subscribe('Restaurants');
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displayErrorMessages, false);
+  this.currentId = new ReactiveDict();
   this.context = RestaurantsSchema.namedContext('Create_Restaurant_Form');
 });
 
@@ -45,7 +46,8 @@ Template.Edit_Restaurant_Page.helpers({
     });
   },
   editRestaurantField(fieldName) {
-    const restaurantData = Restaurants.findOne(Session.get('restaurantID'));
+    const restaurantData = Restaurants.findOne(FlowRouter.getParam('_id'));
+    Template.instance().currentId.set('current', restaurantData);
     return restaurantData && restaurantData[fieldName];
   },
 });
@@ -62,8 +64,9 @@ Template.Edit_Restaurant_Page.events({
     const tags = _.map(selectedTags, (option) => option.value);
     tags.push(location, food);
     const createdAt = Date.now();
+    const picture = event.target.Picture.value;
     const status = 'Pending';
-    const newItemData = { title, location, about, tags, status, createdAt };
+    const newItemData = { title, location, about, tags, status, picture, createdAt };
 
     // Clear out any old validation errors.
     instance.context.resetValidation();
@@ -73,7 +76,7 @@ Template.Edit_Restaurant_Page.events({
     // Determine validity.
     instance.context.validate(newItemData);
     if (instance.context.isValid()) {
-      Restaurants.update(Session.get('restaurantID'), { $set: newItemData });
+      Restaurants.update(instance.currentId.get('current')._id, { $set: newItemData });
       instance.messageFlags.set(displayErrorMessages, false);
       FlowRouter.go('Item_Feed_Page');
     } else {
