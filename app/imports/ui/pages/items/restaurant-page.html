@@ -73,7 +73,8 @@
           {{#each comment in Comments}}
             <div class="comment">
               <a class="ui avatar image">
-                <img src="http://www.ics.hawaii.edu/wp-content/uploads/2013/08/Gerald_Lau-2014.jpg">
+                <a href="{{pathFor 'Profile_Page' username = profpath}}"><img
+                    src="http://www.ics.hawaii.edu/wp-content/uploads/2013/08/Gerald_Lau-2014.jpg"></a>
               </a>
               <div class="content">
                 <a class="author">{{comment.username}}</a>

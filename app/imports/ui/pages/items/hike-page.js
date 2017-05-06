@@ -23,6 +23,10 @@ Template.Hike_Page.helpers({
   Comments() {
     return Comments.find( {itemid: FlowRouter.getParam('_id')} );
   },
+  profpath() {
+    //console.log(Meteor.user().profile.name);
+    return Meteor.user().profile.name;
+  },
   inBucketList() {
     const usernameCurrent = Meteor.user().profile.name;
     const bucketlist = Profiles.findOne({ username: usernameCurrent }).bucketlist;
@@ -31,7 +35,6 @@ Template.Hike_Page.helpers({
   displayDate() {
     return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
   },
-
 });
 
 Template.Hike_Page.events({
@@ -56,6 +59,8 @@ Template.Hike_Page.events({
     instance.context.validate(newItemData);
     //if (instance.context.isValid()) {
     Comments.insert(newItemData);
+    event.target.reset();
+
     // template.find("form").reset();
     //Comments.update(Session.get(''), { $set: newItemData });
     //  instance.messageFlags.set(displayErrorMessages, false);

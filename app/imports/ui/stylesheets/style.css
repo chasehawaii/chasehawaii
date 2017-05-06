@@ -106,6 +106,14 @@ div.profile.page{
 
 }
 
+div.public.profile.page{
+
+  background: url('http://photolisticlife.com/wp-content/uploads/2015/06/0615_untitled_013-2.jpg') no-repeat center center fixed;
+  background-size:cover;
+  height:869px;
+
+}
+
 
 
 div.aloha{
