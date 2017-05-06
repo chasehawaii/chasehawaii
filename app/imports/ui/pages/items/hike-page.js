@@ -23,7 +23,6 @@ Template.Hike_Page.helpers({
 
 
 
-
   displayDate() {
     return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
   },
@@ -52,6 +51,8 @@ Template.Hike_Page.events({
     instance.context.validate(newItemData);
     //if (instance.context.isValid()) {
     Comments.insert(newItemData);
+    event.target.reset();
+
     // template.find("form").reset();
     //Comments.update(Session.get(''), { $set: newItemData });
     //  instance.messageFlags.set(displayErrorMessages, false);

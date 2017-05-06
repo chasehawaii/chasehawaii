@@ -18,11 +18,8 @@ Template.Restaurant_Page.helpers({
   rest: () => Restaurants.findOne({ _id: FlowRouter.getParam('_id') }),
 
   Comments() {
-    return Comments.find( {itemid: FlowRouter.getParam('_id')} );
+    return Comments.find({ itemid: FlowRouter.getParam('_id') });
   },
-
-
-
 
   displayDate() {
     return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
@@ -39,7 +36,6 @@ Template.Restaurant_Page.events({
     const itemid = FlowRouter.getParam('_id');
     const newItemData = { username, about, itemid };
 
-
     console.log(username);
     console.log(about);
     console.log(itemid);
@@ -52,6 +48,7 @@ Template.Restaurant_Page.events({
     instance.context.validate(newItemData);
     //if (instance.context.isValid()) {
     Comments.insert(newItemData);
+    event.target.reset();
     // template.find("form").reset();
     //Comments.update(Session.get(''), { $set: newItemData });
     //  instance.messageFlags.set(displayErrorMessages, false);

@@ -18,11 +18,8 @@ Template.Beach_Page.helpers({
   bea: () => Beaches.findOne({ _id: FlowRouter.getParam('_id') }),
 
   Comments() {
-    return Comments.find( {itemid: FlowRouter.getParam('_id')} );
+    return Comments.find({ itemid: FlowRouter.getParam('_id') });
   },
-
-
-
 
   displayDate() {
     return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
@@ -39,25 +36,25 @@ Template.Beach_Page.events({
     const itemid = FlowRouter.getParam('_id');
     const newItemData = { username, about, itemid };
 
-
     console.log(username);
     console.log(about);
     console.log(itemid);
 
     // Clear out any old validation errors.
-   // instance.context.resetValidation();
+    // instance.context.resetValidation();
     // Invoke clean so that newStudentData reflects what will be inserted.
-   // CommentsSchema.clean(newItemData);
+    // CommentsSchema.clean(newItemData);
     // Determine validity.
     instance.context.validate(newItemData);
     //if (instance.context.isValid()) {
-      Comments.insert(newItemData);
-   // template.find("form").reset();
-      //Comments.update(Session.get(''), { $set: newItemData });
+    Comments.insert(newItemData);
+    event.target.reset();
+    // template.find("form").reset();
+    //Comments.update(Session.get(''), { $set: newItemData });
     //  instance.messageFlags.set(displayErrorMessages, false);
-     // FlowRouter.reload();
-  //  } else {
-   //   instance.messageFlags.set(displayErrorMessages, true);
+    // FlowRouter.reload();
+    //  } else {
+    //   instance.messageFlags.set(displayErrorMessages, true);
     //}
   },
 });
