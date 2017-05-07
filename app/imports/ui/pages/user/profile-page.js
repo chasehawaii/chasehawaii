@@ -127,6 +127,38 @@ Template.Profile_Page.helpers({
     });
     return _.map(filteredRestaurant, function restaurants(restaurant) { return Restaurants.findOne({ _id: restaurant }); });
   },
+  yourlikes() {
+    const currUser = FlowRouter.getParam('username');
+    const profile = Profiles.findOne({ username: currUser });
+
+    let beaches = _.filter(profile.yourlikes, function items(item) { return Beaches.findOne({ _id: item }); });
+    beaches = _.map(beaches, items => Beaches.findOne({ _id: items }));
+
+    let hikes = _.filter(profile.yourlikes, function items(item) { return Hikes.findOne({ _id: item }); });
+    hikes = _.map(hikes, items => Hikes.findOne({ _id: items }));
+
+    let restaurants = _.filter(profile.yourlikes, function items(item) { return Restaurants.findOne({ _id: item }); });
+    restaurants = _.map(restaurants, items => Restaurants.findOne({ _id: items }));
+
+    const items = _.union(beaches, hikes, restaurants);
+    return items;
+  },
+  yourcompletions() {
+    const currUser = FlowRouter.getParam('username');
+    const profile = Profiles.findOne({ username: currUser });
+
+    let beaches = _.filter(profile.yourcompletions, function items(item) { return Beaches.findOne({ _id: item }); });
+    beaches = _.map(beaches, items => Beaches.findOne({ _id: items }));
+
+    let hikes = _.filter(profile.yourcompletions, function items(item) { return Hikes.findOne({ _id: item }); });
+    hikes = _.map(hikes, items => Hikes.findOne({ _id: items }));
+
+    let restaurants = _.filter(profile.yourcompletions, function items(item) { return Restaurants.findOne({ _id: item }); });
+    restaurants = _.map(restaurants, items => Restaurants.findOne({ _id: items }));
+
+    const items = _.union(beaches, hikes, restaurants);
+    return items;
+  },
 });
 
 Template.Profile_Page.events({

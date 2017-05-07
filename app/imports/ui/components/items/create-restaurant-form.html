@@ -1,8 +1,8 @@
 <template name="Create_Restaurant_Form">
-  <form  style="padding-top: 50px" class="ui form create-restaurant-data">
+  <form  style="padding-top: 50px" class="ui form create-restaurant-data {{ successClass }} {{ errorClass }}">
     <h3 class="ui dividing header">Add Restaurant</h3>
     <div class="two fields">
-      {{> Text_Form_Control label="Title" }}
+      {{> Text_Form_Control label="Title" required=true errorMessage=(fieldError "title")}}
       {{> Select_Form_Control label="Food" options=foodTypeChoice }}
       {{> Select_Form_Control label="Location" options=locationChoice }}
     </div>

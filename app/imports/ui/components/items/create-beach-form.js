@@ -9,6 +9,7 @@ import { Meteor } from 'meteor/meteor';
 /* eslint-disable no-param-reassign */
 
 const displayErrorMessages = 'displayErrorMessages';
+const displaySuccessMessage = 'displaySuccessMessage';
 export const locationList = ['Windward', 'Leeward', 'Central Oahu', 'Honoluu'];
 export const beachTagList = ['Busy', 'Secluded', 'Kid-friendly', 'Dog-friendly', 'Good waves', 'No waves'];
 
@@ -16,6 +17,7 @@ Template.Create_Beach_Form.onCreated(function onCreated() {
   this.subscribe('Profiles');
   this.subscribe('Beaches');
   this.messageFlags = new ReactiveDict();
+  this.messageFlags.set(displaySuccessMessage, false);
   this.messageFlags.set(displayErrorMessages, false);
   this.context = BeachesSchema.namedContext('Create_Beach_Form');
 });
@@ -23,6 +25,12 @@ Template.Create_Beach_Form.onCreated(function onCreated() {
 Template.Create_Beach_Form.helpers({
   errorClass() {
     return Template.instance().messageFlags.get(displayErrorMessages) ? 'error' : '';
+  },
+  successClass() {
+    return Template.instance().messageFlags.get(displaySuccessMessage) ? 'success' : '';
+  },
+  displaySuccessMessage() {
+    return Template.instance().messageFlags.get(displaySuccessMessage);
   },
   fieldError(fieldName) {
     const invalidKeys = Template.instance().context.invalidKeys();
@@ -69,8 +77,11 @@ Template.Create_Beach_Form.events({
       const profileId = Profiles.findOne({ username: usernameCurrent })._id;
       const currentBeach = Beaches.findOne({ title: currentTitle })._id;
       Profiles.update(profileId, { $push: { youritems: currentBeach } });
+      instance.messageFlags.set(displaySuccessMessage, true);
+      instance.messageFlags.set(displayErrorMessages, false);
       FlowRouter.go('Item_Feed_Page');
     } else {
+      instance.messageFlags.set(displaySuccessMessage, false);
       instance.messageFlags.set(displayErrorMessages, true);
     }
   },

@@ -9,6 +9,7 @@ import { Meteor } from 'meteor/meteor';
 /* eslint-disable no-param-reassign */
 
 const displayErrorMessages = 'displayErrorMessages';
+const displaySuccessMessage = 'displaySuccessMessage';
 export const locationList = ['Windward', 'Leeward', 'Central Oahu', 'Honoluu', 'North Shore'];
 export const restaurantTagList = ['Kid-friendly', 'Dog-friendly', 'Busy', 'Quiet'];
 export const foodTypeList = ['Chinese', 'Thai', 'Italian', 'Mexican', 'Local', 'Burgers', 'Japanese Grill', 'Sushi'];
@@ -17,6 +18,7 @@ Template.Create_Restaurant_Form.onCreated(function onCreated() {
   this.subscribe('Profiles');
   this.subscribe('Restaurants');
   this.messageFlags = new ReactiveDict();
+  this.messageFlags.set(displaySuccessMessage, false);
   this.messageFlags.set(displayErrorMessages, false);
   this.context = RestaurantsSchema.namedContext('Create_Item_Page');
 });
@@ -24,6 +26,12 @@ Template.Create_Restaurant_Form.onCreated(function onCreated() {
 Template.Create_Restaurant_Form.helpers({
   errorClass() {
     return Template.instance().messageFlags.get(displayErrorMessages) ? 'error' : '';
+  },
+  successClass() {
+    return Template.instance().messageFlags.get(displaySuccessMessage) ? 'success' : '';
+  },
+  displaySuccessMessage() {
+    return Template.instance().messageFlags.get(displaySuccessMessage);
   },
   fieldError(fieldName) {
     const invalidKeys = Template.instance().context.invalidKeys();
@@ -78,8 +86,11 @@ Template.Create_Restaurant_Form.events({
       const profileId = Profiles.findOne({ username: usernameCurrent })._id;
       const currentRestaurant = Restaurants.findOne({ title: currentTitle })._id;
       Profiles.update(profileId, { $push: { youritems: currentRestaurant } });
+      instance.messageFlags.set(displaySuccessMessage, true);
+      instance.messageFlags.set(displayErrorMessages, false);
       FlowRouter.go('Item_Feed_Page');
     } else {
+      instance.messageFlags.set(displaySuccessMessage, false);
       instance.messageFlags.set(displayErrorMessages, true);
     }
   },

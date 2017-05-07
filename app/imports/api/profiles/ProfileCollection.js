@@ -73,6 +73,16 @@ export const ProfilesSchema = new SimpleSchema({
     type: [String],
     optional: true,
   },
+  yourlikes: {
+    label: 'yourlikes',
+    type: [String],
+    optional: true,
+  },
+  yourcompletions: {
+    label: 'yourcompletions',
+    type: [String],
+    optional: true,
+  },
 });
 
 Profiles.attachSchema(ProfilesSchema);

@@ -7,8 +7,6 @@ import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
 import { ReactiveDict } from 'meteor/reactive-dict';
 
-
-
 /* eslint-env node, jquery */
 
 
@@ -73,22 +71,30 @@ Template.Restaurant_Cards.helpers({
 });
 
 Template.Beach_Cards.events({
-  'click .beach-bucket'(event, instance) {
+  'click .beach-bucket'(event) {
     event.preventDefault();
     const usernameCurrent = Meteor.user().profile.name;
     const profileName = Profiles.findOne({ username: usernameCurrent });
     const profileId = profileName._id;
     const cardId = this.beach._id;
-    Profiles.update(profileId, { $push: { bucketlist: cardId } });
+    if (_.every(profileName.bucketlist, function (id) { return id !== cardId; })) {
+      Profiles.update(profileId, { $push: { bucketlist: cardId } });
+    }
   },
   'click .beach-likes'(event) {
     event.preventDefault();
     const cardId = this.beach._id;
-    let initialLikes = Beaches.findOne({ _id: cardId }).likes;
-    if (!initialLikes) {
-      initialLikes = 0;
+    const usernameCurrent = Meteor.user().profile.name;
+    const profileName = Profiles.findOne({ username: usernameCurrent });
+    const profileId = profileName._id;
+    if (!_.contains(profileName.yourlikes, cardId)) {
+      let initialLikes = Beaches.findOne({ _id: cardId }).likes;
+      if (!initialLikes) {
+        initialLikes = 0;
+      }
+      Beaches.update(cardId, { $set: { likes: initialLikes + 1 } });
+      Profiles.update(profileId, { $push: { yourlikes: cardId } });
     }
-    Beaches.update(cardId, { $set: { likes: initialLikes + 1 } });
   },
   'click .beach-bucket-remove'(event) {
     event.preventDefault();
@@ -97,6 +103,18 @@ Template.Beach_Cards.events({
     const profileId = profileName._id;
     const cardId = this.beach._id;
     Profiles.update(profileId, { $set: { bucketlist: _.without(profileName.bucketlist, cardId) } });
+  },
+  'click .beach-completed'(event) {
+    event.preventDefault();
+    const usernameCurrent = Meteor.user().profile.name;
+    const profileName = Profiles.findOne({ username: usernameCurrent });
+    const profileId = profileName._id;
+    const cardId = this.beach._id;
+    if (!profileName.yourcompletions){
+      Profiles.update(profileId, { $push: { yourcompletions: cardId } });
+    } else if (_.every(profileName.yourcompletions, function (id) { return id !== cardId; })) {
+      Profiles.update(profileId, { $push: { yourcompletions: cardId } });
+    }
   },
 });
 
@@ -107,16 +125,24 @@ Template.Hike_Cards.events({
     const profileName = Profiles.findOne({ username: usernameCurrent });
     const profileId = profileName._id;
     const cardId = this.hike._id;
-    Profiles.update(profileId, { $push: { bucketlist: cardId } });
+    if (_.every(profileName.bucketlist, function (id) { return id !== cardId; })) {
+      Profiles.update(profileId, { $push: { bucketlist: cardId } });
+    }
   },
   'click .hike-likes'(event) {
     event.preventDefault();
     const cardId = this.hike._id;
-    let initialLikes = Hikes.findOne({ _id: cardId }).likes;
-    if (!initialLikes) {
-      initialLikes = 0;
+    const usernameCurrent = Meteor.user().profile.name;
+    const profileName = Profiles.findOne({ username: usernameCurrent });
+    const profileId = profileName._id;
+    if (!_.contains(profileName.yourlikes, cardId)) {
+      let initialLikes = Hikes.findOne({ _id: cardId }).likes;
+      if (!initialLikes) {
+        initialLikes = 0;
+      }
+      Hikes.update(cardId, { $set: { likes: initialLikes + 1 } });
+      Profiles.update(profileId, { $push: { yourlikes: cardId } });
     }
-    Hikes.update(cardId, { $set: { likes: initialLikes + 1 } });
   },
   'click .hike-bucket-remove'(event) {
     event.preventDefault();
@@ -126,6 +152,18 @@ Template.Hike_Cards.events({
     const cardId = this.hike._id;
     Profiles.update(profileId, { $set: { bucketlist: _.without(profileName.bucketlist, cardId) } });
   },
+  'click .hike-completed'(event) {
+    event.preventDefault();
+    const usernameCurrent = Meteor.user().profile.name;
+    const profileName = Profiles.findOne({ username: usernameCurrent });
+    const profileId = profileName._id;
+    const cardId = this.hike._id;
+    if (!profileName.yourcompletions) {
+      Profiles.update(profileId, { $push: { yourcompletions: cardId } });
+    } else if (_.every(profileName.yourcompletions, function (id) { return id !== cardId; })) {
+      Profiles.update(profileId, { $push: { yourcompletions: cardId } });
+    }
+  },
 });
 Template.Restaurant_Cards.events({
   'click .restaurant-bucket'(event) {
@@ -134,16 +172,24 @@ Template.Restaurant_Cards.events({
     const profileName = Profiles.findOne({ username: usernameCurrent });
     const profileId = profileName._id;
     const cardId = this.restaurant._id;
-    Profiles.update(profileId, { $push: { bucketlist: cardId } });
+    if (_.every(profileName.bucketlist, function (id) { return id !== cardId; })) {
+      Profiles.update(profileId, { $push: { bucketlist: cardId } });
+    }
   },
   'click .restaurant-likes'(event) {
     event.preventDefault();
     const cardId = this.restaurant._id;
-    let initialLikes = Restaurants.findOne({ _id: cardId }).likes;
-    if (!initialLikes) {
-      initialLikes = 0;
+    const usernameCurrent = Meteor.user().profile.name;
+    const profileName = Profiles.findOne({ username: usernameCurrent });
+    const profileId = profileName._id;
+    if (!_.contains(profileName.yourlikes, cardId)) {
+      let initialLikes = Restaurants.findOne({ _id: cardId }).likes;
+      if (!initialLikes) {
+        initialLikes = 0;
+      }
+      Restaurants.update(cardId, { $set: { likes: initialLikes + 1 } });
+      Profiles.update(profileId, { $push: { yourlikes: cardId } });
     }
-    Restaurants.update(cardId, { $set: { likes: initialLikes + 1 } });
   },
   'click .restaurant-bucket-remove'(event) {
     event.preventDefault();
@@ -152,5 +198,17 @@ Template.Restaurant_Cards.events({
     const profileId = profileName._id;
     const cardId = this.restaurant._id;
     Profiles.update(profileId, { $set: { bucketlist: _.without(profileName.bucketlist, cardId) } });
+  },
+  'click .restaurant-completed'(event) {
+    event.preventDefault();
+    const usernameCurrent = Meteor.user().profile.name;
+    const profileName = Profiles.findOne({ username: usernameCurrent });
+    const profileId = profileName._id;
+    const cardId = this.restaurant._id;
+    if (!profileName.yourcompletions) {
+      Profiles.update(profileId, { $push: { yourcompletions: cardId } });
+    } else if (_.every(profileName.yourcompletions, function (id) { return id !== cardId; })) {
+      Profiles.update(profileId, { $push: { yourcompletions: cardId } });
+    }
   },
 });
