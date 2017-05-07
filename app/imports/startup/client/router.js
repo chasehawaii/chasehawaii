@@ -79,12 +79,14 @@ FlowRouter.route('/edit-restaurant/:_id', {
   },
 });
 
-FlowRouter.route('/edit-profile/:_id', {
+/*
+FlowRouter.route('/edit-profile/:username', {
   name: 'Edit_Profile_Page',
   action() {
     BlazeLayout.render('App_Body', { main: 'Edit_Profile_Page' });
   },
 });
+*/
 
 //FlowRouter.route('/public-profile', {
 //  name: 'Public_Profile_Page',
@@ -113,6 +115,13 @@ userRoutes.route('/profile', {
   name: profilePageRouteName,
   action() {
     BlazeLayout.render('User_Layout', { main: profilePageRouteName });
+  },
+});
+export const editProfilePageRouteName = 'Edit_Profile_Page';
+userRoutes.route('/edit-profile', {
+  name: editProfilePageRouteName,
+  action() {
+    BlazeLayout.render('User_Layout', { main: editProfilePageRouteName });
   },
 });
 
