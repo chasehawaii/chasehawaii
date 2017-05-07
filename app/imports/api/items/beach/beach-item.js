@@ -9,7 +9,7 @@ export const BeachesSchema = new SimpleSchema({
   title: {
     label: 'title',
     type: String,
-    optional: true,
+    optional: false,
   },
   category: {
     label: 'category',
@@ -52,6 +52,11 @@ export const BeachesSchema = new SimpleSchema({
         type: String,
       },
     }],
+    optional: true,
+  },
+  likes: {
+    label: 'likes',
+    type: Number,
     optional: true,
   },
   createdAt: {

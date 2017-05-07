@@ -1,8 +1,8 @@
 <template name="Create_Hike_Form">
-  <form style="padding-top: 50px" class="ui form create-hike-data">
+  <form style="padding-top: 50px" class="ui form create-hike-data {{ successClass }} {{ errorClass }}">
     <h3 class="ui dividing header">Add Hike</h3>
     <div class="two fields">
-      {{> Text_Form_Control label="Title" }}
+      {{> Text_Form_Control label="Title" required=true errorMessage=(fieldError "title")}}
       {{> Select_Form_Control label="Location" options=locationChoice }}
     </div>
     <div class="field">

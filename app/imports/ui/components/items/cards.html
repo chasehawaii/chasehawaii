@@ -38,10 +38,10 @@
       </span>
     </div>
     {{#if isNotActivePath regex='item-feed'}}
-    <div class="beach-bucket-remove">
-      <div class="ui teal bottom attached button" data-id="{{ beach._id }}">
-        <i class="minus icon"></i>
-        Remove from Bucket list
+    <div>
+      <div class="ui blue two buttons">
+        <div class="ui beach-bucket-remove button" data-id="{{ beach._id }}">Remove from Bucket</div>
+        <div class="ui beach-completed button" data-id="{{ beach._id }}">Check Completed</div>
       </div>
     </div>
     {{/if}}
@@ -115,12 +115,12 @@
     </div>
     <div class="{{isActiveRoute regex='/^profile/'}}">
       {{#if isNotActivePath regex='item-feed'}}
-      <div class="hike-bucket-remove">
-        <div class="ui blue bottom attached button" data-id="{{ hike._id }}">
-          <i class="minus icon"></i>
-          Remove from Bucket list
+        <div>
+          <div class="ui blue two buttons">
+            <div class="ui hike-bucket-remove button" data-id="{{ hike._id }}">Remove from Bucket</div>
+            <div class="ui hike-completed button" data-id="{{ hike._id }}">Check Completed</div>
+          </div>
         </div>
-      </div>
       {{/if}}
       {{#if isActivePath regex='item-feed'}}
       <div class="hike-bucket">
@@ -180,11 +180,11 @@
     </div>
     <div class="{{isActiveRoute regex='/^profile/'}}">
       {{#if isNotActivePath regex='item-feed'}}
-      <div class="restaurant-bucket-remove">
-      <div class="ui blue bottom attached button" data-id="{{ restaurant._id }}">
-        <i class="minus icon"></i>
-        Remove from Bucket list
-      </div>
+      <div>
+        <div class="ui blue two buttons">
+          <div class="ui restaurant-bucket-remove button" data-id="{{ restaurant._id }}">Remove from Bucket</div>
+          <div class="ui restaurant-completed button" data-id="{{ restaurant._id }}">Check Completed</div>
+        </div>
       </div>
       {{/if}}
       {{#if isActivePath regex='item-feed'}}
