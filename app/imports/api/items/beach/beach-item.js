@@ -9,7 +9,7 @@ export const BeachesSchema = new SimpleSchema({
   title: {
     label: 'title',
     type: String,
-    optional: true,
+    optional: false,
   },
   category: {
     label: 'category',

@@ -9,6 +9,7 @@ import { Meteor } from 'meteor/meteor';
 /* eslint-disable no-param-reassign */
 
 const displayErrorMessages = 'displayErrorMessages';
+const displaySuccessMessage = 'displaySuccessMessage';
 export const locationList = ['Windward', 'Leeward', 'Central Oahu', 'Honoluu', 'North Shore'];
 export const hikeTagList = ['Kid-friendly', 'Dog-friendly','Loop', 'Point-to-point'];
 export const difficultyList = ['Stroll', 'Easy', 'Moderate', 'Difficult', 'Extreme'];
@@ -20,13 +21,20 @@ Template.Create_Hike_Form.onCreated(function onCreated() {
   this.subscribe('Profiles');
   this.subscribe('Hikes');
   this.messageFlags = new ReactiveDict();
+  this.messageFlags.set(displaySuccessMessage, false);
   this.messageFlags.set(displayErrorMessages, false);
-  this.context = HikesSchema.namedContext('Create_Item_Page');
+  this.context = HikesSchema.namedContext('Create_Hike_Form');
 });
 
 Template.Create_Hike_Form.helpers({
   errorClass() {
     return Template.instance().messageFlags.get(displayErrorMessages) ? 'error' : '';
+  },
+  successClass() {
+    return Template.instance().messageFlags.get(displaySuccessMessage) ? 'success' : '';
+  },
+  displaySuccessMessage() {
+    return Template.instance().messageFlags.get(displaySuccessMessage);
   },
   fieldError(fieldName) {
     const invalidKeys = Template.instance().context.invalidKeys();
@@ -92,9 +100,12 @@ Template.Create_Hike_Form.events({
       const profileId = Profiles.findOne({ username: usernameCurrent })._id;
       const currentHike = Hikes.findOne({ title: currentTitle })._id;
       Profiles.update(profileId, { $push: { youritems: currentHike } });
+      instance.messageFlags.set(displaySuccessMessage, true);
+      instance.messageFlags.set(displayErrorMessages, false);
       FlowRouter.go('Item_Feed_Page');
     } else {
       instance.messageFlags.set(displayErrorMessages, true);
+      instance.messageFlags.set(displaySuccessMessage, false);
     }
   },
 });

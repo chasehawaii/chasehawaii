@@ -79,7 +79,9 @@ Template.Beach_Cards.events({
     const profileName = Profiles.findOne({ username: usernameCurrent });
     const profileId = profileName._id;
     const cardId = this.beach._id;
-    Profiles.update(profileId, { $push: { bucketlist: cardId } });
+    if (_.every(profileName.bucketlist, function (id) { return id !== cardId; })) {
+      Profiles.update(profileId, { $push: { bucketlist: cardId } });
+    }
   },
   'click .beach-likes'(event) {
     event.preventDefault();
@@ -107,7 +109,9 @@ Template.Hike_Cards.events({
     const profileName = Profiles.findOne({ username: usernameCurrent });
     const profileId = profileName._id;
     const cardId = this.hike._id;
-    Profiles.update(profileId, { $push: { bucketlist: cardId } });
+    if (_.every(profileName.bucketlist, function (id) { return id !== cardId; })) {
+      Profiles.update(profileId, { $push: { bucketlist: cardId } });
+    }
   },
   'click .hike-likes'(event) {
     event.preventDefault();
@@ -134,7 +138,9 @@ Template.Restaurant_Cards.events({
     const profileName = Profiles.findOne({ username: usernameCurrent });
     const profileId = profileName._id;
     const cardId = this.restaurant._id;
-    Profiles.update(profileId, { $push: { bucketlist: cardId } });
+    if (_.every(profileName.bucketlist, function (id) { return id !== cardId; })) {
+      Profiles.update(profileId, { $push: { bucketlist: cardId } });
+    }
   },
   'click .restaurant-likes'(event) {
     event.preventDefault();
