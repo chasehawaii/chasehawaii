@@ -4,7 +4,7 @@
     <div style="padding-top: 75px" class="ui internally celled grid">
       <div class="row">
 
-        <div class="four wide column" style="background-color: #FFFFFF; filter:alpha(opacity=74); opacity:0.74;">
+        <div class="three wide column" style="background-color: #FFFFFF; filter:alpha(opacity=74); opacity:0.74;">
 
           <div class="ui large dividing header">Welcome, {{username}}!</div>
           <img style="height: 250px" class="ui medium rounded bordered image" src="{{image}}">
@@ -56,6 +56,20 @@
               {{/each}}
 
             </div>
+          </div>
+        </div>
+        <div class="three wide column" style="background-color: #FFFFFF; filter:alpha(opacity=74); opacity:0.74;">
+          <div class="ui container">
+            <h3>Items you have liked</h3>
+          {{#each like in yourlikes}}
+          <li><a class="ui green label">{{like.title}}</a></li>
+          {{/each}}
+          </div>
+          <div style="margin-top: 20px" class="ui container">
+            <h3>Items you have completed!</h3>
+            {{#each item in yourcompletions}}
+            <li><a class="ui grey label">{{item.title}}</a></li>
+            {{/each}}
           </div>
         </div>
       </div>

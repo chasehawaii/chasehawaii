@@ -54,6 +54,11 @@ export const BeachesSchema = new SimpleSchema({
     }],
     optional: true,
   },
+  likes: {
+    label: 'likes',
+    type: Number,
+    optional: true,
+  },
   createdAt: {
     label: 'createdAt',
     type: Date,
