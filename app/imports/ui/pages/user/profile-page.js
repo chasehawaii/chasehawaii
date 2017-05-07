@@ -22,32 +22,32 @@ Template.Profile_Page.helpers({
   username() {
     const currUser = FlowRouter.getParam('username');
     const profile = Profiles.findOne({ username: currUser });
-    return profile.username;
+    return profile && profile.username;
   },
   image() {
     const currUser = FlowRouter.getParam('username');
     const profile = Profiles.findOne({ username: currUser });
-    return profile.image;
+    return profile && profile.image;
   },
   about() {
     const currUser = FlowRouter.getParam('username');
     const profile = Profiles.findOne({ username: currUser });
-    return profile.about;
+    return profile && profile.about;
   },
   first() {
     const currUser = FlowRouter.getParam('username');
     const profile = Profiles.findOne({ username: currUser });
-    return profile.first;
+    return profile && profile.first;
   },
   last() {
     const currUser = FlowRouter.getParam('username');
     const profile = Profiles.findOne({ username: currUser });
-    return profile.last;
+    return profile && profile.last;
   },
   standing() {
     const currUser = FlowRouter.getParam('username');
     const profile = Profiles.findOne({ username: currUser });
-    return profile.standing;
+    return profile && profile.standing;
   },
   beaches() {
     const currUser = FlowRouter.getParam('username');
@@ -164,7 +164,7 @@ Template.Profile_Page.helpers({
 Template.Profile_Page.events({
   'click .edit_profile'(event) {
     event.preventDefault();
-    const id = event.target.value;
-    FlowRouter.go(`/edit-profile/${id}`);
+    const username = event.target.value;
+    FlowRouter.go(`/${username}/edit-profile`);
   },
 });

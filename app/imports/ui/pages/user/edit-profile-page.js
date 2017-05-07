@@ -17,7 +17,8 @@ Template.Edit_Profile_Page.onCreated(function onCreated() {
 
 Template.Edit_Profile_Page.helpers({
   profileDataField(fieldName) {
-    const profileData = Profiles.findOne(FlowRouter.getParam('_id'));
+    const currUser = FlowRouter.getParam('username');
+    const profileData = Profiles.findOne({ username: currUser });
     // See https://dweldon.silvrback.com/guards to understand '&&' in next line.
     return profileData && profileData[fieldName];
   },
@@ -50,6 +51,9 @@ Template.Edit_Profile_Page.events({
     const twitter = event.target.Twitter.value;
     const about = event.target.About.value;
 
+    const profile = Profiles.findOne({ username });
+    const key = profile._id;
+
     const updatedProfileData = { username, first, last, standing, image, facebook, instagram, twitter, about };
 
     // Clear out any old validation errors.
@@ -59,7 +63,7 @@ Template.Edit_Profile_Page.events({
     // Determine validity.
     instance.context.validate(updatedProfileData);
     if (instance.context.isValid()) {
-      Profiles.update(FlowRouter.getParam('_id'), { $set: updatedProfileData });
+      Profiles.update(key, { $set: updatedProfileData });
       instance.messageFlags.set(displayErrorMessages, false);
       FlowRouter.go(`/${username}/profile`);
     } else {
