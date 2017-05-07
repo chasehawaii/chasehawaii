@@ -1,26 +1,26 @@
 <template name="Profile_Page">
-  <div class="profile page">
+  <div class="profile page" style="overflow-y: scroll">
 
     <div style="padding-top: 75px" class="ui internally celled grid">
       <div class="row">
 
-        <div class="four wide column" style="background-color: #FFFFFF; filter:alpha(opacity=74); opacity:0.74;">
+        <div class="four wide column" >
 
           <div class="ui large dividing header">Welcome, {{username}}!</div>
-          <img style="height: 250px" class="ui medium rounded bordered image" src="{{image}}">
+          <img style="height: 250px" class="ui medium rounded centered bordered image" src="{{image}}">
 
-          <div class="ui container">
+          <div class="ui container" style="background-color: #FFFFFF; filter:alpha(opacity=74); opacity:0.74; padding: 10px">
             <h4>Name: {{first}} {{last}}</h4>
             <h4>Standing: {{standing}}</h4>
             <h4>About</h4>
             <p style=" white-space:pre-wrap; width: 300px; word-break: break-all; ">{{about}}</p>
-            <button value="{{ userID }}" class="ui green button edit_profile">
+            <button value="{{ userID }}" class="ui green button edit_profile" style="opacity:1;">
               Edit Profile
             </button>
           </div>
 
         </div>
-        <div class="ten wide column">
+        <div class="ten wide column" >
           <div style="margin-top: 10px" class="ui container">
             <h2>Your Items</h2>
             <div class="ui divider"></div>
@@ -38,6 +38,7 @@
               {{/each}}
             </div>
           </div>
+
 
           <div style="margin-top: 100px" class="ui container">
             <h2>Your Bucket List</h2>
