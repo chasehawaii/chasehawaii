@@ -1,97 +1,87 @@
 <template name="Profile_Page">
   <div class="profile page" style="overflow-y: scroll">
-
     <div style="padding-top: 75px" class="ui internally celled grid">
       <div class="row">
+          <div class="three wide column" style="background-color: #FFFFFF; filter:alpha(opacity=74); opacity:0.74;">
+            <div class="ui large dividing header">Welcome, {{username}}!</div>
+            <img style="height: 250px" class="ui medium rounded centered bordered image" src="{{image}}">
 
-<<<<<<< HEAD
-        <div class="four wide column">
-=======
-        <div class="three wide column" style="background-color: #FFFFFF; filter:alpha(opacity=74); opacity:0.74;">
->>>>>>> issue-70
-
-          <div class="ui large dividing header">Welcome, {{username}}!</div>
-          <img style="height: 250px" class="ui medium rounded centered bordered image" src="{{image}}">
-
-          <div class="ui container"
-               style="background-color: #FFFFFF; filter:alpha(opacity=74); opacity:0.74; padding: 10px">
-            <div class="ui three column grid">
-              {{#if ifFacebook }}
-              <div class="column"><a href="https://facebook.com/{{facebook}}"><i class="large facebook icon"></i></a>
+            <div class="ui container"
+                 style="background-color: #FFFFFF; filter:alpha(opacity=74); opacity:0.74; padding: 10px">
+              <div class="ui three column grid">
+                {{#if ifFacebook }}
+                <div class="column"><a href="https://facebook.com/{{facebook}}"><i class="large facebook icon"></i></a>
+                </div>
+                {{/if}}
+                {{#if ifTwitter }}
+                <div class="column"><a href="https://twitter.com/{{twitter}}"><i class="large twitter icon"></i></a>
+                </div>
+                {{/if}}
+                {{#if ifInstagram }}
+                <div class="column"><a href="https://instagram.com/{{instagram}}"><i
+                    class="large instagram icon"></i></a>
+                </div>
+                {{/if}}
               </div>
-              {{/if}}
-              {{#if ifTwitter }}
-              <div class="column"><a href="https://twitter.com/{{twitter}}"><i class="large twitter icon"></i></a>
-              </div>
-              {{/if}}
-              {{#if ifInstagram }}
-              <div class="column"><a href="https://instagram.com/{{instagram}}"><i class="large instagram icon"></i></a>
-              </div>
-              {{/if}}
-            </div>
-            <h4>Name: {{first}} {{last}}</h4>
-            <h4>Standing: {{standing}}</h4>
-            <h4>About</h4>
-            <p style=" white-space:pre-wrap; width: 300px; word-break: break-all; ">{{about}}</p>
-            <button value="{{ userID }}" class="ui green button edit_profile" style="opacity:1;">
-              Edit Profile
-            </button>
-          </div>
-
-        </div>
-        <div class="ten wide column">
-          <div style="margin-top: 10px" class="ui container">
-            <h2>Your Items</h2>
-            <div class="ui divider"></div>
-            <div class="ui cards">
-              {{#each beach in userbeach }}
-              {{> Beach_User_Cards beach=beach}}
-              {{/each}}
-
-              {{#each hike in userhike }}
-              {{> Hike_User_Cards hike=hike}}
-              {{/each}}
-
-              {{#each restaurant in userrestaurant }}
-              {{> Restaurant_User_Cards restaurant=restaurant}}
-              {{/each}}
+              <h4>Name: {{first}} {{last}}</h4>
+              <h4>Standing: {{standing}}</h4>
+              <h4>About</h4>
+              <p style=" white-space:pre-wrap; width: 300px; word-break: break-all; ">{{about}}</p>
+              <button value="{{ userID }}" class="ui green button edit_profile" style="opacity:1;">
+                Edit Profile
+              </button>
             </div>
           </div>
+          <div class="ten wide column">
+            <div style="margin-top: 10px" class="ui container">
+              <h2>Your Items</h2>
+              <div class="ui divider"></div>
+              <div class="ui cards">
+                {{#each beach in userbeach }}
+                {{> Beach_User_Cards beach=beach}}
+                {{/each}}
 
+                {{#each hike in userhike }}
+                {{> Hike_User_Cards hike=hike}}
+                {{/each}}
 
-          <div style="margin-top: 100px" class="ui container">
-            <h2>Your Bucket List</h2>
-            <div class="ui divider"></div>
-            <div class="ui cards">
-              {{#each beach in beaches }}
-              {{> Beach_Cards beach=beach}}
-              {{/each}}
+                {{#each restaurant in userrestaurant }}
+                {{> Restaurant_User_Cards restaurant=restaurant}}
+                {{/each}}
+              </div>
+            </div>
+            <div style="margin-top: 100px" class="ui container">
+              <h2>Your Bucket List</h2>
+              <div class="ui divider"></div>
+              <div class="ui cards">
+                {{#each beach in beaches }}
+                {{> Beach_Cards beach=beach}}
+                {{/each}}
 
-              {{#each hike in hikes }}
-              {{> Hike_Cards hike=hike}}
-              {{/each}}
+                {{#each hike in hikes }}
+                {{> Hike_Cards hike=hike}}
+                {{/each}}
 
-              {{#each restaurant in restaurants }}
-              {{> Restaurant_Cards restaurant=restaurant}}
-              {{/each}}
-
+                {{#each restaurant in restaurants }}
+                {{> Restaurant_Cards restaurant=restaurant}}
+                {{/each}}
+              </div>
             </div>
           </div>
-        </div>
-        <div class="three wide column" style="background-color: #FFFFFF; filter:alpha(opacity=74); opacity:0.74;">
-          <div class="ui container">
-            <h3>Items you have liked</h3>
-          {{#each like in yourlikes}}
-          <li><a class="ui green label">{{like.title}}</a></li>
-          {{/each}}
+          <div class="three wide column" style="background-color: #FFFFFF; filter:alpha(opacity=74); opacity:0.74;">
+            <div class="ui container">
+              <h3>Items you have liked</h3>
+              {{#each like in yourlikes}}
+              <li><a class="ui green label">{{like.title}}</a></li>
+              {{/each}}
+            </div>
+            <div style="margin-top: 20px" class="ui container">
+              <h3>Items you have completed!</h3>
+              {{#each item in yourcompletions}}
+              <li><a class="ui grey label">{{item.title}}</a></li>
+              {{/each}}
+            </div>
           </div>
-          <div style="margin-top: 20px" class="ui container">
-            <h3>Items you have completed!</h3>
-            {{#each item in yourcompletions}}
-            <li><a class="ui grey label">{{item.title}}</a></li>
-            {{/each}}
-          </div>
-        </div>
       </div>
     </div>
   </div>
