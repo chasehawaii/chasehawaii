@@ -34,18 +34,23 @@
               <p>{{bea.about}}</p>
             </div>
             <div style="margin-top: 50px" class="column">
-              <img class="ui fluid image" src="/images/papohaku.jpg">
+              <img class="ui fluid image" src={{bea.picture}}>
             </div>
           </div>
         </div>
         <div class="ui segment">
           <div class="ui compact menu">
-            <a class="item">
-              <i class="thumbs up icon"></i> Like
-            </a>
-            <a class="item">
-              <i class="plus icon"></i> Add to your bucket list
-            </a>
+            <div class="beach-bucket">
+              <div class="ui blue bottom attached button" data-id="{{ bea._id }}">
+                {{#if inBucketList item=hik._id}}
+                <i class="white star icon"></i>
+                In your bucket list!
+                {{else}}
+                <i class="add icon"></i>
+                Add to Bucket List
+                {{/if}}
+              </div>
+            </div>
           </div>
         </div>
 
@@ -58,7 +63,8 @@
           {{#each comment in Comments}}
             <div class="comment">
               <a class="ui avatar image">
-                <img src="http://www.ics.hawaii.edu/wp-content/uploads/2013/08/Gerald_Lau-2014.jpg">
+                <a href="{{pathFor 'Profile_Page' username = profpath}}"><img
+                    src="http://www.ics.hawaii.edu/wp-content/uploads/2013/08/Gerald_Lau-2014.jpg"></a>
               </a>
               <div class="content">
                 <a class="author">{{comment.username}}</a>

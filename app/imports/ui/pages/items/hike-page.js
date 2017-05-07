@@ -1,4 +1,3 @@
-import './hike-page.html';
 import { Template } from 'meteor/templating';
 import { Hikes } from '/imports/api/items/hike/hike-item.js';
 import { Comments, CommentsSchema } from '/imports/api/comments/CommentsCollection.js';
@@ -6,11 +5,15 @@ import { Meteor } from 'meteor/meteor';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { _ } from 'meteor/underscore';
+import { Profiles } from '/imports/api/profiles/ProfileCollection.js';
+
 
 Template.Hike_Page.onCreated(function onCreated() {
   this.subscribe('Hikes');
-  this.context = CommentsSchema.namedContext('Hike_Page')
+  this.subscribe('Profiles');
   this.subscribe('Comments');
+  this.context = CommentsSchema.namedContext('Hike_Page')
+
 
 });
 
@@ -20,14 +23,18 @@ Template.Hike_Page.helpers({
   Comments() {
     return Comments.find( {itemid: FlowRouter.getParam('_id')} );
   },
-
-
-
-
+  profpath() {
+    //console.log(Meteor.user().profile.name);
+    return Meteor.user().profile.name;
+  },
+  inBucketList() {
+    const usernameCurrent = Meteor.user().profile.name;
+    const bucketlist = Profiles.findOne({ username: usernameCurrent }).bucketlist;
+    return _.contains(bucketlist, FlowRouter.getParam('_id'));
+  },
   displayDate() {
     return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
   },
-
 });
 
 Template.Hike_Page.events({
@@ -52,6 +59,8 @@ Template.Hike_Page.events({
     instance.context.validate(newItemData);
     //if (instance.context.isValid()) {
     Comments.insert(newItemData);
+    event.target.reset();
+
     // template.find("form").reset();
     //Comments.update(Session.get(''), { $set: newItemData });
     //  instance.messageFlags.set(displayErrorMessages, false);
@@ -59,5 +68,13 @@ Template.Hike_Page.events({
     //  } else {
     //   instance.messageFlags.set(displayErrorMessages, true);
     //}
+  },
+  'click .hike-bucket'(event, instance) {
+    event.preventDefault();
+    const usernameCurrent = Meteor.user().profile.name;
+    const profileName = Profiles.findOne({ username: usernameCurrent });
+    const profileId = profileName._id;
+    const itemid = FlowRouter.getParam('_id');
+    Profiles.update(profileId, { $push: { bucketlist: itemid } });
   },
 });

@@ -10,10 +10,16 @@
         <div class="field">
           {{> TextArea_Form_Control label="About" value=(editHikeField 'about')}}
         </div>
+        <div class="three fields">
+          {{> Select_Form_Control label="Length" value=(editHikeField 'length') options=lengthChoice}}
+          {{> Select_Form_Control label="Difficulty" value=(editHikeField 'difficulty') options=difficultyChoice }}
+          {{> Select_Form_Control label="Type" value=(editHikeField 'kind') options=typeChoice }}
+        </div>
         <div class="field">
           {{> Select_Form_Control label="Tags" value=(editHikeField 'tags') options=hikeTagChoice multiple=true }}
         </div>
         <div class="field">
+          {{> Text_Form_Control label="Picture" value=(editHikeField 'picture') placeholder="A url to a photo from Facebook, Imgur, etc..." }}
         </div>
         <button class="ui button" type="submit">Update</button>
       </form>

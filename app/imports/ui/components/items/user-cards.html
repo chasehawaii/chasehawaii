@@ -10,8 +10,9 @@
         <div class="beach-likes">
           <div data-id="{{ beach._id }}">
         <span class="right floated">
-        <i class="like icon" data-id="{{ beach._id }}"></i>
-        {{ beach.likes }} Likes
+        <a class="ui tiny image">
+            <img src={{beach.picture}}>
+          </a>
       </span>
           </div>
         </div>
@@ -26,6 +27,11 @@
     <div class="extra content">
           <span class="left floated">
             Status: {{ beach.status }}
+            {{#if status}}
+            <i class="green checkmark icon"></i>
+            {{else}}
+            <i class="red remove icon"></i>
+            {{/if}}
       </span>
     </div>
     <div class="ui two buttons" data-id="{{ beach._id }}">
@@ -49,8 +55,9 @@
         <div class="hike-likes">
           <div data-id="{{ hike._id }}">
         <span class="right floated">
-        <i class="like icon" data-id="{{ hike._id }}"></i>
-        {{ hike.likes }} Likes
+        <a class="ui tiny image">
+            <img src={{hike.picture}}>
+          </a>
       </span>
           </div>
         </div>
@@ -65,6 +72,11 @@
     <div class="extra content">
           <span class="left floated">
             Status: {{ hike.status }}
+            {{#if status}}
+            <i class="green checkmark icon"></i>
+            {{else}}
+            <i class="red remove icon"></i>
+            {{/if}}
       </span>
     </div>
     <div class="hike-edit">
@@ -90,8 +102,9 @@
         <div class="restaurant-likes">
           <div data-id="{{ restaurant._id }}">
         <span class="right floated">
-        <i class="like icon" data-id="{{ restaurant._id }}"></i>
-        {{ restaurant.likes }} Likes
+          <a class="ui tiny image">
+            <img src={{restaurant.picture}}>
+          </a>
       </span>
           </div>
         </div>
@@ -106,6 +119,11 @@
     <div class="extra content">
           <span class="left floated">
             Status: {{ restaurant.status }}
+            {{#if status}}
+            <i class="green checkmark icon"></i>
+            {{else}}
+            <i class="red remove icon"></i>
+            {{/if}}
       </span>
     </div>
     <div class="restaurant-edit">

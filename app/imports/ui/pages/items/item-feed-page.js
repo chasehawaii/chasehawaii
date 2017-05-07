@@ -25,29 +25,31 @@ Template.Item_Feed_Page.onRendered(function onRendered() {
 
 Template.Item_Feed_Page.helpers({
   beaches() {
-    if (!Template.instance().messageFlags.get('Filtered')) {
-      return Beaches.find().fetch();
-    }
     const allBeaches = Beaches.find().fetch();
     const selectedBeaches = Template.instance().messageFlags.get('Tags');
-    return _.filter(allBeaches, beach => _.intersection(beach.tags, selectedBeaches).length > 0);
-  },
-
-  hikes() {
+    const filteredBeaches =  _.filter(allBeaches, beach => _.intersection(beach.tags, selectedBeaches).length > 0);
     if (!Template.instance().messageFlags.get('Filtered')) {
-      return Hikes.find().fetch();
+      return _.filter(allBeaches, beach => beach.status === 'Approved');
     }
+    return _.filter(filteredBeaches, beach => beach.status === 'Approved');
+  },
+  hikes() {
     const allHikes = Hikes.find().fetch();
     const selectedHikes = Template.instance().messageFlags.get('Tags');
-    return _.filter(allHikes, hike => _.intersection(hike.tags, selectedHikes).length > 0);
+    const filteredHikes =  _.filter(allHikes, hike => _.intersection(hike.tags, selectedHikes).length > 0);
+    if (!Template.instance().messageFlags.get('Filtered')) {
+      return _.filter(allHikes, hike => hike.status === 'Approved');
+    }
+    return _.filter(filteredHikes, hike => hike.status === 'Approved');
   },
   restaurants() {
-    if (!Template.instance().messageFlags.get('Filtered')) {
-      return Restaurants.find().fetch();
-    }
     const allRestaurants = Restaurants.find().fetch();
     const selectedRestaurants = Template.instance().messageFlags.get('Tags');
-    return _.filter(allRestaurants, hike => _.intersection(hike.tags, selectedRestaurants).length > 0);
+    const filteredRestaurants =  _.filter(allRestaurants, restaurant => _.intersection(restaurant.tags, selectedRestaurants).length > 0);
+    if (!Template.instance().messageFlags.get('Filtered')) {
+      return _.filter(allRestaurants, restaurant => restaurant.status === 'Approved');
+    }
+    return _.filter(filteredRestaurants, restaurant => restaurant.status === 'Approved');
   },
 
   tagFilterChoice() {

@@ -6,28 +6,33 @@ import { Meteor } from 'meteor/meteor';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { _ } from 'meteor/underscore';
+import { Profiles } from '/imports/api/profiles/ProfileCollection.js';
 
 Template.Restaurant_Page.onCreated(function onCreated() {
   this.subscribe('Restaurants');
   this.context = CommentsSchema.namedContext('Restaurant_Page')
   this.subscribe('Comments');
-
+  this.subscribe('Profiles');
 });
 
 Template.Restaurant_Page.helpers({
   rest: () => Restaurants.findOne({ _id: FlowRouter.getParam('_id') }),
 
   Comments() {
-    return Comments.find( {itemid: FlowRouter.getParam('_id')} );
+    return Comments.find({ itemid: FlowRouter.getParam('_id') });
   },
-
-
-
-
+  profpath() {
+    //console.log(Meteor.user().profile.name);
+    return Meteor.user().profile.name;
+  },
   displayDate() {
     return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
   },
-
+  inBucketList() {
+    const usernameCurrent = Meteor.user().profile.name;
+    const bucketlist = Profiles.findOne({ username: usernameCurrent }).bucketlist;
+    return _.contains(bucketlist, FlowRouter.getParam('_id'));
+  },
 });
 
 Template.Restaurant_Page.events({
@@ -38,7 +43,6 @@ Template.Restaurant_Page.events({
     const about = event.target.about.value;
     const itemid = FlowRouter.getParam('_id');
     const newItemData = { username, about, itemid };
-
 
     console.log(username);
     console.log(about);
@@ -52,6 +56,7 @@ Template.Restaurant_Page.events({
     instance.context.validate(newItemData);
     //if (instance.context.isValid()) {
     Comments.insert(newItemData);
+    event.target.reset();
     // template.find("form").reset();
     //Comments.update(Session.get(''), { $set: newItemData });
     //  instance.messageFlags.set(displayErrorMessages, false);
@@ -59,5 +64,13 @@ Template.Restaurant_Page.events({
     //  } else {
     //   instance.messageFlags.set(displayErrorMessages, true);
     //}
+  },
+  'click .restaurant-bucket'(event, instance) {
+    event.preventDefault();
+    const usernameCurrent = Meteor.user().profile.name;
+    const profileName = Profiles.findOne({ username: usernameCurrent });
+    const profileId = profileName._id;
+    const itemid = FlowRouter.getParam('_id');
+    Profiles.update(profileId, { $push: { bucketlist: itemid } });
   },
 });

@@ -28,32 +28,47 @@ Template.Restaurant_Cards.onCreated(function onCreated() {
 
 Template.Beach_Cards.helpers({
   displayDate() {
-    return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
+    return moment(this.createdAt).format('MM/DD/YYYY');
   },
   inBucketList() {
     const usernameCurrent = Meteor.user().profile.name;
     const bucketlist = Profiles.findOne({ username: usernameCurrent }).bucketlist;
     return _.contains(bucketlist, this.beach._id);
   },
+  beachAbout() {
+    const about = this.beach.about;
+    return about.substring(0, 100);
+  },
 });
 Template.Hike_Cards.helpers({
   displayDate() {
-    return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
+    return moment(this.createdAt).format('MM/DD/YYYY');
   },
   inBucketList() {
     const usernameCurrent = Meteor.user().profile.name;
     const bucketlist = Profiles.findOne({ username: usernameCurrent }).bucketlist;
     return _.contains(bucketlist, this.hike._id);
   },
+  hikeAbout() {
+    const about = this.hike.about;
+    return about.substring(0, 100);
+  },
+  equal(a, b) {
+    return a === b;
+  },
 });
 Template.Restaurant_Cards.helpers({
   displayDate() {
-    return moment(this.createdAt).format('MM/DD/YYYY, HH:MM');
+    return moment(this.createdAt).format('MM/DD/YYYY');
   },
   inBucketList() {
     const usernameCurrent = Meteor.user().profile.name;
     const bucketlist = Profiles.findOne({ username: usernameCurrent }).bucketlist;
     return _.contains(bucketlist, this.restaurant._id);
+  },
+  restaurantAbout() {
+    const about = this.restaurant.about;
+    return about.substring(0, 100);
   },
 });
 

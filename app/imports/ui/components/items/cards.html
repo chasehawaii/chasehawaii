@@ -1,7 +1,7 @@
 <template name="Beach_Cards">
   <div class="card beach-card">
-    <div class="image">
-      <img src="/images/mockup-item-feed3.jpg">
+    <div class="ui medium image">
+      <img src={{ beach.picture }}>
     </div>
     <div class="content">
       <div class="extra content">
@@ -23,7 +23,8 @@
         <a>{{ beach.category }}</a>
       </div>
       <div class="description">
-        {{ beach.about }}
+        {{ beachAbout }}
+        ...
       </div>
       <div style="font-size: x-small" class="date">
         {{ displayDate date=beach.createdAt }}
@@ -38,7 +39,7 @@
     </div>
     {{#if isNotActivePath regex='item-feed'}}
     <div class="beach-bucket-remove">
-      <div class="ui blue bottom attached button" data-id="{{ beach._id }}">
+      <div class="ui teal bottom attached button" data-id="{{ beach._id }}">
         <i class="minus icon"></i>
         Remove from Bucket list
       </div>
@@ -46,7 +47,7 @@
     {{/if}}
     {{#if isActivePath regex='item-feed'}}
     <div class="beach-bucket">
-      <div class="ui blue bottom attached button" data-id="{{ beach._id }}">
+      <div class="ui teal bottom attached button" data-id="{{ beach._id }}">
         {{#if inBucketList item=beach._id}}
         <i class="white star icon"></i>
         In your bucket list!
@@ -63,7 +64,7 @@
 <template name="Hike_Cards">
   <div class="card hike-card">
     <div class="image">
-      <img src="/images/mockup-item-feed1.jpg">
+      <img src={{ hike.picture }}>
     </div>
     <div class="content">
       <div class="extra content">
@@ -85,11 +86,25 @@
         <a>{{ hike.category }}</a>
       </div>
       <div class="description">
-        {{ hike.about }}
+        {{ hikeAbout }}
+        ...
       </div>
+      {{#if equal hike.difficulty 'Easy'}}
+      <a class="ui green tiny label">Easy</a>
+
+      {{else if equal hike.difficulty 'Moderate'}}
+      <a class="ui yellow tiny label">Moderate</a>
+
+      {{else if equal hike.difficulty 'Difficult'}}
+      <a class="ui orange tiny label">Difficult</a>
+
+      {{else if equal hike.difficulty 'Extreme'}}
+      <a class="ui black tiny label">Extreme</a>
+      {{/if}}
       <div style="font-size: x-small" class="date">
         {{ displayDate date=beach.createdAt }}
       </div>
+
     </div>
     <div class="extra content">
           <span class="left floated">
@@ -127,7 +142,7 @@
 <template name="Restaurant_Cards">
   <div class="card restaurant-card">
     <div class="image">
-      <img src="/images/mockup-item-feed2.JPG">
+      <img src={{ restaurant.picture }}>
     </div>
     <div class="content">
       <div class="extra content">
@@ -149,7 +164,8 @@
         <a>{{ restaurant.category }}</a>
       </div>
       <div class="description">
-        {{ restaurant.about }}
+        {{ restaurantAbout }}
+        ...
       </div>
       <div style="font-size: x-small" class="date">
         {{ displayDate date=beach.createdAt }}

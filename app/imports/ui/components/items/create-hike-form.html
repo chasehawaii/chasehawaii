@@ -8,10 +8,16 @@
     <div class="field">
       {{> TextArea_Form_Control label="About" }}
     </div>
+    <div class="three fields">
+      {{> Select_Form_Control label="Length" options=lengthChoice}}
+      {{> Select_Form_Control label="Difficulty" options=difficultyChoice }}
+      {{> Select_Form_Control label="Type" options=typeChoice }}
+    </div>
     <div class="field">
       {{> Select_Form_Control label="Tags" options=hikeTagChoice multiple=true }}
     </div>
     <div class="field">
+      {{> Text_Form_Control label="Picture" placeholder="A url to a photo from Facebook, Imgur, etc..." }}
     </div>
     <button class="ui button" type="submit">Submit</button>
   </form>
