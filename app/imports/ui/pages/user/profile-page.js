@@ -57,6 +57,36 @@ Template.Profile_Page.helpers({
     });
     return _.map(filteredBeaches, function beaches(beach) { return Beaches.findOne({ _id: beach }); });
   },
+  ifFacebook() {
+    const currUser = FlowRouter.getParam('username');
+    const profile = Profiles.findOne({ username: currUser });
+    return (profile && profile.facebook);
+  },
+  facebook() {
+    const currUser = FlowRouter.getParam('username');
+    const profile = Profiles.findOne({ username: currUser });
+    return profile.facebook;
+  },
+  ifTwitter() {
+    const currUser = FlowRouter.getParam('username');
+    const profile = Profiles.findOne({ username: currUser });
+    return (profile && profile.twitter);
+  },
+  twitter() {
+    const currUser = FlowRouter.getParam('username');
+    const profile = Profiles.findOne({ username: currUser });
+    return profile.twitter;
+  },
+  ifInstagram() {
+    const currUser = FlowRouter.getParam('username');
+    const profile = Profiles.findOne({ username: currUser });
+    return (profile && profile.instagram);
+  },
+  instagram() {
+    const currUser = FlowRouter.getParam('username');
+    const profile = Profiles.findOne({ username: currUser });
+    return profile.instagram;
+  },
   userbeach() {
     const currUser = FlowRouter.getParam('username');
     const profile = Profiles.findOne({ username: currUser });
