@@ -8,7 +8,7 @@ import { Profiles } from '/imports/api/profiles/ProfileCollection.js';
 
 Template.Beach_Page.onCreated(function onCreated() {
   this.subscribe('Beaches');
-  this.context = CommentsSchema.namedContext('Beach_Page')
+  this.context = CommentsSchema.namedContext('Beach_Page');
   this.subscribe('Comments');
   this.subscribe('Profiles');
 
@@ -30,6 +30,11 @@ Template.Beach_Page.helpers({
     const usernameCurrent = Meteor.user().profile.name;
     const bucketlist = Profiles.findOne({ username: usernameCurrent }).bucketlist;
     return _.contains(bucketlist, FlowRouter.getParam('_id'));
+  },
+  image() {
+    const currUser = FlowRouter.getParam('username');
+    const profile = Profiles.findOne({ username: currUser });
+    return profile.image;
   },
 });
 
