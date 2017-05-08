@@ -25,18 +25,24 @@
     </td>
 
     <td>
-      <button value="{{ restaurant._id }}" class="ui green button approve_restaurant">
-        Approve
-      </button>
-      <br><br>
-      <button value="{{ restaurant._id }}" class="ui yellow button deny_restaurant">
-        Deny
-      </button>
-      <br><br>
-      <button value="{{ restaurant._id }}" class="ui red button delete_restaurant">
-        Delete
-      </button>
-
+      <div class="ui tiny buttons">
+        <button value="{{ restaurant._id }}" class="ui green button approve_restaurant">
+          Approve
+        </button>
+        <br><br>
+        <button value="{{ restaurant._id }}" class="ui yellow button deny_restaurant">
+          Deny
+        </button>
+        <br><br>
+        <button value="{{ restaurant._id }}" class="ui red button delete_restaurant">
+          Delete
+        </button>
+      </div>
+    </td>
+    <td>
+      {{#if restaurant.deleteRequest}}
+      <i class="yellow star icon"></i>
+      {{/if}}
     </td>
   </tr>
 </template>

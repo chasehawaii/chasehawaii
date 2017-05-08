@@ -25,21 +25,32 @@ Template.Restaurant_User_Cards.helpers({
 Template.Beach_User_Cards.events({
   'click .beach-delete'(event) {
     event.preventDefault();
-    Beaches.update(this.beach._id, { $set: { deleteRequest: true } });
+    if (this.beach.deleteRequest) {
+      Beaches.update(this.beach._id, { $set: { deleteRequest: false } });
+    } else {
+      Beaches.update(this.beach._id, { $set: { deleteRequest: true } });
+    }
   },
 });
 
 Template.Hike_User_Cards.events({
   'click .hike-delete'(event) {
     event.preventDefault();
-    Hikes.update(this.hike._id, { $set: { deleteRequest: true } });
+    if (this.hike.deleteRequest) {
+      Hikes.update(this.hike._id, { $set: { deleteRequest: false } });
+    } else {
+      Hikes.update(this.hike._id, { $set: { deleteRequest: true } });
+    }
   },
 });
 
 Template.Restaurant_User_Cards.events({
   'click .restaurant-delete'(event) {
     event.preventDefault();
-    Restaurants.update(this.restaurant._id, { $set: { deleteRequest: true } });
-    console.log(this);
+    if (this.restaurant.deleteRequest) {
+      Restaurants.update(this.restaurant._id, { $set: { deleteRequest: false } });
+    } else {
+      Restaurants.update(this.restaurant._id, { $set: { deleteRequest: true } });
+    }
   },
 });
