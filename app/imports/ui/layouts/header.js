@@ -23,10 +23,23 @@ Template.Header.helpers({
     return Meteor.user().profile.name;
   },
 
+  profimage(){
+    const user = Meteor.user().profile.name;
+    const profile = Profiles.findOne({ username: user });
+    if(profile.image){
+      //  console.log('true');
+      //  console.log(profile.image);
+      return true;
+    }
+    return false;
+  },
+
   image() {
-    const currUser = FlowRouter.getParam('username');
-    const profile = Profiles.findOne({ username: currUser });
-    return profile && profile.image;
+    const user = Meteor.user().profile.name;
+    // const currUser = FlowRouter.getParam('username');
+    const profile = Profiles.findOne({ username: user });
+    console.log(profile.image);
+    return profile.image;
   },
 
 });

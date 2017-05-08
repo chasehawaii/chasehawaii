@@ -43,11 +43,11 @@
             <div class="beach-bucket">
               <div class="ui blue bottom attached button" data-id="{{ bea._id }}">
                 {{#if inBucketList item=hik._id}}
-                <i class="white star icon"></i>
-                In your bucket list!
+                  <i class="white star icon"></i>
+                  In your bucket list!
                 {{else}}
-                <i class="add icon"></i>
-                Add to Bucket List
+                  <i class="add icon"></i>
+                  Add to Bucket List
                 {{/if}}
               </div>
             </div>
@@ -61,14 +61,16 @@
         <form class="ui form beach-comment-form">
           <h3 class="ui dividing header">Comments</h3>
           {{#each comment in Comments}}
-            <div class="comment">
-                <a href="{{pathFor 'Profile_Page' username = profpath}}">
-                  {{#if profile.image}}
-                    <a href="{{pathFor 'Profile_Page' username = profpath}}"><img src="{{image}}"></a>
-                  {{else}}
-                    <a href="{{pathFor 'Profile_Page' username = profpath}}"><img class ="ui mini image" src="http://clipground.com/images/palm-plant-clipart-4.jpg"></a>
-                  {{/if}}</a>
-                <div class="content">
+            <div class="comment" style="padding-left:20px;">
+              <a href="{{pathFor 'Profile_Page' username = profpath}}">
+                {{#if profimage}}
+                  <a href="{{pathFor 'Profile_Page' username = profpath}}"><img class="ui mini image"
+                                                                                src="{{image}}"></a>
+                {{else}}
+                  <a href="{{pathFor 'Profile_Page' username = profpath}}"><img class="ui mini image"
+                                                                                src="http://clipground.com/images/palm-plant-clipart-4.jpg"></a>
+                {{/if}}</a>
+              <div class="content">
                 <a class="author">{{comment.username}}</a>
                 <div class="metadata">
                   <span class="date">{{ displayDate date=comment.createdAt }}</span>
@@ -81,9 +83,11 @@
           {{/each}}
 
           <div class="field">
-            {{> TextArea_Form_Control label="about" placeholder="Add a comment" }}
+            <div class="annoying label" style = "padding-left: 20px;">
+              {{> TextArea_Form_Control label="about" placeholder="Add a comment" }}
+            </div>
           </div>
-          <button class="ui button">Add Comment</button>
+          <button class="ui blue bottom attached button" style = "padding-left:20px;">Add Comment</button>
         </form>
       </div>
 

@@ -53,11 +53,11 @@
             <div class="restaurant-bucket">
               <div class="ui purple bottom attached button" data-id="{{ hik._id }}">
                 {{#if inBucketList item=rest._id}}
-                <i class="white star icon"></i>
-                In your bucket list!
+                  <i class="white star icon"></i>
+                  In your bucket list!
                 {{else}}
-                <i class="add icon"></i>
-                Add to Bucket List
+                  <i class="add icon"></i>
+                  Add to Bucket List
                 {{/if}}
               </div>
             </div>
@@ -71,11 +71,15 @@
         <form class="ui form restaurant-comment-form">
           <h3 class="ui dividing header">Comments</h3>
           {{#each comment in Comments}}
-            <div class="comment">
-              <a class="ui avatar image">
-                <a href="{{pathFor 'Profile_Page' username = profpath}}"><img
-                    src="http://www.ics.hawaii.edu/wp-content/uploads/2013/08/Gerald_Lau-2014.jpg"></a>
-              </a>
+            <div class="comment" style="padding-left:20px;">
+              <a href="{{pathFor 'Profile_Page' username = profpath}}">
+                {{#if profimage}}
+                  <a href="{{pathFor 'Profile_Page' username = profpath}}"><img class="ui mini image"
+                                                                                src="{{image}}"></a>
+                {{else}}
+                  <a href="{{pathFor 'Profile_Page' username = profpath}}"><img class="ui mini image"
+                                                                                src="http://clipground.com/images/palm-plant-clipart-4.jpg"></a>
+                {{/if}}</a>
               <div class="content">
                 <a class="author">{{comment.username}}</a>
                 <div class="metadata">
@@ -88,14 +92,16 @@
             </div>
           {{/each}}
           <div class="field">
-            {{> TextArea_Form_Control label="about" placeholder="Add a comment" }}
+            <div class="annoying label" style="padding-left: 20px;">
+              {{> TextArea_Form_Control label="about" placeholder="Add a comment" }}
+            </div>
           </div>
-          <button class="ui button">Add Comment</button>
+          <button class="ui blue bottom attached button" style="padding-left:20px;">Add Comment</button>
         </form>
       </div>
-
-
     </div>
+
+
   </div>
 
 
