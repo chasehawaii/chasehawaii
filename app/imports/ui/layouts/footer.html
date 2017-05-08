@@ -2,11 +2,21 @@
   <footer>
     <div class="footer page">
       <div style="padding-top: 15px;" class="ui center aligned inverted container">
-        <hr>
-        Chaselyn Pugh, Isaac Demello, Russell Omo <br/>
-        University of Hawaii<br/>
-        Honolulu, HI 96822
+        <div class="ui row">
+          <a style="color: white" class="{{ isActiveRoute 'About_Page'}} item" href="{{ pathFor 'About_Page' }}"> <i
+              class="info icon"></i>About ChaseHawaii </a>
+        </div>
+        <div class="ui row">
+          <a style="color: white" class="{{ isActiveRoute 'Conact_Page'}} item" href="{{ pathFor 'Contact_Page' }}"> <i
+              class="at icon"></i>Contact Us</a>
+        </div>
+        <div class="ui row">
+          <a style="color: white" href="https://chasehawaii.github.io/"> <i
+              class="github icon"></i>View Github Page</a>
+        </div>
       </div>
+
     </div>
+
   </footer>
 </template>

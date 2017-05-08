@@ -198,7 +198,12 @@ h3 {
   color: black;
 }
 
+div.about.background{
 
+  background: url('https://flyshuttletours.com/wp-content/uploads/2015/10/Best-Oahu-Grand-Circle-Island-tour.jpg') no-repeat center center fixed;
+  background-size:cover;
+  height: 800px;
+}
 
 
 

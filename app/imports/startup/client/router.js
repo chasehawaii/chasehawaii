@@ -8,6 +8,19 @@ FlowRouter.route('/', {
   },
 });
 
+FlowRouter.route('/about', {
+  name: 'About_Page',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'About_Page' });
+  },
+});
+
+FlowRouter.route('/contact', {
+  name: 'Contact_Page',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Contact_Page' });
+  },
+});
 FlowRouter.route('/admin', {
   name: 'Admin_Page',
   action() {
