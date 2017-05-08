@@ -8,7 +8,12 @@
       <a class="{{ isActiveRoute 'Create_Item_Page'}} item" href="{{ pathFor 'Create_Item_Page' }}">Create Adventure</a>
 
     </div>
-    <div class = "float right item"><a href="{{pathFor 'Profile_Page' username = profpath}}">  <img class="ui mini circular image" src="http://www.ics.hawaii.edu/wp-content/uploads/2013/08/Gerald_Lau-2014.jpg"> </a> </div>
+    <div class = "float right item"><a href="{{pathFor 'Profile_Page' username = profpath}}">
+      {{#if profile.image}}
+        <a href="{{pathFor 'Profile_Page' username = profpath}}"><img src="{{image}}"></a>
+      {{else}}
+        <a href="{{pathFor 'Profile_Page' username = profpath}}"><img class ="ui mini image" src="http://clipground.com/images/palm-plant-clipart-4.jpg"></a>
+      {{/if}}</a> </div>
     <div class="float right item">{{> Cas_Login }}</div>
   </div>
 </div>

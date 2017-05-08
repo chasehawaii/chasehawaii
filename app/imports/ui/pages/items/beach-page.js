@@ -8,7 +8,7 @@ import { Profiles } from '/imports/api/profiles/ProfileCollection.js';
 
 Template.Beach_Page.onCreated(function onCreated() {
   this.subscribe('Beaches');
-  this.context = CommentsSchema.namedContext('Beach_Page')
+  this.context = CommentsSchema.namedContext('Beach_Page');
   this.subscribe('Comments');
   this.subscribe('Profiles');
 
@@ -31,6 +31,24 @@ Template.Beach_Page.helpers({
     const bucketlist = Profiles.findOne({ username: usernameCurrent }).bucketlist;
     return _.contains(bucketlist, FlowRouter.getParam('_id'));
   },
+  profimage(){
+    const user = Meteor.user().profile.name;
+    const profile = Profiles.findOne({ username: user });
+    if(profile.image){
+    //  console.log('true');
+    //  console.log(profile.image);
+      return true;
+    }
+    return false;
+  },
+
+  image() {
+    const user = Meteor.user().profile.name;
+   // const currUser = FlowRouter.getParam('username');
+    const profile = Profiles.findOne({ username: user });
+    console.log(profile.image);
+    return profile.image;
+  },
 });
 
 Template.Beach_Page.events({
@@ -42,8 +60,8 @@ Template.Beach_Page.events({
     const itemid = FlowRouter.getParam('_id');
     const newItemData = { username, about, itemid };
 
-    console.log(username);
-    console.log(about);
+   // console.log(username);
+    //console.log(about);
     console.log(itemid);
 
     // Clear out any old validation errors.

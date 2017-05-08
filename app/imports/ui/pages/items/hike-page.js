@@ -27,6 +27,25 @@ Template.Hike_Page.helpers({
     //console.log(Meteor.user().profile.name);
     return Meteor.user().profile.name;
   },
+
+  profimage(){
+    const user = Meteor.user().profile.name;
+    const profile = Profiles.findOne({ username: user });
+    if(profile.image){
+      //  console.log('true');
+      //  console.log(profile.image);
+      return true;
+    }
+    return false;
+  },
+
+  image() {
+    const user = Meteor.user().profile.name;
+    // const currUser = FlowRouter.getParam('username');
+    const profile = Profiles.findOne({ username: user });
+    console.log(profile.image);
+    return profile.image;
+  },
   inBucketList() {
     const usernameCurrent = Meteor.user().profile.name;
     const bucketlist = Profiles.findOne({ username: usernameCurrent }).bucketlist;

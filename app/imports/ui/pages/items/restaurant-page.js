@@ -33,6 +33,31 @@ Template.Restaurant_Page.helpers({
     const bucketlist = Profiles.findOne({ username: usernameCurrent }).bucketlist;
     return _.contains(bucketlist, FlowRouter.getParam('_id'));
   },
+
+  profimage(){
+    const user = Meteor.user().profile.name;
+    const profile = Profiles.findOne({ username: user });
+    if(profile.image){
+      //  console.log('true');
+      //  console.log(profile.image);
+      return true;
+    }
+    return false;
+  },
+
+  image() {
+    const user = Meteor.user().profile.name;
+    // const currUser = FlowRouter.getParam('username');
+    const profile = Profiles.findOne({ username: user });
+    console.log(profile.image);
+    return profile.image;
+  },
+  inBucketList() {
+    const usernameCurrent = Meteor.user().profile.name;
+    const bucketlist = Profiles.findOne({ username: usernameCurrent }).bucketlist;
+    return _.contains(bucketlist, FlowRouter.getParam('_id'));
+  },
+
 });
 
 Template.Restaurant_Page.events({
