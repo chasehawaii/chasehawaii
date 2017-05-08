@@ -18,24 +18,30 @@
 
     <td style=" white-space:pre-wrap; width: 300px; word-break: break-all; ">
 
-        {{beach.about}}
+      {{beach.about}}
 
     </td>
 
     <td>
+      <div class="ui tiny buttons">
+        <button value="{{ beach._id }}" class="ui green button approve_beach">
+          Approve
+        </button>
+        <br><br>
+        <button value="{{ beach._id }}" class="ui yellow button deny_beach">
+          Deny
+        </button>
 
-      <button value="{{ beach._id }}" class="ui green button approve_beach">
-        Approve
-      </button>
-      <br><br>
-      <button value="{{ beach._id }}" class="ui yellow button deny_beach">
-        Deny
-      </button>
-
-      <br><br>
-      <button value="{{ beach._id }}" class="ui red button delete_beach">
-        Delete
-      </button>
+        <br><br>
+        <button value="{{ beach._id }}" class="ui red button delete_beach">
+          Delete
+        </button>
+      </div>
+    </td>
+    <td>
+      {{#if beach.deleteRequest}}
+      <i class="yellow star icon"></i>
+      {{/if}}
     </td>
   </tr>
 </template>
