@@ -42,7 +42,7 @@ export const RestaurantsSchema = new SimpleSchema({
   },
   picture: {
     type: SimpleSchema.RegEx.Url,
-    optional: true,
+    optional: false,
   },
   likes: {
     label: 'likes',

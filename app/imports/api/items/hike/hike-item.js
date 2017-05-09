@@ -37,7 +37,7 @@ export const HikesSchema = new SimpleSchema({
   },
   picture: {
     type: SimpleSchema.RegEx.Url,
-    optional: true,
+    optional: false,
   },
   kind: {
     label: 'kind',
