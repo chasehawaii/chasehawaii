@@ -38,7 +38,7 @@ export const BeachesSchema = new SimpleSchema({
   },
   picture: {
     type: SimpleSchema.RegEx.Url,
-    optional: true,
+    optional: false,
   },
   comments: {
     label: 'comments',
