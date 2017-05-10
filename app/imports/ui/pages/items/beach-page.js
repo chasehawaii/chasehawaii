@@ -69,6 +69,6 @@ Template.Beach_Page.events({
   'click .user-profile'(event) {
     const clickedUser = event.target.closest('a');
     const clickedUserName = $(clickedUser).attr('data-id');
-    FlowRouter.go('Profile_Page', { username: clickedUserName });
+    FlowRouter.go('Public_Profile_Page', { username: clickedUserName });
   },
 });

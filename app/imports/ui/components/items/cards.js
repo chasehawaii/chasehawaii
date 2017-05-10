@@ -6,6 +6,8 @@ import { Profiles } from '/imports/api/profiles/ProfileCollection.js';
 import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
 import { ReactiveDict } from 'meteor/reactive-dict';
+import { FlowRouter } from 'meteor/kadira:flow-router';
+
 
 /* eslint-env node, jquery */
 
@@ -37,6 +39,12 @@ Template.Beach_Cards.helpers({
     const about = this.beach.about;
     return about.substring(0, 100);
   },
+  activePage() {
+    let username = Meteor.user().profile.name;
+    const path = FlowRouter.current().path;
+    username = `/${username}/profile`;
+    return username === path;
+  },
 });
 Template.Hike_Cards.helpers({
   displayDate() {
@@ -54,6 +62,12 @@ Template.Hike_Cards.helpers({
   equal(a, b) {
     return a === b;
   },
+  activePage() {
+    let username = Meteor.user().profile.name;
+    const path = FlowRouter.current().path;
+    username = `/${username}/profile`;
+    return username === path;
+  },
 });
 Template.Restaurant_Cards.helpers({
   displayDate() {
@@ -67,6 +81,12 @@ Template.Restaurant_Cards.helpers({
   restaurantAbout() {
     const about = this.restaurant.about;
     return about.substring(0, 100);
+  },
+  activePage() {
+    let username = Meteor.user().profile.name;
+    const path = FlowRouter.current().path;
+    username = `/${username}/profile`;
+    return username === path;
   },
 });
 
