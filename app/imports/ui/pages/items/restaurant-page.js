@@ -68,34 +68,21 @@ Template.Restaurant_Page.events({
     const about = event.target.about.value;
     const itemid = FlowRouter.getParam('_id');
     const newItemData = { username, about, itemid };
-
-    console.log(username);
-    console.log(about);
-    console.log(itemid);
-
-    // Clear out any old validation errors.
-    // instance.context.resetValidation();
-    // Invoke clean so that newStudentData reflects what will be inserted.
-    // CommentsSchema.clean(newItemData);
-    // Determine validity.
     instance.context.validate(newItemData);
-    //if (instance.context.isValid()) {
     Comments.insert(newItemData);
     event.target.reset();
-    // template.find("form").reset();
-    //Comments.update(Session.get(''), { $set: newItemData });
-    //  instance.messageFlags.set(displayErrorMessages, false);
-    // FlowRouter.reload();
-    //  } else {
-    //   instance.messageFlags.set(displayErrorMessages, true);
-    //}
   },
-  'click .restaurant-bucket'(event, instance) {
+  'click .restaurant-bucket'(event) {
     event.preventDefault();
     const usernameCurrent = Meteor.user().profile.name;
     const profileName = Profiles.findOne({ username: usernameCurrent });
     const profileId = profileName._id;
     const itemid = FlowRouter.getParam('_id');
     Profiles.update(profileId, { $push: { bucketlist: itemid } });
+  },
+  'click .user-profile'(event) {
+    const clickedUser = event.target.closest('a');
+    const clickedUserName = $(clickedUser).attr('data-id');
+    FlowRouter.go('Profile_Page', { username: clickedUserName });
   },
 });
