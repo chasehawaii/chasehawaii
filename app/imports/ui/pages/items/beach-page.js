@@ -20,7 +20,6 @@ Template.Beach_Page.helpers({
     return Comments.find({ itemid: FlowRouter.getParam('_id') });
   },
   profpath() {
-      console.log(Meteor.user().profile.name);
     return Meteor.user().profile.name;
   },
   displayDate() {
@@ -31,20 +30,16 @@ Template.Beach_Page.helpers({
     const bucketlist = Profiles.findOne({ username: usernameCurrent }).bucketlist;
     return _.contains(bucketlist, FlowRouter.getParam('_id'));
   },
-  profimage(){
+  profimage() {
     const user = Meteor.user().profile.name;
     const profile = Profiles.findOne({ username: user });
-    if(profile.image){
-    //  console.log('true');
-    //  console.log(profile.image);
+    if (profile.image) {
       return true;
     }
     return false;
   },
-
   image() {
     const user = Meteor.user().profile.name;
-   // const currUser = FlowRouter.getParam('username');
     const profile = Profiles.findOne({ username: user });
     console.log(profile.image);
     return profile.image;
@@ -59,34 +54,21 @@ Template.Beach_Page.events({
     const about = event.target.about.value;
     const itemid = FlowRouter.getParam('_id');
     const newItemData = { username, about, itemid };
-
-   // console.log(username);
-    //console.log(about);
-    console.log(itemid);
-
-    // Clear out any old validation errors.
-    // instance.context.resetValidation();
-    // Invoke clean so that newStudentData reflects what will be inserted.
-    // CommentsSchema.clean(newItemData);
-    // Determine validity.
     instance.context.validate(newItemData);
-    //if (instance.context.isValid()) {
     Comments.insert(newItemData);
     event.target.reset();
-    // template.find("form").reset();
-    //Comments.update(Session.get(''), { $set: newItemData });
-    //  instance.messageFlags.set(displayErrorMessages, false);
-    // FlowRouter.reload();
-    //  } else {
-    //   instance.messageFlags.set(displayErrorMessages, true);
-    //}
   },
-  'click .beach-bucket'(event, instance) {
+  'click .beach-bucket'(event) {
     event.preventDefault();
     const usernameCurrent = Meteor.user().profile.name;
     const profileName = Profiles.findOne({ username: usernameCurrent });
     const profileId = profileName._id;
     const itemid = FlowRouter.getParam('_id');
     Profiles.update(profileId, { $push: { bucketlist: itemid } });
+  },
+  'click .user-profile'(event) {
+    const clickedUser = event.target.closest('a');
+    const clickedUserName = $(clickedUser).attr('data-id');
+    FlowRouter.go('Profile_Page', { username: clickedUserName });
   },
 });

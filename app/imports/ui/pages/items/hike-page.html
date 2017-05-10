@@ -72,16 +72,13 @@
           <h3 class="ui dividing header">Comments</h3>
           {{#each comment in Comments}}
             <div class="comment" style="padding-left:20px;">
-              <a href="{{pathFor 'Public_Profile_Page' username = profpath}}">
-                {{#if profimage}}
-                  <a href="{{pathFor 'Public_Profile_Page' username = profpath}}"><img class="ui mini image"
-                                                                                src="{{image}}"></a>
-                {{else}}
-                  <a href="{{pathFor 'Public_Profile_Page' username = profpath}}"><img class="ui mini image"
-                                                                                src="http://clipground.com/images/palm-plant-clipart-4.jpg"></a>
-                {{/if}}</a>
-              <div class="content">
-                <a class="author">{{comment.username}}</a>
+              {{#if profimage}}
+              <img class="ui mini image" src="{{image}}">
+              {{else}}
+              <img class="ui mini image" src="http://clipground.com/images/palm-plant-clipart-4.jpg">
+              {{/if}}
+              <div class="content user-profile">
+                <a class="author" data-id="{{comment.username}}">{{comment.username}}</a>
                 <div class="metadata">
                   <span class="date">{{ displayDate date=comment.createdAt }}</span>
                 </div>

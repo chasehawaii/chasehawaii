@@ -86,7 +86,6 @@ Template.Edit_Hike_Page.events({
     // Invoke clean so that newStudentData reflects what will be inserted.
     HikesSchema.clean(newItemData);
 
-    // Determine validity.
     instance.context.validate(newItemData);
     if (instance.context.isValid()) {
       Hikes.update(instance.currentId.get('current')._id, { $set: newItemData });
