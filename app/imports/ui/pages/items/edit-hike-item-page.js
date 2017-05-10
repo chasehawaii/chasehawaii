@@ -6,9 +6,13 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 
 /* eslint-env node, jquery */
 
+/* eslint max-len: ["error", 150] */
 const displayErrorMessages = 'displayErrorMessages';
-export const locationList = ['Aiea', 'Haleiwa', 'Hawaii Kai', 'Kahala', 'Kailua', 'Kaimuki', 'Kakaako', 'Kalihi', 'Kaneohe', 'Laie', 'Liliha', 'Manoa', 'Makiki', 'Mililani', 'Moanalua', 'Moilili', 'Mokuleia', 'Pearl City', 'Waikiki'];
-export const hikeTagList = ['Dangerous','Kid-friendly', 'Dog-friendly', 'Loop', 'Nice Views', 'Point-to-point', 'Ridge', 'Short', 'Waterfall'];
+export const locationList = [
+  'Aiea', 'Haleiwa', 'Hawaii Kai', 'Kahala', 'Kailua', 'Kaimuki', 'Kakaako', 'Kalihi', 'Kaneohe', 'Laie', 'Liliha', 'Manoa',
+  'Makiki', 'Mililani', 'Moanalua', 'Moilili', 'Mokuleia', 'Pearl City', 'Waikiki'
+];
+export const hikeTagList = ['Dangerous', 'Kid-friendly', 'Dog-friendly', 'Loop', 'Nice Views', 'Point-to-point', 'Ridge', 'Short', 'Waterfall'];
 export const difficultyList = ['Stroll', 'Easy', 'Moderate', 'Difficult', 'Extreme'];
 export const lengthList = ['0-1 Miles', '1-2 Miles', ' 2-4 Miles', '4-6 Miles', 'More than 6 Miles'];
 export const typeList = ['Ridge', 'Valley', 'Paved', 'Peak'];

@@ -1,4 +1,3 @@
-import { Session } from 'meteor/session';
 import { Template } from 'meteor/templating';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Beaches, BeachesSchema } from '/imports/api/items/beach/beach-item.js';
@@ -6,10 +5,14 @@ import { _ } from 'meteor/underscore';
 import { ReactiveDict } from 'meteor/reactive-dict';
 
 /* eslint-env node, jquery */
+/* eslint max-len: ["error", 150] */
 
 const displayErrorMessages = 'displayErrorMessages';
-export const locationList = ['Aiea', 'Haleiwa', 'Hawaii Kai', 'Kahala', 'Kailua', 'Kaimuki', 'Kakaako', 'Kalihi', 'Kaneohe', 'Laie', 'Liliha', 'Manoa', 'Makiki', 'Mililani', 'Moanalua', 'Moilili', 'Pearl City', 'Waikiki'];
-export const beachTagList = ['Busy', 'Dog-friendly', 'Good waves', 'Kid-friendly', 'No Lifeguard', 'No waves' , 'Private Access', 'Secluded'];
+export const locationList = [
+  'Aiea', 'Haleiwa', 'Hawaii Kai', 'Kahala', 'Kailua', 'Kaimuki', 'Kakaako', 'Kalihi', 'Kaneohe', 'Laie', 'Liliha', 'Manoa', 'Makiki',
+  'Mililani', 'Moanalua', 'Moilili', 'Pearl City', 'Waikiki',
+];
+export const beachTagList = ['Busy', 'Dog-friendly', 'Good waves', 'Kid-friendly', 'No Lifeguard', 'No waves', 'Private Access', 'Secluded'];
 
 
 Template.Edit_Beach_Page.onCreated(function onCreated() {
