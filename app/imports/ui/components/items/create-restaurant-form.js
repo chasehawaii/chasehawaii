@@ -10,9 +10,9 @@ import { Meteor } from 'meteor/meteor';
 
 const displayErrorMessages = 'displayErrorMessages';
 const displaySuccessMessage = 'displaySuccessMessage';
-export const locationList = ['Windward', 'Leeward', 'Central Oahu', 'Honoluu', 'North Shore'];
-export const restaurantTagList = ['Kid-friendly', 'Dog-friendly', 'Busy', 'Quiet'];
-export const foodTypeList = ['Chinese', 'Thai', 'Italian', 'Mexican', 'Local', 'Burgers', 'Japanese Grill', 'Sushi'];
+export const locationList = ['Aiea', 'Downtown', 'Haleiwa', 'Hawaii Kai', 'Kahala', 'Kailua', 'Kaimuki', 'Kakaako', 'Kalihi', 'Kaneohe', 'Laie', 'Liliha', 'Manoa', 'Makiki', 'Mililani', 'Moanalua', 'Moilili', 'Pearl City', 'Waikiki'];
+export const restaurantTagList = ['Busy', 'Cheap', 'Fast', 'Happy Hour', 'Kid-friendly', 'Live Music', 'Nice Views', 'Quiet' ];
+export const foodTypeList = ['Burgers', 'Chinese', 'Hawaiian', 'Italian',  'Japanese Grill', 'Japanese', 'Korean', 'Local', 'Mexican', 'Sushi', 'Thai'];
 
 Template.Create_Restaurant_Form.onCreated(function onCreated() {
   this.subscribe('Profiles');

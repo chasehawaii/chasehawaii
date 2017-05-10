@@ -6,9 +6,7 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 import { _ } from 'meteor/underscore';
 
 export const locationList = ['Windward', 'Leeward', 'Central Oahu', 'Honoluu', 'North Shore'];
-export const tagList = ['Busy', 'Secluded', 'Kid-friendly', 'Dog-friendly', 'Good waves', 'No waves', 'Windward',
-  'Leeward', 'Central Oahu', 'Honoluu', 'North Shore', 'Chinese', 'Thai', 'Italian', 'Mexican', 'Local', 'Burgers',
-  'Japanese Grill', 'Sushi'];
+export const tagList = ['Aiea', 'Burgers', 'Busy','Central Oahu','Chinese','Dangerous','Dog-friendly' , 'Good waves','Haleiwa','Hawaii Kai','Hawaiian','Honoluu','Italian', 'Japanese Grill', 'Japanese','Kahala','Kailua','Kaimuki','Kakaako','Kalihi','Kaneohe','Kid-friendly','Korean','Laie','Leeward','Liliha','Local','Loop','Makiki','Manoa','Mexican', 'Mililani','Moanalua','Moilili','Nice Views','No Lifeguard','No waves','North Shore','Pearl City','Point-to-point','Private Access','Ridge','Secluded','Short', 'Sushi','Thai','Waikiki','Waterfall','Windward'];
 
 Template.Item_Feed_Page.onCreated(function onCreated() {
   this.subscribe('Beaches');

@@ -9,8 +9,8 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 /* eslint-env node, jquery */
 
 const displayErrorMessages = 'displayErrorMessages';
-export const locationList = ['Windward', 'Leeward', 'Central Oahu', 'Honoluu', 'North Shore'];
-export const beachTagList = ['Busy', 'Secluded', 'Kid-friendly', 'Dog-friendly', 'Good waves', 'No waves'];
+export const locationList = ['Aiea', 'Haleiwa', 'Hawaii Kai', 'Kahala', 'Kailua', 'Kaimuki', 'Kakaako', 'Kalihi', 'Kaneohe', 'Laie', 'Liliha', 'Manoa', 'Makiki', 'Mililani', 'Moanalua', 'Moilili', 'Pearl City', 'Waikiki'];
+export const beachTagList = ['Busy', 'Dog-friendly', 'Good waves', 'Kid-friendly', 'No Lifeguard', 'No waves' , 'Private Access', 'Secluded'];
 
 
 Template.Edit_Beach_Page.onCreated(function onCreated() {
