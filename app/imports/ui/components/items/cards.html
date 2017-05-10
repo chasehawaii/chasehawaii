@@ -37,15 +37,26 @@
             {{/each}}
       </span>
     </div>
-    {{#if isNotActivePath regex='item-feed'}}
+    {{#if isActivePath regex='item-feed'}}
+    <div class="beach-bucket">
+      <div class="ui teal bottom attached button" data-id="{{ beach._id }}">
+        {{#if inBucketList item=beach._id}}
+        <i class="white star icon"></i>
+        In your bucket list!
+        {{else}}
+        <i class="add icon"></i>
+        Add to Bucket List
+        {{/if}}
+      </div>
+    </div>
+    {{else if activePage }}
     <div>
       <div class="ui blue two buttons">
         <div class="ui beach-bucket-remove button" data-id="{{ beach._id }}">Remove from Bucket</div>
         <div class="ui beach-completed button" data-id="{{ beach._id }}">Check Completed</div>
       </div>
     </div>
-    {{/if}}
-    {{#if isActivePath regex='item-feed'}}
+    {{else }}
     <div class="beach-bucket">
       <div class="ui teal bottom attached button" data-id="{{ beach._id }}">
         {{#if inBucketList item=beach._id}}
@@ -113,29 +124,38 @@
             {{/each}}
       </span>
     </div>
-    <div class="{{isActiveRoute regex='/^profile/'}}">
-      {{#if isNotActivePath regex='item-feed'}}
-        <div>
-          <div class="ui blue two buttons">
-            <div class="ui hike-bucket-remove button" data-id="{{ hike._id }}">Remove from Bucket</div>
-            <div class="ui hike-completed button" data-id="{{ hike._id }}">Check Completed</div>
-          </div>
-        </div>
-      {{/if}}
-      {{#if isActivePath regex='item-feed'}}
-      <div class="hike-bucket">
-        <div class="ui violet bottom attached button" data-id="{{ hike._id }}">
-          {{#if inBucketList item=hike._id}}
-          <i class="white star icon"></i>
-          In your bucket list!
-          {{else}}
-          <i class="add icon"></i>
-          Add to Bucket List
-          {{/if}}
-        </div>
+    {{#if isActivePath regex='item-feed'}}
+    <div class="hike-bucket">
+      <div class="ui teal bottom attached button" data-id="{{ hike._id }}">
+        {{#if inBucketList item=hike._id}}
+        <i class="white star icon"></i>
+        In your bucket list!
+        {{else}}
+        <i class="add icon"></i>
+        Add to Bucket List
+        {{/if}}
       </div>
-      {{/if}}
     </div>
+    {{else if activePage }}
+    <div>
+      <div class="ui blue two buttons">
+        <div class="ui hike-bucket-remove button" data-id="{{ hike._id }}">Remove from Bucket</div>
+        <div class="ui hike-completed button" data-id="{{ hike._id }}">Check Completed</div>
+      </div>
+    </div>
+    {{else }}
+    <div class="hike-bucket">
+      <div class="ui teal bottom attached button" data-id="{{ hike._id }}">
+        {{#if inBucketList item=hike._id}}
+        <i class="white star icon"></i>
+        In your bucket list!
+        {{else}}
+        <i class="add icon"></i>
+        Add to Bucket List
+        {{/if}}
+      </div>
+    </div>
+    {{/if}}
   </div>
 </template>
 
@@ -178,28 +198,37 @@
             {{/each}}
       </span>
     </div>
-    <div class="{{isActiveRoute regex='/^profile/'}}">
-      {{#if isNotActivePath regex='item-feed'}}
-      <div>
-        <div class="ui blue two buttons">
-          <div class="ui restaurant-bucket-remove button" data-id="{{ restaurant._id }}">Remove from Bucket</div>
-          <div class="ui restaurant-completed button" data-id="{{ restaurant._id }}">Check Completed</div>
-        </div>
+    {{#if isActivePath regex='item-feed'}}
+    <div class="restaurant-bucket">
+      <div class="ui teal bottom attached button" data-id="{{ restaurant._id }}">
+        {{#if inBucketList item=restaurant._id}}
+        <i class="white star icon"></i>
+        In your bucket list!
+        {{else}}
+        <i class="add icon"></i>
+        Add to Bucket List
+        {{/if}}
       </div>
-      {{/if}}
-      {{#if isActivePath regex='item-feed'}}
-      <div class="restaurant-bucket">
-        <div class="ui red bottom attached button" data-id="{{ restaurant._id }}">
-          {{#if inBucketList item=restaurant._id}}
-          <i class="white star icon"></i>
-          In your bucket list!
-          {{else}}
-          <i class="add icon"></i>
-          Add to Bucket List
-          {{/if}}
-        </div>
-      </div>
-      {{/if}}
     </div>
+    {{else if activePage }}
+    <div>
+      <div class="ui blue two buttons">
+        <div class="ui restaurant-bucket-remove button" data-id="{{ restaurant._id }}">Remove from Bucket</div>
+        <div class="ui restaurant-completed button" data-id="{{ restaurant._id }}">Check Completed</div>
+      </div>
+    </div>
+    {{else }}
+    <div class="restaurant-bucket">
+      <div class="ui teal bottom attached button" data-id="{{ restaurant._id }}">
+        {{#if inBucketList item=restaurant._id}}
+        <i class="white star icon"></i>
+        In your bucket list!
+        {{else}}
+        <i class="add icon"></i>
+        Add to Bucket List
+        {{/if}}
+      </div>
+    </div>
+    {{/if}}
   </div>
 </template>
