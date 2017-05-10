@@ -3,8 +3,6 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 /* eslint-disable object-shorthand */
 
-
-
 /**
  * Create the schema for Stuff
  */

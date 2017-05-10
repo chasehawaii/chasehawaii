@@ -4,7 +4,6 @@ import { Hikes, HikesSchema } from '/imports/api/items/hike/hike-item.js';
 import { _ } from 'meteor/underscore';
 import { ReactiveDict } from 'meteor/reactive-dict';
 
-
 /* eslint-env node, jquery */
 
 const displayErrorMessages = 'displayErrorMessages';

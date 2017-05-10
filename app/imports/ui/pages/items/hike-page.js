@@ -3,7 +3,6 @@ import { Hikes } from '/imports/api/items/hike/hike-item.js';
 import { Comments, CommentsSchema } from '/imports/api/comments/CommentsCollection.js';
 import { Meteor } from 'meteor/meteor';
 import { FlowRouter } from 'meteor/kadira:flow-router';
-import { ReactiveDict } from 'meteor/reactive-dict';
 import { _ } from 'meteor/underscore';
 import { Profiles } from '/imports/api/profiles/ProfileCollection.js';
 
@@ -21,17 +20,16 @@ Template.Hike_Page.helpers({
   hik: () => Hikes.findOne({ _id: FlowRouter.getParam('_id') }),
 
   Comments() {
-    return Comments.find( {itemid: FlowRouter.getParam('_id')} );
+    return Comments.find({ itemid: FlowRouter.getParam('_id') });
   },
   profpath() {
-    //console.log(Meteor.user().profile.name);
     return Meteor.user().profile.name;
   },
 
-  profimage(){
+  profimage() {
     const user = Meteor.user().profile.name;
     const profile = Profiles.findOne({ username: user });
-    if(profile.image){
+    if (profile.image) {
       //  console.log('true');
       //  console.log(profile.image);
       return true;
@@ -67,7 +65,7 @@ Template.Hike_Page.events({
     Comments.insert(newItemData);
     event.target.reset();
   },
-  'click .hike-bucket'(event, instance) {
+  'click .hike-bucket'(event) {
     event.preventDefault();
     const usernameCurrent = Meteor.user().profile.name;
     const profileName = Profiles.findOne({ username: usernameCurrent });

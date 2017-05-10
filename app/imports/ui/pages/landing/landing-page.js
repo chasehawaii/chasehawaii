@@ -7,7 +7,6 @@ Template.Landing_Page.onCreated(function onCreated() {
   window.Profiles = Profiles;
 });
 
-
 Template.Landing_Page.helpers({
   /**
    * @returns {String} Returns the user who's logged in

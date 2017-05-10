@@ -1,4 +1,3 @@
-import { Session } from 'meteor/session';
 import { Template } from 'meteor/templating';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Restaurants, RestaurantsSchema } from '/imports/api/items/restaurant/restaurant-item.js';
@@ -8,10 +7,22 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 
 /* eslint-env node, jquery */
 
+
 const displayErrorMessages = 'displayErrorMessages';
-export const locationList = ['Aiea', 'Downtown', 'Haleiwa', 'Hawaii Kai', 'Kahala', 'Kailua', 'Kaimuki', 'Kakaako', 'Kalihi', 'Kaneohe', 'Laie', 'Liliha', 'Manoa', 'Makiki', 'Mililani', 'Moanalua', 'Moilili', 'Pearl City', 'Waikiki'];
-export const restaurantTagList = ['Busy', 'Cheap', 'Fast', 'Happy Hour', 'Kid-friendly', 'Live Music', 'Nice Views', 'Quiet' ];
-export const foodTypeList = ['Burgers', 'Chinese', 'Hawaiian', 'Italian',  'Japanese Grill', 'Japanese', 'Korean', 'Local', 'Mexican', 'Sushi', 'Thai'];
+export const locationList = [
+  'Aiea', 'Downtown', 'Haleiwa', 'Hawaii Kai',
+  'Kahala', 'Kailua', 'Kaimuki', 'Kakaako',
+  'Kalihi', 'Kaneohe', 'Laie', 'Liliha', 'Manoa', 'Makiki',
+  'Mililani', 'Moanalua', 'Moilili', 'Pearl City', 'Waikiki',
+];
+export const restaurantTagList = [
+  'Busy', 'Cheap', 'Fast', 'Happy Hour',
+  'Kid-friendly', 'Live Music', 'Nice Views', 'Quiet',
+];
+export const foodTypeList = [
+  'Burgers', 'Chinese', 'Hawaiian', 'Italian', 'Japanese Grill',
+  'Japanese', 'Korean', 'Local', 'Mexican', 'Sushi', 'Thai',
+];
 
 Template.Edit_Restaurant_Page.onCreated(function onCreated() {
   this.subscribe('Restaurants');

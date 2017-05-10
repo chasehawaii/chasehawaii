@@ -4,7 +4,6 @@ import { _ } from 'meteor/underscore';
 
 /* eslint-disable no-console */
 
-
 /* Validate username, sending a specific error message on failure. */
 Accounts.validateNewUser(function validate(user) {
   if (user) {

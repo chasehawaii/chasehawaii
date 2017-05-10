@@ -5,8 +5,16 @@ import { Restaurants } from '/imports/api/items/restaurant/restaurant-item.js';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { _ } from 'meteor/underscore';
 
+/* eslint max-len: ["error", 150] */
 export const locationList = ['Windward', 'Leeward', 'Central Oahu', 'Honoluu', 'North Shore'];
-export const tagList = ['Aiea', 'Burgers', 'Busy','Central Oahu','Chinese','Dangerous','Dog-friendly' , 'Good waves','Haleiwa','Hawaii Kai','Hawaiian','Honoluu','Italian', 'Japanese Grill', 'Japanese','Kahala','Kailua','Kaimuki','Kakaako','Kalihi','Kaneohe','Kid-friendly','Korean','Laie','Leeward','Liliha','Local','Loop','Makiki','Manoa','Mexican', 'Mililani','Moanalua','Moilili','Nice Views','No Lifeguard','No waves','North Shore','Pearl City','Point-to-point','Private Access','Ridge','Secluded','Short', 'Sushi','Thai','Waikiki','Waterfall','Windward'];
+export const tagList = [
+  'Aiea', 'Burgers', 'Busy', 'Central Oahu', 'Chinese',
+  'Dangerous', 'Dog-friendly', 'Good waves', 'Haleiwa', 'Hawaii Kai', 'Hawaiian',
+  'Honoluu', 'Italian', 'Japanese Grill', 'Japanese', 'Kahala', 'Kailua', 'Kaimuki', 'Kakaako', 'Kalihi', 'Kaneohe',
+  'Kid-friendly', 'Korean', 'Laie', 'Leeward', 'Liliha', 'Local', 'Loop', 'Makiki', 'Manoa', 'Mexican', 'Mililani',
+  'Moanalua', 'Moilili', 'Nice Views', 'No Lifeguard', 'No waves', 'North Shore', 'Pearl City',
+  'Point-to-point', 'Private Access', 'Ridge', 'Secluded', 'Short', 'Sushi', 'Thai', 'Waikiki', 'Waterfall', 'Windward',
+];
 
 Template.Item_Feed_Page.onCreated(function onCreated() {
   this.subscribe('Beaches');
@@ -25,7 +33,7 @@ Template.Item_Feed_Page.helpers({
   beaches() {
     const allBeaches = Beaches.find().fetch();
     const selectedBeaches = Template.instance().messageFlags.get('Tags');
-    const filteredBeaches =  _.filter(allBeaches, beach => _.intersection(beach.tags, selectedBeaches).length > 0);
+    const filteredBeaches = _.filter(allBeaches, beach => _.intersection(beach.tags, selectedBeaches).length > 0);
     if (!Template.instance().messageFlags.get('Filtered')) {
       return _.filter(allBeaches, beach => beach.status === 'Approved');
     }
@@ -34,7 +42,7 @@ Template.Item_Feed_Page.helpers({
   hikes() {
     const allHikes = Hikes.find().fetch();
     const selectedHikes = Template.instance().messageFlags.get('Tags');
-    const filteredHikes =  _.filter(allHikes, hike => _.intersection(hike.tags, selectedHikes).length > 0);
+    const filteredHikes = _.filter(allHikes, hike => _.intersection(hike.tags, selectedHikes).length > 0);
     if (!Template.instance().messageFlags.get('Filtered')) {
       return _.filter(allHikes, hike => hike.status === 'Approved');
     }
@@ -43,7 +51,7 @@ Template.Item_Feed_Page.helpers({
   restaurants() {
     const allRestaurants = Restaurants.find().fetch();
     const selectedRestaurants = Template.instance().messageFlags.get('Tags');
-    const filteredRestaurants =  _.filter(allRestaurants, restaurant => _.intersection(restaurant.tags, selectedRestaurants).length > 0);
+    const filteredRestaurants = _.filter(allRestaurants, restaurant => _.intersection(restaurant.tags, selectedRestaurants).length > 0);
     if (!Template.instance().messageFlags.get('Filtered')) {
       return _.filter(allRestaurants, restaurant => restaurant.status === 'Approved');
     }
