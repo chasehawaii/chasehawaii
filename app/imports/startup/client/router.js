@@ -138,13 +138,20 @@ userRoutes.route('/edit-profile', {
   },
 });
 
-export const publicprofilePageRouteName = 'Public_Profile_Page';
+FlowRouter.route('/:username/publicprofile', {
+  name: 'Public_Profile_Page',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Public_Profile_Page' });
+  },
+});
+
+/* export const publicprofilePageRouteName = 'Public_Profile_Page';
 userRoutes.route('/publicprofile', {
   name: publicprofilePageRouteName,
   action() {
     BlazeLayout.render('User_Layout', { main: publicprofilePageRouteName });
   },
-});
+}); */
 
 FlowRouter.notFound = {
   action() {

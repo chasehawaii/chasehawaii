@@ -72,12 +72,12 @@
           <h3 class="ui dividing header">Comments</h3>
           {{#each comment in Comments}}
             <div class="comment" style="padding-left:20px;">
-              <a href="{{pathFor 'Profile_Page' username = profpath}}">
+              <a href="{{pathFor 'Public_Profile_Page' username = profpath}}">
                 {{#if profimage}}
-                  <a href="{{pathFor 'Profile_Page' username = profpath}}"><img class="ui mini image"
+                  <a href="{{pathFor 'Public_Profile_Page' username = profpath}}"><img class="ui mini image"
                                                                                 src="{{image}}"></a>
                 {{else}}
-                  <a href="{{pathFor 'Profile_Page' username = profpath}}"><img class="ui mini image"
+                  <a href="{{pathFor 'Public_Profile_Page' username = profpath}}"><img class="ui mini image"
                                                                                 src="http://clipground.com/images/palm-plant-clipart-4.jpg"></a>
                 {{/if}}</a>
               <div class="content">
